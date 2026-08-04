@@ -43,3 +43,7 @@ next-env.d.ts
 
 .dev-output.log
 .dev-error.log
+
+docs/
+.pages-server.log
+.pages-server-error.log

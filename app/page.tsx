@@ -37,32 +37,22 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="Vista del sitio inmobiliario y su panel de gestión">
+        <div className="hero-visual" aria-label="Capturas reales del sitio inmobiliario y su panel de gestión">
           <div className="visual-orbit orbit-one" aria-hidden="true" />
           <div className="visual-orbit orbit-two" aria-hidden="true" />
-          <div className="browser-window public-preview">
-            <div className="browser-bar"><span /><span /><span /><small>tuinmobiliaria.com.ar</small></div>
-            <div className="property-hero">
-              <img src="/hero-interior.jpg" alt="Interior contemporáneo de una propiedad" />
-              <div className="property-overlay">
-                <span>VENTA · PALERMO</span>
-                <h2>Espacios que<br />se eligen bien.</h2>
-                <button type="button">Explorar propiedades <Arrow /></button>
-              </div>
-            </div>
-          </div>
-          <div className="admin-float">
-            <div className="admin-float-head"><span className="mini-logo">i</span><b>Panel de gestión</b><i>•••</i></div>
-            <div className="admin-kpis">
-              <div><small>PUBLICADAS</small><strong>48</strong><span>+6 este mes</span></div>
-              <div><small>CONSULTAS</small><strong>17</strong><span>5 nuevas</span></div>
-            </div>
-            <div className="admin-row"><img src="/property-home.jpg" alt="" /><span><b>Casa del Lago</b><small>USD 485.000</small></span><i>PUBLICADA</i></div>
-            <div className="admin-row muted"><span className="row-placeholder" /><span><b>Nuevo emprendimiento</b><small>Borrador guardado</small></span><i>BORRADOR</i></div>
-          </div>
-          <div className="sync-badge"><span className="sync-icon">T</span><span><small>SINCRONIZACIÓN</small><b>Tokko conectado</b></span><i>✓</i></div>
-        </div>
-      </section>
+          <figure className="browser-window public-preview real-site-frame">
+            <div className="browser-bar"><span /><span /><span /><small>inmobiliaria.ideamos.ar</small></div>
+            <img className="real-site-shot" src="/demo-site-live.png" alt="Captura real de la demo pública Ideamos Propiedades" />
+            <figcaption>DEMO PÚBLICA · CAPTURA REAL</figcaption>
+          </figure>
+          <figure className="admin-float real-admin-float">
+            <div className="admin-float-head"><span className="mini-logo">i</span><b>Panel de gestión real</b><i>•••</i></div>
+            <img src="/backend-panel-real.png" alt="Captura real del panel de administración de propiedades" />
+            <figcaption><span>48 publicaciones activas</span><b>Backend autogestionable</b></figcaption>
+          </figure>
+          <div className="sync-badge"><span className="sync-icon">T</span><span><small>CATÁLOGO REAL</small><b>Tokko conectado</b></span><i>✓</i></div>
+          <div className="evidence-tag"><i /> FRONTEND + BACKEND + DATOS REALES</div>
+        </div>      </section>
 
       <section className="capability-strip" aria-label="Capacidades principales">
         <span>WEB INMOBILIARIA</span><i>+</i><span>PANEL DE GESTIÓN</span><i>+</i><span>TOKKO BROKER</span><i>+</i><span>CONSULTAS Y LEADS</span>
@@ -108,23 +98,18 @@ export default function Home() {
         <div className="feature-grid">
           <article className="feature-card feature-web">
             <div className="feature-number">01</div>
-            <div className="mini-site">
-              <div className="mini-site-top"><b>inmobiliaria</b><span>Propiedades &nbsp; Nosotros &nbsp; Contacto</span></div>
-              <img src="/property-home.jpg" alt="Casa contemporánea publicada en una web inmobiliaria" />
-              <div><small>PROPIEDAD DESTACADA</small><strong>Una web a la altura<br />de tu cartera.</strong></div>
-            </div>
+            <figure className="mini-site real-product-shot">
+              <div className="mini-site-top"><b>ideamos propiedades</b><span>DEMO ONLINE · FRONTEND REAL</span></div>
+              <img src="/demo-site-live.png" alt="Captura del sitio inmobiliario real funcionando" />
+              <figcaption><small>INMOBILIARIA.IDEAMOS.AR</small><strong>La experiencia pública,<br />sin renders ni promesas.</strong></figcaption>
+            </figure>
             <h3>Web premium con tu marca</h3>
             <p>Diseño a medida, catálogo con filtros, fichas completas, emprendimientos, tasaciones y contacto por WhatsApp.</p>
           </article>
 
           <article className="feature-card feature-panel">
             <div className="feature-number">02</div>
-            <div className="panel-list">
-              <div><span>PROPIEDAD</span><span>ESTADO</span></div>
-              <p><i className="thumb one" /><span><b>Piso Alto</b><small>Recoleta · Venta</small></span><em>PUBLICADA</em></p>
-              <p><i className="thumb two" /><span><b>Casa del Lago</b><small>Nordelta · Venta</small></span><em>DESTACADA</em></p>
-              <p><i className="thumb three" /><span><b>Loft Distrito</b><small>Palermo · Alquiler</small></span><em>BORRADOR</em></p>
-            </div>
+            <figure className="panel-list real-panel-shot"><img src="/backend-panel-real.png" alt="Vista auténtica del panel de propiedades"/><figcaption><span>BACKEND REAL</span><b>Propiedades, estados y rendimiento en una sola vista.</b></figcaption></figure>
             <h3>Panel claro y autogestionable</h3>
             <p>Creá, editá, duplicá, destacá o pausá publicaciones. Administrá fotos, precios, estados y detalles sin tocar código.</p>
           </article>
@@ -166,39 +151,15 @@ export default function Home() {
           </ul>
           <a className="button button-light" href={contactUrl}>Ver el panel en una demo <Arrow /></a>
         </div>
-        <div className="dashboard-demo">
-          <aside>
-            <div className="dash-brand"><span className="mini-logo">i</span><b>inmobiliaria</b></div>
-            <small>ESPACIO DE TRABAJO</small>
-            <strong>Tu Inmobiliaria</strong>
-            <nav>
-              <span className="active">▦ &nbsp; Panel general</span>
-              <span>⌂ &nbsp; Propiedades <b>48</b></span>
-              <span>◇ &nbsp; Emprendimientos <b>8</b></span>
-              <span>☏ &nbsp; Consultas <i>5</i></span>
-              <span>↗ &nbsp; Rendimiento</span>
-            </nav>
-            <div className="dash-user"><i>TV</i><span><b>Tu equipo</b><small>Administración</small></span></div>
-          </aside>
-          <div className="dashboard-main">
-            <header><div><small>PANEL GENERAL</small><h3>Buenos días.</h3></div><button type="button">+ Nueva propiedad</button></header>
-            <div className="dashboard-stats">
-              <article><span>PUBLICACIONES ACTIVAS</span><strong>48</strong><div className="bars">{[4,7,5,8,6,9,8].map((h, i) => <i key={i} style={{height: `${h * 7}px`}} />)}</div></article>
-              <article><span>BORRADORES</span><strong>6</strong><small>Pendientes</small></article>
-              <article><span>CONSULTAS</span><strong>17</strong><small>5 nuevas</small></article>
-            </div>
-            <div className="dashboard-table">
-              <div className="table-title"><span><small>ACTIVIDAD RECIENTE</small><b>Últimas propiedades</b></span><em>Ver inventario ↗</em></div>
-              <div className="table-head"><span>PROPIEDAD</span><span>OPERACIÓN</span><span>PRECIO</span><span>ESTADO</span></div>
-              {[
-                ["Piso Alto", "Recoleta, CABA", "Venta", "USD 745.000", "PUBLICADA"],
-                ["Casa del Lago", "Nordelta, Tigre", "Venta", "USD 485.000", "PUBLICADA"],
-                ["Loft Distrito", "Palermo, CABA", "Alquiler", "USD 2.300", "BORRADOR"],
-              ].map((row, i) => <div className="table-row" key={row[0]}><span><i className={`table-thumb t${i + 1}`} /><b>{row[0]}<small>{row[1]}</small></b></span><span>{row[2]}</span><strong>{row[3]}</strong><em className={i === 2 ? "draft" : ""}>{row[4]}</em></div>)}
-            </div>
-          </div>
-        </div>
-      </section>
+        <div className="infographic-dashboard">
+          <figure className="dashboard-capture">
+            <img src="/backend-panel-real.png" alt="Panel real de Ideamos Propiedades con inventario y métricas" />
+            <figcaption>CAPTURA DEL BACKEND REAL · DATOS DE DEMOSTRACIÓN</figcaption>
+          </figure>
+          <div className="dash-annotation annotation-one"><span>01</span><b>Control de cartera</b><small>Publicadas, borradores y reservas</small><i /></div>
+          <div className="dash-annotation annotation-two"><span>02</span><b>Lectura comercial</b><small>Valor de cartera y actividad reciente</small><i /></div>
+          <div className="dash-annotation annotation-three"><span>03</span><b>Acción inmediata</b><small>Editar, duplicar o abrir la ficha pública</small><i /></div>
+        </div>      </section>
 
       <section className="tokko-section">
         <div className="tokko-copy">
@@ -207,14 +168,13 @@ export default function Home() {
           <p>Conectamos tu cuenta al sistema para que el catálogo de la web se alimente desde tu inventario. Y si una propiedad necesita un tratamiento especial, también podés cargarla de forma manual.</p>
           <div className="tokko-points"><span><Check /> Prueba de conexión</span><span><Check /> Sincronización del catálogo</span><span><Check /> Fotos y fichas completas</span><span><Check /> Carga manual disponible</span></div>
         </div>
-        <div className="sync-flow" aria-label="Flujo de sincronización entre Tokko, el sistema y la web">
-          <article><span>01</span><div className="source-logo">T</div><h3>Tokko Broker</h3><p>Tu equipo mantiene el inventario donde ya trabaja.</p></article>
+        <div className="sync-flow real-sync-flow" aria-label="Infografía del flujo real entre Tokko, el backend y la web">
+          <article><span>01 / ORIGEN</span><div className="source-logo">T</div><h3>Tokko Broker</h3><p>El inventario llega con sus fotos, características, precios y disponibilidad.</p><div className="flow-property-strip"><img src="/tokko-property-1.jpg" alt="Propiedad real de Tokko"/><img src="/tokko-property-2.jpg" alt="Propiedad real de Tokko"/><img src="/tokko-property-3.jpg" alt="Propiedad real de Tokko"/></div></article>
           <i className="connector"><b>•••</b><small>API</small></i>
-          <article className="flow-center"><span>02</span><div className="source-logo ideamos-logo">i</div><h3>Sistema Ideamos</h3><p>Procesa datos, imágenes, estados y disponibilidad.</p></article>
+          <article className="flow-center"><span>02 / GESTIÓN</span><div className="source-logo ideamos-logo">i</div><h3>Backend Ideamos</h3><p>Ordena el catálogo, conserva la carga manual y centraliza consultas.</p><img className="flow-real-preview" src="/backend-panel-real.png" alt="Panel real del sistema"/></article>
           <i className="connector"><b>•••</b><small>SYNC</small></i>
-          <article><span>03</span><div className="source-logo web-logo">↗</div><h3>Tu web</h3><p>El catálogo se presenta con tu identidad y estrategia.</p></article>
-        </div>
-      </section>
+          <article><span>03 / RESULTADO</span><div className="source-logo web-logo">↗</div><h3>Tu web</h3><p>La cartera se convierte en una experiencia propia, rápida y preparada para captar.</p><img className="flow-real-preview" src="/demo-site-live.png" alt="Demo pública real"/></article>
+        </div>      </section>
 
       <section className="process-section">
         <div className="section-head compact">
@@ -239,22 +199,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="final-cta">
-        <div className="cta-grid" aria-hidden="true" />
-        <div className="cta-copy">
-          <span>WEB + GESTIÓN + TOKKO</span>
-          <h2>Tu próxima operación<br />puede empezar <em>acá.</em></h2>
-          <p>Pedí una demo y te mostramos cómo se vería el sistema adaptado a tu inmobiliaria.</p>
-          <div><a className="button button-primary" href={contactUrl}>Coordinar una demo <Arrow /></a><a className="text-link" href={demoUrl} target="_blank" rel="noreferrer">Ver caso en vivo <Arrow /></a></div>
+      <footer className="premium-footer">
+        <div className="footer-glow" aria-hidden="true" />
+        <section className="premium-footer-cta">
+          <div><p className="footer-eyebrow"><span /> Tecnología inmobiliaria con identidad propia</p><h2>Una web que vende.<br />Un sistema que <em>ordena.</em></h2></div>
+          <a className="footer-orbit-link" href={contactUrl} aria-label="Coordinar una demo"><span className="orbit-word top">COORDINAR</span><span className="orbit-word right">UNA</span><span className="orbit-word bottom">DEMO</span><span className="orbit-word left">IDEAMOS</span><b>↗</b></a>
+        </section>
+        <div className="premium-footer-main">
+          <div className="premium-footer-brand"><a className="brand" href="#inicio"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span></a><p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p><div className="footer-status"><i /> SISTEMA ONLINE · DEMO ACTIVA</div></div>
+          <nav className="footer-nav"><span>EXPLORÁ</span><a href="#producto">El producto</a><a href="#incluye">Qué incluye</a><a href="#tokko">Integración Tokko</a><a href={demoUrl} target="_blank" rel="noreferrer">Demo pública ↗</a></nav>
+          <nav className="footer-nav"><span>SISTEMA</span><a href="#incluye">Panel de gestión</a><a href="#tokko">Publicación conectada</a><a href="#preguntas">Preguntas frecuentes</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
+          <div className="footer-contact-card"><span>ASESORAMIENTO PERSONAL</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>Coordinar una demo <Arrow /></a><p><b>hola@ideamos.ar</b></p><p>Buenos Aires, Argentina</p></div>
         </div>
-        <div className="cta-seal"><span className="brand-mark large" aria-hidden="true"><i /><i /><i /></span><small>HECHO PARA<br />INMOBILIARIAS</small></div>
-      </section>
-
-      <footer>
-        <a className="brand footer-brand" href="#inicio"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span></a>
-        <p>Webs y sistemas pensados para inmobiliarias que quieren mostrar mejor, trabajar más simple y crecer con una identidad propia.</p>
-        <div><a href={demoUrl} target="_blank" rel="noreferrer">Demo en vivo</a><a href={contactUrl}>hola@ideamos.ar</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos</a></div>
-        <small>© 2026 IDEAMOS. TODOS LOS DERECHOS RESERVADOS.</small>
+        <div className="footer-signature"><i /><span className="brand-mark large" aria-hidden="true"><i /><i /><i /></span><small>IDEAMOS · REAL ESTATE SYSTEM · 2026</small><i /></div>
+        <div className="premium-footer-bottom"><span>© 2026 IDEAMOS. TODOS LOS DERECHOS RESERVADOS.</span><span className="footer-material">DISEÑO · PRODUCTO · TECNOLOGÍA</span><span>HECHO POR <a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></span></div>
       </footer>
     </main>
   );

@@ -1,5 +1,6 @@
-import BrandLogo from "./components/BrandLogo";
 import Marquee from "./components/Marquee";
+import SiteHeader from "./components/SiteHeader";
+import PremiumFooter from "./components/PremiumFooter";
 import type { CSSProperties } from "react";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
@@ -43,19 +44,7 @@ const faqs = [
 export default function Home() {
   return (
     <main>
-      <header className="topbar">
-        <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio">
-          <BrandLogo />
-        </a>
-        <nav aria-label="Navegación principal">
-          <a href="/la-plataforma">La Plataforma</a>
-          <a href="/funcionalidades">Funcionalidades</a>
-          <a href="/tokko-broker">Tokko Broker</a>
-          <a href="/precios">Precios</a>
-          <a href="/preguntas-frecuentes">Preguntas Frecuentes</a>
-        </nav>
-        <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
@@ -370,24 +359,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <footer className="premium-footer">
-        <div className="footer-orbit" aria-hidden="true" />
-        <section className="footer-cta">
-          <div><p className="eyebrow light"><span /> Tu próxima herramienta comercial</p><h2>Una web que muestra.<br />Un sistema que <em>ordena.</em></h2></div>
-          <a className="round-cta" href={contactUrl} aria-label="Coordinar una demostración"><span>COORDINAR</span><b>↗</b><small>UNA DEMO</small></a>
-        </section>
-        <div className="footer-main">
-          <div className="footer-about">
-            <a className="brand footer-brand" href="/"><BrandLogo /></a>
-            <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
-            <span className="system-status"><i /> DEMO ONLINE</span>
-          </div>
-          <nav><span>PRODUCTO</span><a href="/la-plataforma">Sitio web</a><a href="/funcionalidades">Funcionalidades</a><a href="/tokko-broker">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
-          <nav><span>IDEAMOS</span><a href="/preguntas-frecuentes">Preguntas Frecuentes</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
-          <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
-        </div>
-        <div className="footer-bottom"><span>© 2026 IDEAMOS</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></div>
-      </footer>
+      <PremiumFooter />
     </main>
   );
 }

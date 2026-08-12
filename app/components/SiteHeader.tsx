@@ -3,7 +3,7 @@ import BrandLogo from "./BrandLogo";
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
-type ActivePage = "plataforma" | "funcionalidades" | "tokko" | "precios" | "preguntas";
+type ActivePage = "plataforma" | "funcionalidades" | "tokko" | "precios" | "preguntas" | "contacto";
 
 export default function SiteHeader({ active }: { active?: ActivePage }) {
   return (
@@ -15,6 +15,7 @@ export default function SiteHeader({ active }: { active?: ActivePage }) {
         <a className={active === "tokko" ? "active" : ""} href="/tokko-broker">Tokko Broker</a>
         <a className={active === "precios" ? "active" : ""} href="/precios">Precios</a>
         <a className={active === "preguntas" ? "active" : ""} href="/preguntas-frecuentes">Preguntas Frecuentes</a>
+        <a className={active === "contacto" ? "active" : ""} href="/contacto">Contacto</a>
       </nav>
       <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
     </header>

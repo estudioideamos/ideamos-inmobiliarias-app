@@ -1,6 +1,7 @@
 import BrandLogo from "./BrandLogo";
 import ContactSection from "./ContactSection";
 import Marquee from "./Marquee";
+import OrbitCta from "./OrbitCta";
 
 const contactUrl = "/contacto";
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
@@ -11,7 +12,7 @@ export default function PremiumFooter({ showContactSection = true }: { showConta
       <div className="footer-orbit" aria-hidden="true" />
       <section className="footer-cta">
         <div><p className="eyebrow light"><span /> Tu próxima herramienta comercial</p><h2>Una web que muestra.<br />Un sistema que <em>ordena.</em></h2></div>
-        <a className="round-cta" href={contactUrl} aria-label="Coordinar una demostración"><span>COORDINAR</span><b>↗</b><small>UNA DEMO</small></a>
+        <OrbitCta href={contactUrl} className="footer-orbit-cta" />
       </section>
       <div className="footer-main">
         <div className="footer-about">
@@ -19,6 +20,7 @@ export default function PremiumFooter({ showContactSection = true }: { showConta
           <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
           <span className="system-status"><i /> DEMO ONLINE</span>
         </div>
+        <div className="footer-toggle-group">
         <div className="footer-quick-links">
           <input className="footer-toggle-input" id="footer-quick-toggle" type="checkbox" />
           <label className="footer-toggle-label" htmlFor="footer-quick-toggle">ACCESO RÁPIDO <span aria-hidden="true" /></label>
@@ -29,7 +31,8 @@ export default function PremiumFooter({ showContactSection = true }: { showConta
           <label className="footer-toggle-label" htmlFor="footer-useful-toggle">INFORMACIÓN ÚTIL <span aria-hidden="true" /></label>
           <nav><a href="/preguntas-frecuentes">Preguntas Frecuentes</a><a href={contactUrl}>Contacto</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
         </div>
-        <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <span aria-hidden="true">↗</span></a><p>Buenos Aires, Argentina</p></div>
+        </div>
+        <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href="mailto:hola@ideamos.com.ar">hola@ideamos.com.ar <span aria-hidden="true">↗</span></a><p>Buenos Aires, Argentina</p></div>
       </div>
       <div className="footer-bottom"><span>© 2026 IDEAMOS Propiedades</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.com.ar/" target="_blank" rel="noreferrer">IMAGINADO POR ESTUDIO IDEAMOS ↗</a></div>
     </footer></>

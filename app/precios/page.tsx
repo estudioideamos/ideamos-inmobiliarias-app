@@ -32,7 +32,7 @@ export default function PricingPage() {
         <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
         <nav aria-label="Navegación de precios">
           <a href="/producto">La Plataforma</a>
-          <a href="/funciones">Funciones</a>
+          <a href="/funciones">Funcionalidades</a>
           <a href="/tokko">Tokko Broker</a>
           <a href="/beneficios">Beneficios</a>
           <a className="active" href="/precios">Precios</a>
@@ -44,7 +44,7 @@ export default function PricingPage() {
         <div className="pricing-hero-copy">
           <p className="eyebrow"><span /> Precios de lanzamiento</p>
           <h1>Dos planes.<br /><em>Todo lo que necesitás.</em></h1>
-          <p>Elegí la capacidad y el nivel de acompañamiento que mejor se adapta a tu inmobiliaria. La plataforma, la web y las funciones comerciales están incluidas desde el inicio.</p>
+          <p>Elegí la capacidad y el nivel de acompañamiento que mejor se adapta a tu inmobiliaria. La plataforma, la web y las funcionalidades comerciales están incluidas desde el inicio.</p>
           <div className="pricing-hero-actions">
             <a className="button button-accent" href="#planes">Ver planes <Arrow /></a>
             <a className="button button-soft" href={demoUrl} target="_blank" rel="noreferrer">Explorar la demo <Arrow /></a>
@@ -103,7 +103,7 @@ export default function PricingPage() {
           <h2>Lo importante,<br /><em>sin letra chica.</em></h2>
         </div>
         <div className="pricing-faq-list">
-          <details open><summary>¿Qué incluye el precio de lanzamiento?<span>−</span></summary><p>Incluye la plataforma, la web adaptada a tu marca, el panel de gestión, las funciones publicadas en cada plan, la puesta online y el soporte correspondiente.</p></details>
+          <details open><summary>¿Qué incluye el precio de lanzamiento?<span>−</span></summary><p>Incluye la plataforma, la web adaptada a tu marca, el panel de gestión, las funcionalidades publicadas en cada plan, la puesta online y el soporte correspondiente.</p></details>
           <details><summary>¿Tokko Broker es obligatorio?<span>+</span></summary><p>No. Podés administrar toda la cartera desde el panel de Ideamos. La conexión con Tokko es opcional y se define durante la implementación.</p></details>
           <details><summary>¿Cuál es la diferencia entre los dos planes?<span>+</span></summary><p>Inmobiliaria admite hasta 2.000 propiedades y soporte Standard. Plus ofrece propiedades ilimitadas, soporte prioritario y respuesta de hasta un día.</p></details>
           <details><summary>¿Puedo cambiar de plan más adelante?<span>+</span></summary><p>Sí. Podés comenzar con Inmobiliaria y pasar a Plus cuando aumente tu cartera o necesites una prioridad de soporte mayor.</p></details>

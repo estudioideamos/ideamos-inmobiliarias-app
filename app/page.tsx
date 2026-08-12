@@ -272,7 +272,7 @@ export default function Home() {
       <section className="value-section section" id="valor">
         <div className="value-intro">
           <p className="eyebrow light"><span /> Beneficios para tu inmobiliaria</p>
-          <h2>No sumás otra herramienta.<br /><em>Ganás una operación más clara.</em></h2>
+          <h2 className="value-title"><span>No sumás otra</span><span>herramienta.</span><em><span>Ganás una operación</span><span>más clara.</span></em></h2>
           <p>La tecnología tiene sentido cuando mejora la experiencia del cliente y, al mismo tiempo, le simplifica el trabajo diario a tu equipo.</p>
           <a className="button button-accent" href={contactUrl}>Verlo aplicado a mi inmobiliaria <Arrow /></a>
         </div>

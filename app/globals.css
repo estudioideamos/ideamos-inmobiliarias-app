@@ -1667,3 +1667,17 @@ body{background:#f7f5ee}
   .value-title>span,.value-title>em>span{display:inline}
   .value-title>span:after,.value-title>em>span:after{content:" "}
 }
+
+
+/* Precios: mismo sistema editorial que beneficios */
+.pricing-value-section{padding-block:92px;grid-template-columns:.78fr 1.22fr;gap:72px;background:radial-gradient(circle at 12% 18%,rgba(223,255,114,.1),transparent 26%),linear-gradient(135deg,#103c2c,#06251a)}
+.pricing-value-section .pricing-variables-intro{position:sticky;top:118px;align-self:start}
+.pricing-value-section .pricing-variables-intro h2{font-size:clamp(48px,4.8vw,70px)}
+.pricing-value-section .variable-list{margin:0}
+.pricing-value-section .variable-list article{padding-block:22px}
+@media(max-width:850px){
+  .pricing-value-section{padding:72px 18px;grid-template-columns:1fr;gap:38px}
+  .pricing-value-section .pricing-variables-intro{position:static;text-align:center}
+  .pricing-value-section .pricing-variables-intro .eyebrow{justify-content:center}
+  .pricing-value-section .pricing-variables-intro>p:last-child{margin-inline:auto}
+}

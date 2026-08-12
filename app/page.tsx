@@ -155,35 +155,40 @@ export default function Home() {
       <section className="tokko-section section" id="tokko">
         <div className="section-heading centered narrow">
           <p className="eyebrow"><span /> Integración disponible</p>
-          <h2>Tu web inmobiliaria<br />conectada con <em>Tokko Broker.</em></h2>
-          <p>Si ya usás Tokko, sincronizamos tu inventario para evitar cargas duplicadas. Si no lo usás, podés gestionar todo desde el panel de Ideamos.</p>
+          <h2>Tokko, tu equipo y tu web.<br /><em>Todo en el mismo flujo.</em></h2>
+          <p>Conectamos tu inventario con una operación simple y una experiencia comercial diseñada para tu marca. Sin cargas duplicadas y sin perder el control.</p>
         </div>
         <div className="integration-flow" aria-label="Flujo entre Tokko Broker, el panel y el sitio web">
           <article className="flow-card tokko-card">
             <span className="flow-step">01 / ORIGEN</span>
-            <div className="flow-logo">T</div>
-            <h3>Tokko Broker</h3>
-            <p>Propiedades, fotos, precios y disponibilidad desde tu inventario actual.</p>
+            <div className="flow-logo premium-flow-icon"><img src="/generated-icons/process-discovery.webp" alt="" /></div>
+            <h3>Tu inventario como origen</h3>
+            <p>Tomamos propiedades, fotos, precios y disponibilidad desde tu operación actual en Tokko Broker.</p>
             <div className="property-stack"><img src="/tokko-property-1.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-2.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-4.jpg" alt="Propiedad real sincronizada" /></div>
           </article>
           <div className="flow-connector"><i /><span>API</span><i /></div>
           <article className="flow-card ideamos-card">
             <span className="flow-step">02 / GESTIÓN</span>
-            <div className="flow-logo ideamos">i</div>
-            <h3>Panel Ideamos</h3>
-            <p>Controlá lo sincronizado y conservá la opción de publicar contenido propio.</p>
+            <div className="flow-logo premium-flow-icon"><img src="/generated-icons/process-design.webp" alt="" /></div>
+            <h3>Decidís desde un solo lugar</h3>
+            <p>Revisá lo sincronizado y publicá propiedades o contenido propio sin duplicar tareas.</p>
             <img className="flow-screen" src="/backend-panel-real.png" alt="Panel de Ideamos Inmobiliarias" />
           </article>
           <div className="flow-connector"><i /><span>SYNC</span><i /></div>
           <article className="flow-card web-card">
             <span className="flow-step">03 / RESULTADO</span>
-            <div className="flow-logo web">↗</div>
-            <h3>Tu sitio web</h3>
-            <p>Una cartera actualizada, dentro de una experiencia diseñada para tu marca.</p>
+            <div className="flow-logo premium-flow-icon"><img src="/generated-icons/process-launch.webp" alt="" /></div>
+            <h3>Tu cartera, lista para vender</h3>
+            <p>Cada actualización llega a una web rápida, clara y diseñada alrededor de tu marca.</p>
             <img className="flow-screen" src="/demo-site-live.png" alt="Resultado público del sitio inmobiliario" />
           </article>
         </div>
-        <div className="integration-points"><span><Check /> Sincronización de catálogo</span><span><Check /> Carga manual disponible</span><span><Check /> Prueba de conexión</span><span><Check /> Fotos y fichas completas</span></div>
+        <div className="integration-points">
+          <span><i className="point-icon point-sync" aria-hidden="true"><b /><b /></i><span><strong>Catálogo alineado</strong><small>Inventario sin duplicaciones</small></span></span>
+          <span><i className="point-icon point-edit" aria-hidden="true"><b /><b /></i><span><strong>Libertad para publicar</strong><small>Carga propia cuando la necesitás</small></span></span>
+          <span><i className="point-icon point-verified" aria-hidden="true"><b /><b /></i><span><strong>Conexión validada</strong><small>Probamos el flujo antes de salir</small></span></span>
+          <span><i className="point-icon point-gallery" aria-hidden="true"><b /><b /></i><span><strong>Fichas que convierten</strong><small>Fotos y datos listos para consultar</small></span></span>
+        </div>
       </section>
 
       <section className="launch-section section" id="proceso">

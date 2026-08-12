@@ -21,6 +21,10 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /process-design\.webp/);
   assert.match(html, /process-launch\.webp/);
   assert.match(html, /feature-glyph/);
+  assert.match(html, /Todo en el mismo flujo/);
+  assert.match(html, /premium-flow-icon/);
+  assert.match(html, /Catálogo alineado/);
+  assert.match(html, /Fichas que convierten/);
   assert.match(html, /ideamos-symbol/);
   assert.match(html, /M0 0h140l96 96v82h-88/);
   assert.match(html, /Ver opciones y precios/);

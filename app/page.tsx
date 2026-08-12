@@ -48,11 +48,11 @@ export default function Home() {
           <BrandLogo />
         </a>
         <nav aria-label="Navegación principal">
-          <a href="/producto">La Plataforma</a>
-          <a href="/funciones">Funcionalidades</a>
-          <a href="/tokko">Tokko Broker</a>
+          <a href="/la-plataforma">La Plataforma</a>
+          <a href="/funcionalidades">Funcionalidades</a>
+          <a href="/tokko-broker">Tokko Broker</a>
           <a href="/precios">Precios</a>
-          <a href="/preguntas">Preguntas Frecuentes</a>
+          <a href="/preguntas-frecuentes">Preguntas Frecuentes</a>
         </nav>
         <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
       </header>
@@ -382,8 +382,8 @@ export default function Home() {
             <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
             <span className="system-status"><i /> DEMO ONLINE</span>
           </div>
-          <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funcionalidades</a><a href="/tokko">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
-          <nav><span>IDEAMOS</span><a href="/preguntas">Preguntas Frecuentes</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
+          <nav><span>PRODUCTO</span><a href="/la-plataforma">Sitio web</a><a href="/funcionalidades">Funcionalidades</a><a href="/tokko-broker">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+          <nav><span>IDEAMOS</span><a href="/preguntas-frecuentes">Preguntas Frecuentes</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
           <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>
         <div className="footer-bottom"><span>© 2026 IDEAMOS</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></div>

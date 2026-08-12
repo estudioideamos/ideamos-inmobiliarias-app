@@ -10,7 +10,7 @@ type PageKey = "producto" | "funciones" | "tokko" | "valor" | "preguntas";
 const pages = {
   producto: {
     eyebrow: "La plataforma",
-    title: <>Tu web y tu operación,<br /><em>en un mismo sistema.</em></>,
+    title: <>Tu web y tus propiedades,<br /><em>en un mismo sistema.</em></>,
     lead: "Una plataforma completa para publicar propiedades y emprendimientos, recibir consultas, medir la operación y administrar tu presencia desde un panel seguro.",
     stat: "07", statLabel: "MÓDULOS / UN SISTEMA",
     marquee: ["WEB A MEDIDA", "PANEL AUTOGESTIONABLE", "CATÁLOGO CONECTADO", "CONSULTAS CON CONTEXTO"],
@@ -27,7 +27,7 @@ const pages = {
     bullets: ["Sitio responsive y catálogo filtrable", "Propiedades con ficha técnica y galerías", "Emprendimientos con unidades y equipo", "Panel general e inventario", "Consultas con seguimiento", "Rendimiento y valor de cartera", "Ajustes, cuenta segura y manual"],
   },
   funciones: {
-    eyebrow: "Funciones",
+    eyebrow: "Funcionalidades",
     title: <>Herramientas concretas.<br /><em>Una operación más simple.</em></>,
     lead: "Cada función resuelve una tarea real: mostrar mejor, actualizar más rápido y responder con toda la información.",
     stat: "07", statLabel: "MÓDULOS / INTEGRADOS",
@@ -112,7 +112,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
         <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
         <nav aria-label="Navegación principal">
           <a className={pageKey === "producto" ? "active" : ""} href="/producto">La Plataforma</a>
-          <a className={pageKey === "funciones" ? "active" : ""} href="/funciones">Funciones</a>
+          <a className={pageKey === "funciones" ? "active" : ""} href="/funciones">Funcionalidades</a>
           <a className={pageKey === "tokko" ? "active" : ""} href="/tokko">Tokko</a>
           <a className={pageKey === "valor" ? "active" : ""} href="/beneficios">Beneficios</a>
           <a href="/precios">Precios</a>
@@ -160,7 +160,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
       <footer className="pricing-footer internal-footer">
         <a className="brand footer-brand" href="/"><BrandLogo /></a>
         <p>Web + gestión para inmobiliarias.</p>
-        <nav><a href="/producto">La Plataforma</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko</a><a href="/beneficios">Beneficios</a><a href="/preguntas">Preguntas Frecuentes</a></nav>
+        <nav><a href="/producto">La Plataforma</a><a href="/funciones">Funcionalidades</a><a href="/tokko">Tokko</a><a href="/beneficios">Beneficios</a><a href="/preguntas">Preguntas Frecuentes</a></nav>
         <span>© 2026 IDEAMOS</span>
       </footer>
     </main>

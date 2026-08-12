@@ -1370,3 +1370,10 @@ body{background:#f7f5ee}
   .faq-cta{width:100%;min-width:0}
   .faq-list{width:100%;max-width:100%;min-width:0;padding:8px;border-radius:20px}
 }
+
+
+/* Orbital legible: texto continuo ocupando toda la circunferencia */
+.orbit-cta-copy{inset:4px;width:calc(100% - 8px);height:calc(100% - 8px)}
+.orbit-cta-copy text{font-size:8.35px;font-weight:900;letter-spacing:1.18px}
+.orbit-cta-core{box-shadow:0 0 0 10px rgba(223,255,114,.08),0 0 28px rgba(223,255,114,.22),0 12px 30px rgba(0,0,0,.18)}
+@media(max-width:700px){.orbit-cta-copy text{font-size:8px;letter-spacing:1px}}

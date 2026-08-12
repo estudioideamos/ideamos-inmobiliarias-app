@@ -96,11 +96,11 @@ test("renderiza la página interna de opciones y precios", async () => {
 });
 test("renderiza las páginas internas de producto", async () => {
   const routes = [
-    ["/producto", "Tu web y tus propiedades"],
-    ["/funciones", "Herramientas concretas"],
-    ["/tokko", "Tu inventario en Tokko"],
+    ["/la-plataforma", "Tu web y tus propiedades"],
+    ["/funcionalidades", "Herramientas concretas"],
+    ["/tokko-broker", "Tu inventario en Tokko"],
     ["/beneficios", "Una mejor presencia"],
-    ["/preguntas", "Antes de empezar"],
+    ["/preguntas-frecuentes", "Antes de empezar"],
   ];
   for (const [pathname, marker] of routes) {
     const response = await render(pathname);

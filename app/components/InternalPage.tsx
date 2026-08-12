@@ -127,6 +127,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
           <h1>{page.title}</h1>
           <p>{page.lead}</p>
           <div><a className="button button-accent" href={contactUrl}>Coordinar una demo <Arrow /></a><a className="button button-soft" href={demoUrl} target="_blank" rel="noreferrer">Ver sitio real <Arrow /></a></div>
+          {pageKey === "tokko" && <a className="crm-consult-badge crm-consult-badge-light" href="/contacto?plan=Otro CRM">CONSULTANOS POR OTROS CRM&apos;S <span aria-hidden="true">↗</span></a>}
         </div>
         <aside className="internal-hero-stat"><strong>{page.stat}</strong><span>{page.statLabel}</span><i /></aside>
       </section>

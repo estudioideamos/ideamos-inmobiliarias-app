@@ -1,4 +1,4 @@
-const contactBase = "mailto:hola@ideamos.ar?subject=";
+const contactBase = "/contacto?plan=";
 
 const plans = [
   {
@@ -48,6 +48,11 @@ export default function PricingPlans() {
     <div className="pricing-selector">
       <input className="currency-radio" id="currency-ars" type="radio" name="currency" defaultChecked />
       <input className="currency-radio" id="currency-usd" type="radio" name="currency" />
+      <aside className="launch-bonus" aria-label="Promoción de lanzamiento">
+        <div className="launch-bonus-copy"><span>PROMOCIÓN DE LANZAMIENTO</span><h3>Empezá sin costo<br />de implementación.</h3><p>Adaptamos el diseño, configuramos la plataforma y la dejamos lista para operar. <b>Pagás únicamente el abono mensual.</b></p></div>
+        <div className="launch-bonus-value"><small>VALOR HABITUAL</small><s>USD 2.500</s><strong><span>HOY</span> USD 0</strong><em>100% BONIFICADO</em></div>
+      </aside>
+
       <div className="currency-switch-wrap">
         <div>
           <span>PAÍS / MONEDA</span>
@@ -58,11 +63,6 @@ export default function PricingPlans() {
           <label htmlFor="currency-usd"><span aria-hidden="true">🌎</span> Otros países <small>USD</small></label>
         </div>
       </div>
-
-      <aside className="launch-bonus" aria-label="Promoción de lanzamiento">
-        <div className="launch-bonus-copy"><span>PROMOCIÓN DE LANZAMIENTO</span><h3>Empezá sin costo<br />de implementación.</h3><p>Adaptamos el diseño, configuramos la plataforma y la dejamos lista para operar. <b>Pagás únicamente el abono mensual.</b></p></div>
-        <div className="launch-bonus-value"><small>VALOR HABITUAL</small><s>USD 2.500</s><strong><span>HOY</span> USD 0</strong><em>100% BONIFICADO</em></div>
-      </aside>
 
       <div className="launch-price-grid">
         {plans.map((plan, index) => (
@@ -94,7 +94,7 @@ export default function PricingPlans() {
                 return <li className={unavailable ? "unavailable" : itemIndex < 4 ? "key-feature" : ""} key={item}><span aria-hidden="true">{unavailable ? "×" : "✓"}</span><span>{item}</span></li>;
               })}
             </ul>
-            <a className={plan.featured ? "button button-accent full" : "button button-soft full"} href={contactBase + encodeURIComponent("Quiero el plan " + plan.name)}>
+            <a className={plan.featured ? "button button-accent full" : "button button-soft full"} href={contactBase + encodeURIComponent("Plan " + plan.name)}>
               Elegir {plan.name} <span aria-hidden="true">↗</span>
             </a>
           </article>

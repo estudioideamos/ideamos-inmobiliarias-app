@@ -31,8 +31,8 @@ export default function PricingPage() {
     <main className="pricing-page">
       <SiteHeader active="precios" />
 
-      <section className="pricing-hero">
-        <div className="pricing-hero-copy">
+      <section className="internal-hero">
+        <div className="internal-hero-copy">
           <p className="eyebrow"><span /> Precios de lanzamiento</p>
           <h1>Dos planes.<br /><em>Todo lo que necesitás.</em></h1>
           <p>Elegí la capacidad y el nivel de acompañamiento que mejor se adapta a tu inmobiliaria. La plataforma, la web y las funcionalidades comerciales están incluidas desde el inicio.</p>
@@ -41,7 +41,7 @@ export default function PricingPage() {
             <a className="button button-soft" href={demoUrl} target="_blank" rel="noreferrer">Explorar la demo <Arrow /></a>
           </div>
         </div>
-        <aside className="internal-hero-stat pricing-hero-stat"><strong>02</strong><span>PLANES / UNA PLATAFORMA</span><i /></aside>
+        <aside className="internal-hero-stat"><strong>02</strong><span>PLANES / UNA PLATAFORMA</span><i /></aside>
       </section>
 
       <Marquee

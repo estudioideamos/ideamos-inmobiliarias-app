@@ -81,8 +81,6 @@ document.addEventListener("submit",function(event){
     "Email: "+data.get("email"),
     "Teléfono: "+data.get("telefono"),
     "Interés: "+data.get("plan"),
-    "Cantidad de propiedades: "+data.get("propiedades"),
-    "¿Usa Tokko?: "+data.get("tokko"),
     "Mensaje: "+(data.get("mensaje")||"Quiero coordinar una demostración.")
   ].join("\\n");
   window.open("https://wa.me/5491167681777?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");

@@ -31,3 +31,10 @@ test("incluye metadata social propia", async () => {
   assert.match(layout, /og-v2\.png/);
   assert.match(layout, /summary_large_image/);
 });
+test("mantiene fija la columna izquierda del FAQ en escritorio", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /main\{overflow-x:clip;overflow-y:visible\}/);
+  assert.match(css, /\.faq-section\{[^}]*overflow:visible;[^}]*align-items:start/);
+  assert.match(css, /\.faq-intro\{position:sticky;top:24px;height:clamp\(520px,calc\(100vh - 48px\),680px\)/);
+  assert.match(css, /@media\(max-width:850px\)\{\.faq-section\{gap:35px\}\.faq-intro\{position:relative;top:auto;height:auto/);
+});

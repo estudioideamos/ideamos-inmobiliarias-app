@@ -1590,3 +1590,44 @@ body{background:#f7f5ee}
   .plan-copy>p{margin-inline:auto}
   .plan-card{width:100%;max-width:620px;margin-inline:auto;text-align:left}
 }
+
+
+/* Eye candy editorial: profundidad, luz y microinteracciones */
+:root{--ease-premium:cubic-bezier(.2,.82,.2,1);--glow-lime:0 0 0 1px rgba(223,255,114,.22),0 18px 46px rgba(163,214,56,.16)}
+.button{position:relative;isolation:isolate;overflow:hidden;transition:transform .35s var(--ease-premium),box-shadow .35s var(--ease-premium),background .35s ease}
+.button:after{content:"";position:absolute;z-index:-1;top:-120%;left:-34%;width:28%;height:340%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.44),transparent);transform:rotate(18deg) translateX(-330%);transition:transform .8s var(--ease-premium)}
+.button-accent{box-shadow:0 12px 28px rgba(133,183,38,.15),inset 0 1px 0 rgba(255,255,255,.5)}
+.button-dark{box-shadow:0 14px 35px rgba(4,34,23,.2),inset 0 1px 0 rgba(255,255,255,.1)}
+.eyebrow:before{box-shadow:0 0 14px rgba(223,255,114,.34)}
+.hero-product,.device-stage,.workspace-visual{filter:drop-shadow(0 34px 45px rgba(1,20,13,.16))}
+.site-browser,.panel-card,.desktop-device,.mobile-device{box-shadow:0 30px 70px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.58)}
+.generated-feature-icon,.mini-feature-icon,.internal-card-icon,.step-art{filter:drop-shadow(0 18px 18px rgba(24,68,48,.12));transition:transform .55s var(--ease-premium),filter .55s ease}
+.feature-list article,.internal-card-grid article,.proof-grid article,.launch-steps article,.plan-card,.internal-faq-card,.scope-card{transition:transform .45s var(--ease-premium),box-shadow .45s var(--ease-premium),border-color .35s ease,background .35s ease}
+.feature-list article,.internal-card-grid article,.scope-card{box-shadow:0 18px 55px rgba(15,50,36,.07),inset 0 1px 0 rgba(255,255,255,.8)}
+.plan-card{border:1px solid rgba(223,255,114,.28);box-shadow:0 34px 90px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.8)}
+.value-grid,.faq-intro,.contact-form,.launch-price-card{box-shadow:0 28px 80px rgba(8,40,28,.12),inset 0 1px 0 rgba(255,255,255,.06)}
+.editorial-photo,.landscape-statement,.video-cover{box-shadow:0 28px 75px rgba(5,35,24,.16)}
+.marquee-dot{box-shadow:0 0 12px rgba(223,255,114,.8)}
+
+@media(hover:hover) and (pointer:fine){
+  .button:hover{transform:translateY(-3px) scale(1.012);box-shadow:0 20px 46px rgba(15,58,40,.24)}
+  .button:hover:after{transform:rotate(18deg) translateX(620%)}
+  .feature-list article:hover,.internal-card-grid article:hover,.scope-card:hover{transform:translateY(-8px);border-color:rgba(18,60,43,.24);box-shadow:0 32px 80px rgba(15,50,36,.14),inset 0 1px 0 rgba(255,255,255,.92)}
+  .feature-list article:hover .generated-feature-icon,.internal-card-grid article:hover .internal-card-icon,.launch-steps article:hover .step-art{transform:translateY(-6px) rotate(-2deg) scale(1.035);filter:drop-shadow(0 24px 22px rgba(24,68,48,.2))}
+  .internal-faq-card:hover{transform:translateY(-3px);border-color:rgba(18,60,43,.28);box-shadow:0 22px 55px rgba(15,50,36,.1)}
+  .plan-card:hover{transform:translateY(-6px);box-shadow:0 42px 105px rgba(0,0,0,.32),var(--glow-lime)}
+  .editorial-photo:hover img,.landscape-statement:hover>img,.video-cover:hover img{transform:scale(1.025)}
+}
+
+.editorial-photo img,.landscape-statement>img,.video-cover img{transition:transform 1s var(--ease-premium)}
+@keyframes icon-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(min-width:851px){.hero-sticker,.orbit-cta,.internal-orbit-cta{animation:icon-breathe 4.8s ease-in-out infinite}}
+@media(max-width:700px){
+  .feature-list article,.internal-card-grid article,.scope-card{box-shadow:0 14px 38px rgba(15,50,36,.08)}
+  .hero-product,.device-stage,.workspace-visual{filter:drop-shadow(0 20px 28px rgba(1,20,13,.12))}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-sticker,.orbit-cta,.internal-orbit-cta{animation:none}
+  .button:after{display:none}
+  .button,.feature-list article,.internal-card-grid article,.generated-feature-icon,.internal-card-icon,.editorial-photo img,.landscape-statement>img,.video-cover img{transition:none}
+}

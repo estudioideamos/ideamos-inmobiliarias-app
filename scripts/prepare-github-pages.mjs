@@ -13,7 +13,7 @@ const routes = [
   { pathname: "/la-plataforma", output: path.join("la-plataforma", "index.html"), marker: "Tu web y tus propiedades", depth: 1 },
   { pathname: "/funcionalidades", output: path.join("funcionalidades", "index.html"), marker: "Herramientas concretas", depth: 1 },
   { pathname: "/tokko-broker", output: path.join("tokko-broker", "index.html"), marker: "Tu inventario en Tokko", depth: 1 },
-  { pathname: "/valor", output: path.join("valor", "index.html"), marker: "Una mejor presencia", depth: 1 },
+  { pathname: "/beneficios", output: path.join("beneficios", "index.html"), marker: "Una mejor presencia", depth: 1 },
   { pathname: "/preguntas-frecuentes", output: path.join("preguntas-frecuentes", "index.html"), marker: "Antes de empezar", depth: 1 },
   { pathname: "/precios", output: path.join("precios", "index.html"), marker: "Dos planes.", depth: 1 },
   { pathname: "/contacto", output: path.join("contacto", "index.html"), marker: "Conozcamos tu inmobiliaria", depth: 1 },

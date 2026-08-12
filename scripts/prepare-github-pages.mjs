@@ -67,6 +67,18 @@ function makeStatic(html, route) {
     result = result.replace("</head>", `<link rel="canonical" href="${canonicalUrl}"/></head>`);
   }
   result = result.replace("</head>", '<meta name="theme-color" content="#0c1d17"/></head>');
+  if (result.includes("class=\"topbar")) {
+    const headerScript = `<script>
+(function(){
+  var header=document.querySelector(".topbar");
+  if(!header)return;
+  function updateHeader(){header.classList.toggle("is-scrolled",window.scrollY>36);}
+  updateHeader();
+  window.addEventListener("scroll",updateHeader,{passive:true});
+})();
+<\\/script>`;
+    result = result.replace("</body>", headerScript + "</body>");
+  }
   if (result.includes("contact-form")) {
     const contactScript = `<script>
 document.addEventListener("submit",async function(event){

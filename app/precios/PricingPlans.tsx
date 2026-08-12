@@ -67,6 +67,7 @@ export default function PricingPlans() {
       <div className="launch-price-grid">
         {plans.map((plan, index) => (
           <article className={plan.featured ? "launch-price-card featured" : "launch-price-card"} key={plan.name}>
+            <div className="plan-card-commercial">
             <div className="launch-price-top">
               <span>0{index + 1}</span>
               <small>{plan.eyebrow}</small>
@@ -87,6 +88,8 @@ export default function PricingPlans() {
               <div><b>IVA INCLUIDO</b><small>/ mes</small></div>
             </div>
             <p className="plan-bonus"><span aria-hidden="true">✦</span> Puesta en marcha y diseño personalizado bonificados</p>
+            </div>
+            <div className="plan-card-features">
             {!plan.featured && <div className="plan-legend" aria-label="Referencia de prestaciones"><span><b>✓</b> Incluido</span><span><b>×</b> Solo en Premium</span></div>}
             <ul>
               {plan.includes.map((item, itemIndex) => {
@@ -97,6 +100,7 @@ export default function PricingPlans() {
             <a className={plan.featured ? "button button-accent full" : "button button-soft full"} href={contactBase + encodeURIComponent("Plan " + plan.name)}>
               Elegir {plan.name} <span aria-hidden="true">↗</span>
             </a>
+            </div>
           </article>
         ))}
       </div>

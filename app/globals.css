@@ -905,3 +905,18 @@ body{background:#f7f5ee}
 .top-mark i:after{left:3px;top:2px;height:11px}
 .floating-action:hover{filter:brightness(1.04);box-shadow:0 12px 28px rgba(2,23,15,.22)}
 @media(max-width:580px){.floating-actions{right:10px;bottom:10px;gap:7px}.floating-action,.floating-action:hover,.floating-action:focus-visible{width:43px;min-width:43px;height:43px;padding:0}.whatsapp-mark,.top-mark{width:23px;height:23px;flex-basis:23px}.whatsapp-mark img{width:22px;height:22px}}
+
+/* Flecha superior precisa, ópticamente centrada */
+.top-mark svg{width:22px;height:22px;display:block;overflow:visible}
+.top-mark svg path{fill:none;stroke:var(--lime);stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.top-mark i{display:none}
+
+/* Sello mobile continuo: la palabra se repite sobre toda la circunferencia */
+.mobile-orbit{--orbit-radius:45px}
+.mobile-orbit:before{inset:17px}
+.mobile-orbit .orbit-word,.mobile-orbit>i{display:none}
+.mobile-orbit .orbit-ring{position:absolute;z-index:2;inset:50%;width:0;height:0;animation:mobile-orbit-spin 13s linear infinite}
+.mobile-orbit .orbit-ring>span{position:absolute;left:-5px;top:-5px;width:10px;height:10px;display:grid;place-items:center;font:800 7px/1 var(--font-geist-mono);letter-spacing:0;transform:rotate(calc(var(--orbit-index) * 17.142857deg)) translateY(calc(var(--orbit-radius) * -1));transform-origin:5px 5px}
+@media(max-width:850px){.mobile-orbit{--orbit-radius:39px}}
+@media(max-width:580px){.mobile-orbit{--orbit-radius:32px}.mobile-orbit:before{inset:13px}.mobile-orbit .orbit-ring>span{font-size:5.5px}}
+@media(prefers-reduced-motion:reduce){.mobile-orbit .orbit-ring{animation:none}}

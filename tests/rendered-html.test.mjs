@@ -18,6 +18,10 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /demo-site-live\.png/);
   assert.match(html, /backend-panel-real\.png/);
   assert.match(html, /Solicitar una propuesta/);
+  assert.match(html, /¿Necesito usar Tokko Broker\?/);
+  assert.match(html, /Podés administrar/);
+  assert.match(html, /↗/);
+  assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
   assert.doesNotMatch(html, /codex-preview|Building your site|react-loading-skeleton/);
 });
 

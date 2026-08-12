@@ -113,6 +113,17 @@ test("renderiza las páginas internas de producto", async () => {
   }
 });
 
+test("renderiza contacto con formulario funcional", async () => {
+  const response = await render("/contacto");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Conozcamos tu operación/);
+  assert.match(html, /contact-form/);
+  assert.match(html, /Enviar consulta por WhatsApp/);
+  assert.match(html, /5491167681777/);
+  assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
+});
+
 test("la sección de valor mantiene fija su columna izquierda", async () => {
   const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
   assert.match(css, /\.value-intro\{position:sticky;top:112px/);

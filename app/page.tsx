@@ -97,6 +97,7 @@ export default function Home() {
 
       <Marquee
         label="Capacidades principales de Ideamos Inmobiliarias"
+        tone="paper"
         items={["WEB INMOBILIARIA", "GESTIÓN CENTRALIZADA", "TOKKO READY", "CONSULTAS CON CONTEXTO", "EXPERIENCIA MOBILE"]}
       />
 
@@ -133,7 +134,7 @@ export default function Home() {
           </figure>
           <figure className="mobile-device">
             <div className="mobile-speaker" />
-            <img src="/demo-site-live.png" alt="Adaptación móvil del sitio inmobiliario" />
+            <img src="/demo-site-mobile-real.png" alt="Vista móvil real de la demo de Ideamos Inmobiliarias" />
           </figure>
           <aside className="result-card"><small>TODO CONECTADO</small><strong>Web + gestión</strong><span>Una sola experiencia para tu equipo y tus clientes.</span></aside>
         </div>

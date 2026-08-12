@@ -1,4 +1,4 @@
-﻿import assert from "node:assert/strict";
+import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -16,6 +16,7 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /Una web para mostrar mejor/);
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
+  assert.match(html, /demo-site-mobile-real\.png/);
   assert.match(html, /interior-limestone\.webp/);
   assert.match(html, /fachada-urbana\.webp/);
   assert.match(html, /casa-paisaje\.webp/);

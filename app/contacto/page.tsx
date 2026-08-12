@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "../components/ContactForm";
 import PremiumFooter from "../components/PremiumFooter";
 import SiteHeader from "../components/SiteHeader";
+import Marquee from "../components/Marquee";
 
 export const metadata: Metadata = {
   title: "Contacto | Ideamos Inmobiliarias",
@@ -32,6 +33,7 @@ export default function ContactPage() {
         </div>
         <ContactForm />
       </section>
+      <Marquee label="Cierre comercial" tone="forest" items={["DEMO PERSONALIZADA", "PROPUESTA CLARA", "WEB + GESTIÓN", "TOKKO OPCIONAL", "ACOMPAÑAMIENTO DIRECTO"]} />
       <PremiumFooter showContactSection={false} />
     </main>
   );

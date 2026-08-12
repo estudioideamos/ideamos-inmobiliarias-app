@@ -59,17 +59,17 @@ export default function PricingPage() {
         <PricingPlans />
       </section>
 
-      <section className="pricing-variables">
-        <div className="pricing-variables-intro">
+      <section className="pricing-variables value-section pricing-value-section section">
+        <div className="pricing-variables-intro value-intro">
           <p className="eyebrow light"><span /> Incluido desde el inicio</p>
           <h2>Una solución completa.<br /><em>No un sitio aislado.</em></h2>
           <p>En ambos planes recibís la experiencia pública y las herramientas internas necesarias para operar con claridad.</p>
         </div>
-        <div className="variable-list">
-          <article><span>01</span><div><h3>Web diseñada para tu marca</h3><p>Identidad, catálogo, filtros, fichas, contenidos y puntos de contacto.</p></div></article>
-          <article><span>02</span><div><h3>Panel de gestión</h3><p>Propiedades, emprendimientos, destacados, estados y consultas en un solo lugar.</p></div></article>
-          <article><span>03</span><div><h3>Puesta online acompañada</h3><p>Configuración, publicación, capacitación y soporte para comenzar a trabajar.</p></div></article>
-          <article><span>04</span><div><h3>Tokko cuando lo necesites</h3><p>La integración es opcional para inmobiliarias que ya operan con Tokko Broker.</p></div></article>
+        <div className="variable-list value-grid">
+          <article><span>01</span><strong>Web diseñada para tu marca</strong><p>Identidad, catálogo, filtros, fichas, contenidos y puntos de contacto.</p></article>
+          <article><span>02</span><strong>Panel de gestión</strong><p>Propiedades, emprendimientos, destacados, estados y consultas en un solo lugar.</p></article>
+          <article><span>03</span><strong>Puesta online acompañada</strong><p>Configuración, publicación, capacitación y soporte para comenzar a trabajar.</p></article>
+          <article><span>04</span><strong>Tokko cuando lo necesites</strong><p>La integración es opcional para inmobiliarias que ya operan con Tokko Broker.</p></article>
         </div>
       </section>
 

@@ -23,6 +23,8 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /whatsapp\.svg/);
   assert.match(html, /mobile-orbit/);
   assert.match(html, /Preguntas Frecuentes/);
+  assert.match(html, /mobile-menu/);
+  assert.match(html, /Abrir menú de navegación/);
   assert.match(html, /Encontrá tu lugar/);
   assert.match(html, /Propiedades que/);
   assert.match(html, /interior-limestone\.webp/);
@@ -68,6 +70,8 @@ test("incluye metadata social propia", async () => {
   assert.match(layout, /Ideamos Inmobiliarias/);
   assert.match(layout, /og-v2\.png/);
   assert.match(layout, /summary_large_image/);
+  const icon = await readFile(new URL("../app/icon.svg", import.meta.url), "utf8");
+  assert.match(icon, /animateTransform/);
 });
 test("mantiene fija la columna izquierda del FAQ en escritorio", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
@@ -131,4 +135,15 @@ test("la sección de valor mantiene fija su columna izquierda", async () => {
   assert.match(css, /\.value-grid article\{min-height:130px/);
   assert.match(css, /\.launch-price-card\{min-height:760px/);
   assert.match(css, /\.internal-hero\{min-height:650px/);
+});
+
+test("incluye navegación y responsive mobile integral", async () => {
+  const header = await readFile(new URL("../app/components/SiteHeader.tsx", import.meta.url), "utf8");
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(header, /mobile-menu/);
+  assert.match(header, /Navegación móvil/);
+  assert.match(css, /@media\(max-width:700px\)/);
+  assert.match(css, /\.premium-footer\{text-align:center\}/);
+  assert.match(css, /\.integration-flow\{display:grid;grid-template-columns:1fr/);
+  assert.match(css, /prefers-reduced-motion:reduce/);
 });

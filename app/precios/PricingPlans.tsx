@@ -60,8 +60,8 @@ export default function PricingPlans() {
       </div>
 
       <aside className="launch-bonus" aria-label="Promoción de lanzamiento">
-        <div><span>PROMOCIÓN DE LANZAMIENTO</span><strong>USD 2.500</strong><small>PUESTA EN MARCHA + DISEÑO</small></div>
-        <p><b>100% bonificados.</b> Adaptamos el diseño y configuramos la plataforma para tu inmobiliaria sin costo inicial. Pagás únicamente el abono mensual.</p>
+        <div className="launch-bonus-copy"><span>PROMOCIÓN DE LANZAMIENTO</span><h3>Empezá sin costo<br />de implementación.</h3><p>Adaptamos el diseño, configuramos la plataforma y la dejamos lista para operar. <b>Pagás únicamente el abono mensual.</b></p></div>
+        <div className="launch-bonus-value"><small>VALOR HABITUAL</small><s>USD 2.500</s><strong><span>HOY</span> USD 0</strong><em>100% BONIFICADO</em></div>
       </aside>
 
       <div className="launch-price-grid">

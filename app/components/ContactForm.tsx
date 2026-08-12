@@ -38,7 +38,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
         <label><span>Inmobiliaria</span><input name="inmobiliaria" type="text" autoComplete="organization" placeholder="Nombre de tu inmobiliaria" required /></label>
         <label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="nombre@inmobiliaria.com" required /></label>
         <label><span>Teléfono</span><input name="telefono" type="tel" autoComplete="tel" placeholder="Código de área + número" required /></label>
-        <label><span>¿Qué te interesa?</span><select name="plan" value={plan} onChange={(event) => setPlan(event.target.value)}><option>Quiero que me asesoren</option><option>Plan Inmobiliaria</option><option>Plan Inmobiliaria Plus</option><option>Ver una demostración</option><option>Integración con Tokko Broker</option></select></label>
+        <label><span>¿Qué te interesa?</span><select name="plan" value={plan} onChange={(event) => setPlan(event.target.value)}><option>Quiero que me asesoren</option><option>Plan Plus</option><option>Plan Premium</option><option>Ver una demostración</option><option>Integración con Tokko Broker</option></select></label>
         <label className="contact-form-message"><span>¿Qué necesitás resolver?</span><textarea name="mensaje" rows={compact ? 3 : 4} placeholder="Contanos brevemente cómo trabajan hoy y qué les gustaría mejorar." /></label>
       </div>
       <div className="contact-form-submit"><p><i /> Tus datos se preparan en un mensaje de WhatsApp. Vos decidís cuándo enviarlo.</p><button className="button button-accent" type="submit">Enviar consulta por WhatsApp <span aria-hidden="true">↗</span></button></div>

@@ -920,3 +920,12 @@ body{background:#f7f5ee}
 @media(max-width:850px){.mobile-orbit{--orbit-radius:39px}}
 @media(max-width:580px){.mobile-orbit{--orbit-radius:32px}.mobile-orbit:before{inset:13px}.mobile-orbit .orbit-ring>span{font-size:5.5px}}
 @media(prefers-reduced-motion:reduce){.mobile-orbit .orbit-ring{animation:none}}
+
+
+/* Legibilidad reforzada del sello 100% mobile */
+.mobile-orbit{width:126px;height:126px;--orbit-radius:50px;border-width:1.5px}
+.mobile-orbit:before{inset:20px;border-color:rgba(18,60,43,.36)}
+.mobile-orbit strong{font-size:22px}
+.mobile-orbit .orbit-ring>span{left:-7px;top:-7px;width:14px;height:14px;font:900 9px/1 var(--font-geist-sans);transform:rotate(calc(var(--orbit-index) * 25.714286deg)) translateY(calc(var(--orbit-radius) * -1));transform-origin:7px 7px}
+@media(max-width:850px){.mobile-orbit{width:112px;height:112px;--orbit-radius:44px}.mobile-orbit strong{font-size:20px}.mobile-orbit .orbit-ring>span{font-size:8px}}
+@media(max-width:580px){.mobile-orbit{width:94px;height:94px;--orbit-radius:37px}.mobile-orbit strong{font-size:17px}.mobile-orbit .orbit-ring>span{font-size:7px}}

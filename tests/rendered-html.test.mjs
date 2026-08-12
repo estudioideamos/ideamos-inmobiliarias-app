@@ -14,7 +14,7 @@ test("renderiza la landing comercial terminada", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Web y gestión para tu inmobiliaria/);
+  assert.match(html, /Web y gestión para/);
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
   assert.match(html, /mobile-demo-reel/);

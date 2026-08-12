@@ -1,3 +1,5 @@
+import BrandLogo from "./components/BrandLogo";
+
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
 
@@ -33,16 +35,16 @@ export default function Home() {
     <main>
       <header className="topbar">
         <a className="brand" href="#inicio" aria-label="Ideamos Inmobiliarias, inicio">
-          <span className="brand-symbol" aria-hidden="true"><i /><i /><i /></span>
-          <span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span>
+          <BrandLogo />
         </a>
         <nav aria-label="Navegación principal">
           <a href="#ejemplo">Ejemplo</a>
           <a href="#funciones">Funciones</a>
           <a href="#tokko">Tokko Broker</a>
+          <a href="/precios">Precios</a>
           <a href="#preguntas">Preguntas</a>
         </nav>
-        <a className="button button-dark topbar-cta" href={contactUrl}>Quiero mi sitio <Arrow /></a>
+        <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
       </header>
 
       <section className="hero" id="inicio">
@@ -119,7 +121,10 @@ export default function Home() {
           {visitorFeatures.map(([number, title, copy]) => (
             <article key={number}>
               <span>{number}</span>
-              <div className={`feature-icon icon-${number}`} aria-hidden="true"><i /></div>
+              <div className={`feature-icon icon-${number}`} aria-hidden="true">
+                <span className="feature-glyph"><i /><i /><i /></span>
+                <b className="feature-node" />
+              </div>
               <h3>{title}</h3>
               <p>{copy}</p>
             </article>
@@ -181,15 +186,15 @@ export default function Home() {
         <div className="integration-points"><span><Check /> Sincronización de catálogo</span><span><Check /> Carga manual disponible</span><span><Check /> Prueba de conexión</span><span><Check /> Fotos y fichas completas</span></div>
       </section>
 
-      <section className="launch-section section">
+      <section className="launch-section section" id="proceso">
         <div className="section-heading split">
           <div><p className="eyebrow"><span /> Puesta en marcha</p><h2>De tu identidad<br />a una web <em>lista para vender.</em></h2></div>
           <p>Nos ocupamos de transformar la plataforma en una experiencia propia y dejamos a tu equipo preparado para usarla.</p>
         </div>
         <div className="launch-steps">
-          <article><span>1</span><div className="step-art"><i /><i /></div><h3>Conocemos tu operación</h3><p>Marca, cartera, zonas, servicios y objetivos comerciales.</p><small>REUNIÓN INICIAL</small></article>
-          <article><span>2</span><div className="step-art"><i /><i /></div><h3>Diseñamos y configuramos</h3><p>Identidad, contenido, catálogo, contactos y conexión con Tokko si aplica.</p><small>IMPLEMENTACIÓN</small></article>
-          <article><span>3</span><div className="step-art"><i /><i /></div><h3>Publicamos y acompañamos</h3><p>Salida online, capacitación y soporte para empezar a operar.</p><small>LANZAMIENTO</small></article>
+          <article><span>1</span><div className="step-art"><img src="/generated-icons/process-discovery.webp" alt="" /></div><h3>Conocemos tu operación</h3><p>Marca, cartera, zonas, servicios y objetivos comerciales.</p><small>REUNIÓN INICIAL</small></article>
+          <article><span>2</span><div className="step-art"><img src="/generated-icons/process-design.webp" alt="" /></div><h3>Diseñamos y configuramos</h3><p>Identidad, contenido, catálogo, contactos y conexión con Tokko si aplica.</p><small>IMPLEMENTACIÓN</small></article>
+          <article><span>3</span><div className="step-art"><img src="/generated-icons/process-launch.webp" alt="" /></div><h3>Publicamos y acompañamos</h3><p>Salida online, capacitación y soporte para empezar a operar.</p><small>LANZAMIENTO</small></article>
         </div>
       </section>
 
@@ -210,7 +215,7 @@ export default function Home() {
             <li><Check /> Integración opcional con Tokko</li>
             <li><Check /> Publicación y acompañamiento</li>
           </ul>
-          <a className="button button-accent full" href={contactUrl}>Solicitar una propuesta <Arrow /></a>
+          <a className="button button-accent full" href="/precios">Ver opciones y precios <Arrow /></a>
           <small>Sin precios inventados: primero entendemos tu operación.</small>
         </article>
       </section>
@@ -244,11 +249,11 @@ export default function Home() {
         </section>
         <div className="footer-main">
           <div className="footer-about">
-            <a className="brand footer-brand" href="#inicio"><span className="brand-symbol" aria-hidden="true"><i /><i /><i /></span><span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span></a>
+            <a className="brand footer-brand" href="#inicio"><BrandLogo /></a>
             <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
             <span className="system-status"><i /> DEMO ONLINE</span>
           </div>
-          <nav><span>PRODUCTO</span><a href="#ejemplo">Sitio web</a><a href="#funciones">Funciones</a><a href="#tokko">Tokko Broker</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+          <nav><span>PRODUCTO</span><a href="#ejemplo">Sitio web</a><a href="#funciones">Funciones</a><a href="#tokko">Tokko Broker</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
           <nav><span>IDEAMOS</span><a href="#preguntas">Preguntas</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
           <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>

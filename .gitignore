@@ -47,3 +47,6 @@ next-env.d.ts
 docs/
 .pages-server.log
 .pages-server-error.log
+.codex-*.log
+.qa-*.log
+.chrome-qa-profile/

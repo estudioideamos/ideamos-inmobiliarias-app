@@ -6,28 +6,33 @@ const projectRoot = process.cwd();
 const outputDir = path.join(projectRoot, "docs");
 const clientDir = path.join(projectRoot, "dist", "client");
 const port = process.env.PAGES_PORT || "4399";
-const localUrl = `http://127.0.0.1:${port}/`;
+const localBaseUrl = `http://127.0.0.1:${port}`;
 const pagesUrl = (process.env.PAGES_URL || "https://estudioideamos.github.io/ideamos-inmobiliarias-app").replace(/\/$/, "");
+const routes = [
+  { pathname: "/", output: "index.html", marker: "Una web para mostrar mejor.", depth: 0 },
+  { pathname: "/precios", output: path.join("precios", "index.html"), marker: "Un alcance claro.", depth: 1 },
+];
 const isWindows = process.platform === "win32";
 const serverCommand = isWindows ? (process.env.ComSpec || "cmd.exe") : "npm";
 const serverArgs = isWindows
   ? ["/d", "/s", "/c", `npm.cmd run start -- --port ${port}`]
   : ["run", "start", "--", "--port", port];
 
-async function waitForPage(timeoutMs = 60000) {
+async function fetchPage(pathname, timeoutMs = 60000) {
   const startedAt = Date.now();
   let lastError;
+  const url = `${localBaseUrl}${pathname}`;
   while (Date.now() - startedAt < timeoutMs) {
     try {
-      const response = await fetch(localUrl);
+      const response = await fetch(url);
       if (response.ok) return response.text();
-      lastError = new Error(`El servidor respondio ${response.status}.`);
+      lastError = new Error(`La ruta ${pathname} respondio ${response.status}.`);
     } catch (error) {
       lastError = error;
     }
     await new Promise(resolve => setTimeout(resolve, 500));
   }
-  throw lastError || new Error("La version final no inicio a tiempo.");
+  throw lastError || new Error(`La ruta ${pathname} no inicio a tiempo.`);
 }
 
 function stopServer(server) {
@@ -39,7 +44,9 @@ function stopServer(server) {
   }
 }
 
-function makeStatic(html) {
+function makeStatic(html, route) {
+  const relativePrefix = route.depth === 0 ? "./" : "../".repeat(route.depth);
+  const canonicalUrl = route.pathname === "/" ? `${pagesUrl}/` : `${pagesUrl}${route.pathname}/`;
   let result = html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
     .replace(/<link\b[^>]*rel=["']modulepreload["'][^>]*>/gi, "")
@@ -48,10 +55,10 @@ function makeStatic(html) {
     .replace(/\sdata-rsc-head=["'][^"']*["']/gi, "")
     .replaceAll(`https://127.0.0.1:${port}`, pagesUrl)
     .replaceAll(`http://127.0.0.1:${port}`, pagesUrl)
-    .replace(/\b(href|src)="\//g, '$1="./');
+    .replace(/\b(href|src)="\//g, `$1="${relativePrefix}`);
 
   if (!/<link\s+rel="canonical"/i.test(result)) {
-    result = result.replace("</head>", `<link rel="canonical" href="${pagesUrl}/"/></head>`);
+    result = result.replace("</head>", `<link rel="canonical" href="${canonicalUrl}"/></head>`);
   }
   result = result.replace("</head>", '<meta name="theme-color" content="#0c1d17"/></head>');
   return `<!doctype html>\n${result}`;
@@ -69,20 +76,34 @@ server.stdout.on("data", chunk => { serverOutput += chunk.toString(); });
 server.stderr.on("data", chunk => { serverOutput += chunk.toString(); });
 
 try {
-  const html = await waitForPage();
-  const staticHtml = makeStatic(html);
+  const renderedRoutes = [];
+  for (const route of routes) {
+    const html = await fetchPage(route.pathname);
+    renderedRoutes.push({ route, html: makeStatic(html, route) });
+  }
+
   await rm(outputDir, { recursive: true, force: true });
   await mkdir(outputDir, { recursive: true });
   await cp(clientDir, outputDir, { recursive: true });
-  await writeFile(path.join(outputDir, "index.html"), staticHtml, "utf8");
-  await writeFile(path.join(outputDir, "404.html"), staticHtml, "utf8");
+
+  for (const { route, html } of renderedRoutes) {
+    const destination = path.join(outputDir, route.output);
+    await mkdir(path.dirname(destination), { recursive: true });
+    await writeFile(destination, html, "utf8");
+  }
+
+  await writeFile(path.join(outputDir, "404.html"), renderedRoutes[0].html, "utf8");
   await writeFile(path.join(outputDir, ".nojekyll"), "", "utf8");
 
-  const written = await readFile(path.join(outputDir, "index.html"), "utf8");
-  if (!written.includes("Una web para mostrar mejor.") || !written.includes("./assets/") || !written.includes(`${pagesUrl}/og-v2.png`)) {
-    throw new Error("La salida estatica no contiene el contenido o los enlaces esperados.");
+  for (const route of routes) {
+    const written = await readFile(path.join(outputDir, route.output), "utf8");
+    const assetPrefix = route.depth === 0 ? "./assets/" : "../assets/";
+    if (!written.includes(route.marker) || !written.includes(assetPrefix) || !written.includes(`${pagesUrl}/og-v2.png`)) {
+      throw new Error(`La salida estatica de ${route.pathname} no contiene el contenido o los enlaces esperados.`);
+    }
   }
-  console.log(`GitHub Pages preparado en ${outputDir}`);
+
+  console.log(`GitHub Pages preparado en ${outputDir} con ${routes.length} rutas.`);
 } catch (error) {
   console.error(serverOutput);
   throw error;

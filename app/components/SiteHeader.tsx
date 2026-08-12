@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import BrandLogo from "./BrandLogo";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
@@ -15,9 +18,18 @@ const navItems: Array<{ key: ActivePage; href: string; label: string }> = [
 ];
 
 export default function SiteHeader({ active }: { active?: ActivePage }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const syncHeader = () => setScrolled(window.scrollY > 36);
+    syncHeader();
+    window.addEventListener("scroll", syncHeader, { passive: true });
+    return () => window.removeEventListener("scroll", syncHeader);
+  }, []);
+
   return (
     <>
-      <header className="topbar">
+      <header className={`topbar${scrolled ? " is-scrolled" : ""}`}>
       <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
       <nav className="desktop-nav" aria-label="Navegación principal">
         {navItems.map((item) => <a className={active === item.key ? "active" : ""} href={item.href} key={item.key}>{item.label}</a>)}

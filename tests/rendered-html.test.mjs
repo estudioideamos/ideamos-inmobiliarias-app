@@ -117,7 +117,7 @@ test("renderiza contacto con formulario funcional", async () => {
   const response = await render("/contacto");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Conozcamos tu operación/);
+  assert.match(html, /Conozcamos tu inmobiliaria/);
   assert.match(html, /contact-form/);
   assert.match(html, /Enviar consulta por WhatsApp/);
   assert.match(html, /5491167681777/);

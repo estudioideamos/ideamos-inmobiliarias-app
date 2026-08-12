@@ -139,8 +139,15 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
           <div><p className="eyebrow"><span /> En detalle</p><h2>{page.heading}</h2></div>
           <p>{page.intro}</p>
         </div>
-        <div className="internal-card-grid">
-          {page.cards.map(([number, title, copy]: string[], index: number) => <article key={number}>{pageKey === "tokko" && <img className="tokko-card-icon" src={tokkoIcons[index]} alt="" />}{pageKey === "funciones" && <div className="function-card-icon" aria-hidden="true"><img src={functionIcons[index]} alt="" /></div>}{pageKey === "producto" && <div className="function-card-icon platform-card-icon" aria-hidden="true"><img src={platformIcons[index]} alt="" /></div>}<span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
+        <div className={`internal-card-grid${pageKey === "preguntas" ? " internal-faq-premium-grid" : ""}`}>
+          {page.cards.map(([number, title, copy]: string[], index: number) => pageKey === "preguntas" ? (
+            <details className="internal-faq-card" key={number} open={index === 0}>
+              <summary><span>{number}</span><h3>{title}</h3><i aria-hidden="true" /></summary>
+              <p>{copy}</p>
+            </details>
+          ) : (
+            <article key={number}>{pageKey === "tokko" && <img className="tokko-card-icon" src={tokkoIcons[index]} alt="" />}{pageKey === "funciones" && <div className="function-card-icon" aria-hidden="true"><img src={functionIcons[index]} alt="" /></div>}{pageKey === "producto" && <div className="function-card-icon platform-card-icon" aria-hidden="true"><img src={platformIcons[index]} alt="" /></div>}<span>{number}</span><h3>{title}</h3><p>{copy}</p></article>
+          ))}
         </div>
       </section>
 

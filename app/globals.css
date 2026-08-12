@@ -1009,3 +1009,26 @@ body{background:#f7f5ee}
 .launch-bonus>div{padding-right:24px;border-right:1px solid rgba(255,255,255,.13);display:grid;grid-template-columns:auto 1fr;align-items:end;gap:3px 12px}.launch-bonus span,.launch-bonus small{font:700 8px/1.35 var(--font-geist-mono);letter-spacing:.12em;color:var(--lime)}.launch-bonus span{grid-column:1/-1}.launch-bonus strong{font:400 38px/.95 Georgia}.launch-bonus small{max-width:95px;color:#cbd9d1}.launch-bonus p{max-width:680px;margin:0;font-size:13px;line-height:1.6;color:#c8d7cf}.launch-bonus p b{color:var(--lime)}
 .plan-bonus{margin:0 0 9px!important;min-height:auto!important;font-size:10px!important;font-weight:700;color:var(--forest)!important}.plan-bonus span{color:#729d16}.launch-price-card.featured .plan-bonus{color:#e6efea!important}.launch-price-card.featured .plan-bonus span{color:var(--lime)}
 @media(max-width:700px){.launch-bonus{grid-template-columns:1fr}.launch-bonus>div{padding:0 0 16px;border-right:0;border-bottom:1px solid rgba(255,255,255,.13)}}
+
+
+/* Selector de moneda sin dependencia de JavaScript */
+.pricing-selector{position:relative}
+.currency-radio{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.currency-switch label{min-width:185px;height:48px;padding:0 14px;border-radius:11px;color:#5f7067;display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;font-weight:700;cursor:pointer;transition:background .25s ease,color .25s ease,box-shadow .25s ease}
+.currency-switch label>span{font-size:16px}.currency-switch label small{font:800 9px/1 var(--font-geist-mono);letter-spacing:.1em;opacity:.65}
+#currency-ars:checked~.currency-switch-wrap .currency-switch label[for="currency-ars"],#currency-usd:checked~.currency-switch-wrap .currency-switch label[for="currency-usd"]{background:var(--forest);color:#fff;box-shadow:0 10px 22px rgba(18,60,43,.18)}
+#currency-ars:checked~.currency-switch-wrap .currency-switch label[for="currency-ars"] small,#currency-usd:checked~.currency-switch-wrap .currency-switch label[for="currency-usd"] small{color:var(--lime);opacity:1}
+.price-usd{display:none}
+#currency-usd:checked~.launch-price-grid .price-ars{display:none}
+#currency-usd:checked~.launch-price-grid .price-usd{display:flex}
+.currency-radio:focus-visible~.currency-switch-wrap .currency-switch{outline:2px solid var(--forest);outline-offset:3px}
+@media(max-width:850px){.currency-switch label{min-width:0;flex:1}}
+@media(max-width:580px){.currency-switch label{width:100%;min-width:100%}}
+
+/* Precios usa el encabezado estructural de todas las páginas internas */
+.pricing-page>.internal-hero{min-height:650px;padding-top:128px;padding-bottom:68px;align-items:center}
+.pricing-page>.internal-hero .internal-hero-copy{align-self:center;padding-top:18px}
+.pricing-page>.internal-hero h1{max-width:none;font-size:clamp(58px,6vw,86px);line-height:.9;letter-spacing:-.065em}
+.pricing-page>.internal-hero .pricing-hero-actions{display:flex;gap:12px;margin-top:28px}
+@media(max-width:1000px){.pricing-page>.internal-hero{min-height:720px;padding-top:125px;padding-bottom:65px;align-items:start}.pricing-page>.internal-hero h1{font-size:clamp(50px,8vw,72px)}}
+@media(max-width:580px){.pricing-page>.internal-hero{min-height:690px;padding:108px 18px 55px}.pricing-page>.internal-hero h1{font-size:48px}.pricing-page>.internal-hero .pricing-hero-actions{display:grid}}

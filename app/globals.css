@@ -1285,3 +1285,14 @@ body{background:#f7f5ee}
   .topbar .mobile-menu nav{right:-10px;top:-10px;width:100vw;height:100dvh}
   .mobile-menu[open] summary{top:16px;right:16px}
 }
+
+
+/* Corrección estructural: el menú fullscreen no hereda el centrado transformado del header */
+@media(max-width:1120px){
+  .topbar{left:20px;transform:none;width:calc(100% - 40px)}
+  .topbar .mobile-menu nav{position:fixed;inset:0;top:0;right:0;width:100vw;height:100dvh;transform:none}
+}
+@media(max-width:700px){
+  .topbar{left:10px;width:calc(100% - 20px)}
+  .topbar .mobile-menu nav{inset:0;top:0;right:0;width:100vw;height:100dvh}
+}

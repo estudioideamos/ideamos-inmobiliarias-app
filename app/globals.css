@@ -1126,3 +1126,7 @@ body{background:#f7f5ee}
 
 /* Contraste de datos en la página clara de Contacto */
 .contact-page-data span{color:#60756a}.contact-page-data b{color:var(--ink)}.contact-page-data i{color:#6e9c15}
+
+/* Checks del hero: trazo geométrico centrado */
+.hero-benefits .check{position:relative;width:18px;height:18px;flex:0 0 18px;border:1px solid rgba(223,255,114,.72);border-radius:50%;background:var(--lime);font-size:0;box-shadow:0 0 0 4px rgba(223,255,114,.045),inset 0 1px 0 rgba(255,255,255,.65)}
+.hero-benefits .check:after{content:"";position:absolute;left:5px;top:4px;width:6px;height:3px;border-left:1.7px solid var(--forest);border-bottom:1.7px solid var(--forest);transform:rotate(-45deg);transform-origin:center}

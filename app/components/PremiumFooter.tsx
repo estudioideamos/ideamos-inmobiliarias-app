@@ -21,7 +21,7 @@ export default function PremiumFooter() {
         <nav><span>IDEAMOS</span><a href="/preguntas-frecuentes">Preguntas Frecuentes</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
         <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <span aria-hidden="true">↗</span></a><p>Buenos Aires, Argentina</p></div>
       </div>
-      <div className="footer-bottom"><span>© 2026 IDEAMOS Propiedades</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></div>
+      <div className="footer-bottom"><span>© 2026 IDEAMOS Propiedades</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.com.ar/" target="_blank" rel="noreferrer">IMAGINADO POR ESTUDIO IDEAMOS ↗</a></div>
     </footer>
   );
 }

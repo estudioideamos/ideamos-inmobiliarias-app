@@ -232,6 +232,7 @@ export default function Home() {
           <p className="eyebrow"><span /> Integración disponible</p>
           <h2>Tokko, tu equipo y tu web.<br /><em>Todo en el mismo flujo.</em></h2>
           <p>Conectamos tu inventario con una operación simple y una experiencia comercial diseñada para tu marca. Sin cargas duplicadas y sin perder el control.</p>
+          <a className="crm-consult-badge" href="/contacto?plan=Otro CRM">CONSULTANOS POR OTROS CRM&apos;S <span aria-hidden="true">↗</span></a>
         </div>
         <div className="integration-flow" aria-label="Flujo entre Tokko Broker, el panel y el sitio web">
           <article className="flow-card tokko-card">

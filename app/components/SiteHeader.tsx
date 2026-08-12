@@ -35,7 +35,7 @@ export default function SiteHeader({ active }: { active?: ActivePage }) {
           <div className="mobile-menu-bottom">
             <p><span /> Plataforma web + gestión inmobiliaria</p>
             <a className="mobile-demo-link" href={demoUrl} target="_blank" rel="noreferrer"><i aria-hidden="true" /><b>Ver demo funcionando</b><span aria-hidden="true">↗</span></a>
-            <div><a href="mailto:hola@ideamos.ar">hola@ideamos.ar</a><span>Buenos Aires · Argentina</span></div>
+            <div><a href="mailto:hola@ideamos.com.ar">hola@ideamos.com.ar</a><span>Buenos Aires · Argentina</span></div>
           </div>
         </nav>
       </details>

@@ -16,7 +16,9 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /Una web para mostrar mejor/);
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
-  assert.match(html, /demo-site-mobile-scroll-real\.png/);
+  assert.match(html, /mobile-demo-reel/);
+  assert.match(html, /Encontrá tu lugar/);
+  assert.match(html, /Propiedades que/);
   assert.match(html, /interior-limestone\.webp/);
   assert.match(html, /fachada-urbana\.webp/);
   assert.match(html, /casa-paisaje\.webp/);
@@ -66,7 +68,7 @@ test("mantiene fija la columna izquierda del FAQ en escritorio", async () => {
   assert.match(css, /main\{overflow-x:clip;overflow-y:visible\}/);
   assert.match(css, /residencia-blue-hour\.webp/);
   assert.match(css, /aspect-ratio:390\/844/);
-  assert.match(css, /object-position:center 100%/);
+  assert.match(css, /translate3d\(0,-66\.666%,0\)/);
   assert.match(css, /\.faq-section\{[^}]*overflow:visible;[^}]*align-items:start/);
   assert.match(css, /\.faq-intro\{position:sticky;top:24px;height:clamp\(520px,calc\(100vh - 48px\),680px\)/);
   assert.match(css, /@media\(max-width:850px\)\{\.faq-section\{gap:35px\}\.faq-intro\{position:relative;top:auto;height:auto/);

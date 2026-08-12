@@ -134,8 +134,34 @@ export default function Home() {
           </figure>
           <figure className="mobile-device">
             <div className="mobile-speaker" />
-            <div className="mobile-screen">
-              <img src="/demo-site-mobile-scroll-real.png" alt="Vista móvil real de la demo de Ideamos Inmobiliarias" />
+            <div className="mobile-screen" aria-label="Recorrido móvil de la web inmobiliaria">
+              <div className="mobile-demo-reel">
+                <section className="mobile-demo-scene mobile-demo-home">
+                  <div className="mobile-demo-ticker"><span>PROPIEDADES SELECCIONADAS</span><i />BUENOS AIRES</div>
+                  <div className="mobile-demo-header"><BrandLogo /><b>☰</b></div>
+                  <div className="mobile-demo-hero">
+                    <img src="/premium-photos/casa-paisaje.webp" alt="" />
+                    <div><small>INMOBILIARIA BOUTIQUE</small><h3>Espacios excepcionales,<em> guiados por tu forma de vivir.</em></h3><span>Explorar propiedades ↗</span></div>
+                  </div>
+                </section>
+                <section className="mobile-demo-scene mobile-demo-search">
+                  <div className="mobile-demo-header"><BrandLogo /><b>☰</b></div>
+                  <div className="mobile-search-copy"><small>BÚSQUEDA PERSONALIZADA</small><h3>Encontrá tu lugar.</h3><p>Filtrá la cartera según lo que realmente necesitás.</p></div>
+                  <div className="mobile-search-panel">
+                    <span><small>OPERACIÓN</small><b>Venta</b></span>
+                    <span><small>TIPO</small><b>Todos</b></span>
+                    <span><small>ZONA</small><b>Todas</b></span>
+                    <button type="button">BUSCAR ↗</button>
+                  </div>
+                  <div className="mobile-search-count"><strong>48</strong><span>PROPIEDADES<br />DISPONIBLES</span></div>
+                </section>
+                <section className="mobile-demo-scene mobile-demo-listings">
+                  <div className="mobile-demo-header"><BrandLogo /><b>☰</b></div>
+                  <div className="mobile-listing-title"><small>UNA CARTERA CURADA</small><h3>Propiedades que <em>inspiran.</em></h3></div>
+                  <article className="mobile-property-card"><img src="/tokko-property-2.jpg" alt="" /><span>VENTA · BUENOS AIRES</span><h4>Residencia contemporánea</h4><p>4 ambientes · 186 m²</p><strong>USD 420.000</strong></article>
+                  <article className="mobile-property-card compact"><img src="/tokko-property-3.jpg" alt="" /><div><span>DESTACADA</span><h4>Arquitectura y luz</h4></div></article>
+                </section>
+              </div>
             </div>
           </figure>
           <aside className="result-card"><small>TODO CONECTADO</small><strong>Web + gestión</strong><span>Una sola experiencia para tu equipo y tus clientes.</span></aside>

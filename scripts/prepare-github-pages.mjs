@@ -16,7 +16,7 @@ const routes = [
   { pathname: "/valor", output: path.join("valor", "index.html"), marker: "Una mejor presencia", depth: 1 },
   { pathname: "/preguntas-frecuentes", output: path.join("preguntas-frecuentes", "index.html"), marker: "Antes de empezar", depth: 1 },
   { pathname: "/precios", output: path.join("precios", "index.html"), marker: "Dos planes.", depth: 1 },
-  { pathname: "/contacto", output: path.join("contacto", "index.html"), marker: "Conozcamos tu operación", depth: 1 },
+  { pathname: "/contacto", output: path.join("contacto", "index.html"), marker: "Conozcamos tu inmobiliaria", depth: 1 },
 ];
 const isWindows = process.platform === "win32";
 const serverCommand = isWindows ? (process.env.ComSpec || "cmd.exe") : "npm";
@@ -67,7 +67,7 @@ function makeStatic(html, route) {
     result = result.replace("</head>", `<link rel="canonical" href="${canonicalUrl}"/></head>`);
   }
   result = result.replace("</head>", '<meta name="theme-color" content="#0c1d17"/></head>');
-  if (route.pathname === "/contacto") {
+  if (result.includes("contact-form")) {
     const contactScript = `<script>
 document.addEventListener("submit",function(event){
   var form=event.target.closest(".contact-form");

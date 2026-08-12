@@ -12,12 +12,12 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 const Check = () => <span className="check" aria-hidden="true">✓</span>;
 
 const visitorFeatures = [
-  ["01", "Catálogo con filtros reales", "Venta, alquiler, alquiler temporario, tipo, zona y ambientes para encontrar cada propiedad con rapidez.", "/generated-icons/feature-filters.webp"],
-  ["02", "Fichas técnicas completas", "Precio, superficies, ambientes, dormitorios, baños, cocheras, estado, orientación, amenities y descripción.", "/generated-icons/feature-listing.webp"],
-  ["03", "Galerías que venden mejor", "Fotos optimizadas, portada elegida por tu equipo y recorrido visual adaptado a cada dispositivo.", "/generated-icons/feature-responsive.webp"],
-  ["04", "Emprendimientos en detalle", "Estado de obra, entrega, unidades, desarrollador, arquitectura, amenities, especificaciones y galería.", "/generated-icons/feature-seo.webp"],
-  ["05", "Consultas con propiedad de origen", "Cada formulario registra la ficha que generó el interés junto con nombre, email, teléfono y mensaje.", "/generated-icons/feature-inquiry.webp"],
-  ["06", "Contacto y navegación mobile", "Una experiencia responsive con accesos directos para consultar y continuar la conversación desde cualquier pantalla.", "/generated-icons/feature-chat.webp"],
+  ["01", "Catálogo con filtros reales", "Una búsqueda ágil que conecta a cada visitante con la propiedad indicada. Menos fricción, más tiempo explorando tu cartera.", "/generated-icons/feature-filters.webp"],
+  ["02", "Fichas técnicas completas", "Toda la información que ayuda a decidir, organizada con claridad para generar confianza y consultas mejor calificadas.", "/generated-icons/feature-listing.webp"],
+  ["03", "Galerías que venden mejor", "Imágenes protagonistas y recorridos fluidos que elevan cada publicación y hacen que tu cartera se perciba más valiosa.", "/generated-icons/feature-responsive.webp"],
+  ["04", "Emprendimientos en detalle", "Cada desarrollo se presenta como una oportunidad completa: avances, unidades y diferenciales que ayudan a vender desde la primera visita.", "/generated-icons/feature-seo.webp"],
+  ["05", "Consultas con propiedad de origen", "Cada contacto llega con la propiedad que despertó su interés, para responder con contexto, rapidez y una conversación más comercial.", "/generated-icons/feature-inquiry.webp"],
+  ["06", "Contacto y navegación mobile", "Una experiencia impecable en cualquier pantalla, con puntos de contacto visibles justo cuando el visitante está listo para avanzar.", "/generated-icons/feature-chat.webp"],
 ];
 
 const solvedProblems = [

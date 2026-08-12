@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 const contactBase = "mailto:hola@ideamos.ar?subject=";
 
 const plans = [
@@ -48,22 +44,18 @@ const plans = [
 ];
 
 export default function PricingPlans() {
-  const [currency, setCurrency] = useState<"ARS" | "USD">("ARS");
-
   return (
-    <>
+    <div className="pricing-selector">
+      <input className="currency-radio" id="currency-ars" type="radio" name="currency" defaultChecked />
+      <input className="currency-radio" id="currency-usd" type="radio" name="currency" />
       <div className="currency-switch-wrap">
         <div>
           <span>PAÍS / MONEDA</span>
           <p>Elegí cómo querés ver los precios de lanzamiento.</p>
         </div>
         <div className="currency-switch" role="group" aria-label="Elegir moneda">
-          <button className={currency === "ARS" ? "active" : ""} type="button" onClick={() => setCurrency("ARS")} aria-pressed={currency === "ARS"}>
-            <span aria-hidden="true">🇦🇷</span> Argentina <small>ARS</small>
-          </button>
-          <button className={currency === "USD" ? "active" : ""} type="button" onClick={() => setCurrency("USD")} aria-pressed={currency === "USD"}>
-            <span aria-hidden="true">🌎</span> Otros países <small>USD</small>
-          </button>
+          <label htmlFor="currency-ars"><span aria-hidden="true">🇦🇷</span> Argentina <small>ARS</small></label>
+          <label htmlFor="currency-usd"><span aria-hidden="true">🌎</span> Otros países <small>USD</small></label>
         </div>
       </div>
 
@@ -84,9 +76,14 @@ export default function PricingPlans() {
               <h2>{plan.name}</h2>
               <p>{plan.copy}</p>
             </div>
-            <div className="launch-price-value" aria-live="polite">
-              <span>{currency}</span>
-              <strong>{plan.prices[currency]}</strong>
+            <div className="launch-price-value price-ars">
+              <span>ARS</span>
+              <strong>{plan.prices.ARS}</strong>
+              <div><b>+ IVA</b><small>/ mes</small></div>
+            </div>
+            <div className="launch-price-value price-usd">
+              <span>USD</span>
+              <strong>{plan.prices.USD}</strong>
               <div><b>+ IVA</b><small>/ mes</small></div>
             </div>
             <p className="plan-bonus"><span aria-hidden="true">✦</span> Puesta en marcha y diseño personalizado bonificados</p>
@@ -102,6 +99,6 @@ export default function PricingPlans() {
         ))}
       </div>
       <p className="launch-price-note">Los precios en ARS corresponden a Argentina. Los valores no incluyen IVA. Precio promocional de lanzamiento.</p>
-    </>
+    </div>
   );
 }

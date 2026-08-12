@@ -1,6 +1,7 @@
 import Marquee from "./Marquee";
 import SiteHeader from "./SiteHeader";
 import PremiumFooter from "./PremiumFooter";
+import OrbitCta from "./OrbitCta";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "/contacto";
@@ -114,6 +115,7 @@ const pages = {
 export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
   const page = pages[pageKey];
   const tokkoIcons = ["/generated-icons/tokko-verify.png", "/generated-icons/tokko-records.png", "/generated-icons/tokko-filters.png", "/generated-icons/tokko-manual.png"];
+  const functionIcons = ["/generated-icons/functions-properties.webp", "/generated-icons/functions-developments.webp", "/generated-icons/functions-inquiries.webp", "/generated-icons/functions-performance.webp", "/generated-icons/functions-identity.webp", "/generated-icons/functions-manual.webp"];
   return (
     <main className={`internal-page internal-${pageKey}`}>
       <SiteHeader active={pageKey === "producto" ? "plataforma" : pageKey === "funciones" ? "funcionalidades" : pageKey === "tokko" ? "tokko" : pageKey === "preguntas" ? "preguntas" : undefined} />
@@ -136,7 +138,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
           <p>{page.intro}</p>
         </div>
         <div className="internal-card-grid">
-          {page.cards.map(([number, title, copy]: string[], index: number) => <article key={number}>{pageKey === "tokko" && <img className="tokko-card-icon" src={tokkoIcons[index]} alt="" />}<span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
+          {page.cards.map(([number, title, copy]: string[], index: number) => <article key={number}>{pageKey === "tokko" && <img className="tokko-card-icon" src={tokkoIcons[index]} alt="" />}{pageKey === "funciones" && <div className="function-card-icon" aria-hidden="true"><img src={functionIcons[index]} alt="" /></div>}<span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
       </section>
 
@@ -152,7 +154,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
 
       <section className="internal-next">
         <div><p className="eyebrow"><span /> Siguiente paso</p><h2>Veamos cómo funcionaría<br /><em>con tu inmobiliaria.</em></h2></div>
-        <a className="round-cta" href={contactUrl}><span>COORDINAR</span><b>↗</b><small>UNA DEMO</small></a>
+        <OrbitCta href={contactUrl} className="internal-orbit-cta" />
       </section>
 
       <PremiumFooter />

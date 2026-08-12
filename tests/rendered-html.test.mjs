@@ -16,7 +16,7 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /Una web para mostrar mejor/);
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
-  assert.match(html, /demo-site-mobile-real\.png/);
+  assert.match(html, /demo-site-mobile-scroll-real\.png/);
   assert.match(html, /interior-limestone\.webp/);
   assert.match(html, /fachada-urbana\.webp/);
   assert.match(html, /casa-paisaje\.webp/);
@@ -82,4 +82,22 @@ test("renderiza la página interna de opciones y precios", async () => {
   assert.match(html, /PRECIO DE LANZAMIENTO/);
   assert.match(html, /inmobiliaria\.ideamos\.ar/);
   assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
+});
+test("renderiza las páginas internas de producto", async () => {
+  const routes = [
+    ["/producto", "Tu web y tu operación"],
+    ["/funciones", "Herramientas concretas"],
+    ["/tokko", "Tu inventario en Tokko"],
+    ["/valor", "Una mejor presencia"],
+    ["/preguntas", "Antes de empezar"],
+  ];
+  for (const [pathname, marker] of routes) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, new RegExp(marker));
+    assert.match(html, /Coordinar una demo/);
+    assert.match(html, /internal-showcase/);
+    assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
+  }
 });

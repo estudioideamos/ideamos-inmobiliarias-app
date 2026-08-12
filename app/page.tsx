@@ -8,12 +8,12 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 const Check = () => <span className="check" aria-hidden="true">✓</span>;
 
 const visitorFeatures = [
-  ["01", "Experiencia mobile", "Tu catálogo se adapta a celulares, tablets y escritorio con una navegación rápida y clara.", "/generated-icons/feature-responsive.webp"],
-  ["02", "Buscador con filtros", "Operación, tipo, ubicación, ambientes, precio y los datos que realmente usa un interesado.", "/generated-icons/feature-filters.webp"],
-  ["03", "Fichas completas", "Galerías, descripción, características, ubicación y contacto directo desde cada propiedad.", "/generated-icons/feature-listing.webp"],
-  ["04", "Consultas con contexto", "Cada mensaje llega identificado con el inmueble que despertó el interés del visitante.", "/generated-icons/feature-inquiry.webp"],
-  ["05", "Contacto inmediato", "WhatsApp y formularios convierten cada búsqueda en una conversación con tu equipo comercial.", "/generated-icons/feature-chat.webp"],
-  ["06", "Visibilidad en Google", "Una estructura preparada para que buscadores entiendan tu cartera y tu zona de trabajo.", "/generated-icons/feature-seo.webp"],
+  ["01", "Catálogo con filtros reales", "Venta, alquiler, alquiler temporario, tipo, zona y ambientes para encontrar cada propiedad con rapidez.", "/generated-icons/feature-filters.webp"],
+  ["02", "Fichas técnicas completas", "Precio, superficies, ambientes, dormitorios, baños, cocheras, estado, orientación, amenities y descripción.", "/generated-icons/feature-listing.webp"],
+  ["03", "Galerías que venden mejor", "Fotos optimizadas, portada elegida por tu equipo y recorrido visual adaptado a cada dispositivo.", "/generated-icons/feature-responsive.webp"],
+  ["04", "Emprendimientos en detalle", "Estado de obra, entrega, unidades, desarrollador, arquitectura, amenities, especificaciones y galería.", "/generated-icons/feature-seo.webp"],
+  ["05", "Consultas con propiedad de origen", "Cada formulario registra la ficha que generó el interés junto con nombre, email, teléfono y mensaje.", "/generated-icons/feature-inquiry.webp"],
+  ["06", "Contacto y navegación mobile", "Una experiencia responsive con accesos directos para consultar y continuar la conversación desde cualquier pantalla.", "/generated-icons/feature-chat.webp"],
 ];
 
 const solvedProblems = [
@@ -24,10 +24,10 @@ const solvedProblems = [
 ];
 
 const businessFeatures = [
-  ["INVENTARIO", "Publicá, editá, destacá, pausá o duplicá propiedades desde un único panel."],
-  ["EMPRENDIMIENTOS", "Presentá proyectos con unidades, galería, amenities, ubicación y estado comercial."],
-  ["CONSULTAS", "Ordená oportunidades como nuevas, contactadas o cerradas sin perder el contexto."],
-  ["CONTENIDOS", "Actualizá textos, secciones y datos esenciales sin depender de cambios técnicos."],
+  ["INVENTARIO", "Creá, editá, duplicá, eliminá y filtrá propiedades. Definí borrador, publicada, reservada o destacada."],
+  ["EMPRENDIMIENTOS", "Gestioná proyectos, etapas, entrega, precios, tipologías, equipo, amenities, calidades y galerías."],
+  ["CONSULTAS", "Recibí cada oportunidad con su propiedad, respondé por email o teléfono y marcala Nueva, Contactada o Cerrada."],
+  ["RENDIMIENTO", "Controlá publicaciones, borradores, destacadas, valor de cartera, consultas y seguimiento comercial."],
 ];
 
 const faqs = [
@@ -42,15 +42,15 @@ export default function Home() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="Ideamos Inmobiliarias, inicio">
+        <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio">
           <BrandLogo />
         </a>
         <nav aria-label="Navegación principal">
-          <a href="#producto">Producto</a>
-          <a href="#funciones">Funciones</a>
-          <a href="#tokko">Tokko Broker</a>
+          <a href="/producto">Producto</a>
+          <a href="/funciones">Funciones</a>
+          <a href="/tokko">Tokko Broker</a>
           <a href="/precios">Precios</a>
-          <a href="#preguntas">Preguntas</a>
+          <a href="/preguntas">Preguntas</a>
         </nav>
         <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
       </header>
@@ -134,7 +134,9 @@ export default function Home() {
           </figure>
           <figure className="mobile-device">
             <div className="mobile-speaker" />
-            <img src="/demo-site-mobile-real.png" alt="Vista móvil real de la demo de Ideamos Inmobiliarias" />
+            <div className="mobile-screen">
+              <img src="/demo-site-mobile-scroll-real.png" alt="Vista móvil real de la demo de Ideamos Inmobiliarias" />
+            </div>
           </figure>
           <aside className="result-card"><small>TODO CONECTADO</small><strong>Web + gestión</strong><span>Una sola experiencia para tu equipo y tus clientes.</span></aside>
         </div>
@@ -348,12 +350,12 @@ export default function Home() {
         </section>
         <div className="footer-main">
           <div className="footer-about">
-            <a className="brand footer-brand" href="#inicio"><BrandLogo /></a>
+            <a className="brand footer-brand" href="/"><BrandLogo /></a>
             <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
             <span className="system-status"><i /> DEMO ONLINE</span>
           </div>
-          <nav><span>PRODUCTO</span><a href="#producto">Sitio web</a><a href="#funciones">Funciones</a><a href="#tokko">Tokko Broker</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
-          <nav><span>IDEAMOS</span><a href="#preguntas">Preguntas</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
+          <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko Broker</a><a href="/valor">Valor</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+          <nav><span>IDEAMOS</span><a href="/preguntas">Preguntas</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
           <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>
         <div className="footer-bottom"><span>© 2026 IDEAMOS</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></div>

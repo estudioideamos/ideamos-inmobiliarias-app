@@ -39,6 +39,9 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
 
   return (
     <form className={`contact-form${compact ? " contact-form-compact" : ""}`} onSubmit={sendByEmail} data-email-endpoint={contactEmail}>
+      <input type="hidden" name="_subject" value="Nueva consulta desde Ideamos Inmobiliarias" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
       <div className="contact-form-head"><span>CONTANOS SOBRE TU INMOBILIARIA</span><small>RESPUESTA PERSONALIZADA</small></div>
       <div className="contact-form-grid">
         <label><span>Nombre y apellido</span><input name="nombre" type="text" autoComplete="name" placeholder="¿Cómo te llamás?" required /></label>

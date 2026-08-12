@@ -3,7 +3,7 @@ import SiteHeader from "./SiteHeader";
 import PremiumFooter from "./PremiumFooter";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
-const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
+const contactUrl = "/contacto";
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
 type PageKey = "producto" | "funciones" | "tokko" | "valor" | "preguntas";

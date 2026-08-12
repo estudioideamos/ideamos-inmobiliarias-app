@@ -1550,3 +1550,42 @@ body{background:#f7f5ee}
   .internal-faq-card summary i:before,.internal-faq-card summary i:after{top:14px}
   .internal-faq-card>p{margin:0 18px 22px 61px;padding-top:15px;font-size:12px;text-align:left}
 }
+
+
+/* Beneficios: retícula equilibrada y lectura más premium */
+.value-section{grid-template-columns:minmax(380px,.82fr) minmax(0,1.18fr);gap:72px;align-items:center}
+.value-intro{max-width:530px}
+.value-intro h2{font-size:clamp(48px,4.7vw,70px);line-height:.92}
+.value-intro>p{max-width:500px;margin:26px 0 30px;font-size:14px;line-height:1.7;color:#aec0b6}
+.value-grid{border-top:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.value-grid article{min-height:190px;padding:25px;border:1px solid rgba(255,255,255,.13);border-radius:20px;background:rgba(255,255,255,.035);display:grid;grid-template-columns:42px 1fr;grid-template-rows:auto 1fr;align-content:start;gap:18px 14px;transition:transform .3s ease,background .3s ease,border-color .3s ease}
+.value-grid article:hover{padding-left:25px;transform:translateY(-5px);border-color:rgba(223,255,114,.28);background:rgba(255,255,255,.065)}
+.value-grid article>span{grid-row:auto;width:42px;height:42px}
+.value-grid strong{align-self:center;font-size:23px;line-height:1.08}
+.value-grid p{grid-column:1/-1;max-width:none;font-size:12.5px;line-height:1.6}
+@media(max-width:1120px){
+  .value-section{grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+  .value-grid{grid-template-columns:1fr}
+  .value-grid article{min-height:130px;grid-template-columns:42px 1fr;grid-template-rows:auto}
+  .value-grid p{grid-column:2}
+}
+@media(max-width:850px){
+  .value-section{grid-template-columns:1fr;gap:36px}
+  .value-intro{max-width:680px;margin:auto;text-align:center}
+  .value-intro .eyebrow{justify-content:center}
+  .value-intro .button{width:max-content;margin-inline:auto}
+  .value-grid{grid-template-columns:1fr 1fr}
+  .value-grid article{min-height:175px;grid-template-rows:auto 1fr}
+  .value-grid p{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .value-section{padding:64px 18px}
+  .value-intro h2{font-size:42px}
+  .value-intro .button{width:100%}
+  .value-grid{grid-template-columns:1fr;gap:10px}
+  .value-grid article{min-height:0;padding:21px;border-radius:17px;grid-template-columns:38px 1fr;grid-template-rows:auto}
+  .value-grid article:hover{padding-left:21px;transform:none}
+  .value-grid article>span{width:38px;height:38px}
+  .value-grid strong{font-size:21px}
+  .value-grid p{grid-column:2;font-size:12.5px}
+}

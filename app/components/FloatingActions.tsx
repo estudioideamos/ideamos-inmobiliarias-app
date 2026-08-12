@@ -4,12 +4,12 @@ export default function FloatingActions() {
   return (
     <nav className="floating-actions" aria-label="Accesos rapidos">
       <a className="floating-action floating-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp">
-        <span className="whatsapp-mark" aria-hidden="true">wa</span>
-        <b>WhatsApp</b>
+        <span className="whatsapp-mark" aria-hidden="true"><img src="/whatsapp.svg" alt="" /></span>
+        <em>WhatsApp</em>
       </a>
       <a className="floating-action floating-top" href="#top" aria-label="Volver al inicio de la pagina">
-        <span aria-hidden="true">&uarr;</span>
-        <b>Arriba</b>
+        <span className="top-mark" aria-hidden="true"><i /></span>
+        <em>Arriba</em>
       </a>
     </nav>
   );

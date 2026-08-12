@@ -57,9 +57,9 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Sitios web para inmobiliarias</p>
-          <h1>Una web para mostrar mejor.<br /><em>Un sistema para vender más.</em></h1>
-          <p className="hero-lead">Publicá tus propiedades en un sitio profesional, administrá todo desde un panel simple y conectá tu inventario con Tokko Broker cuando lo necesites.</p>
+          <p className="eyebrow"><span /> Plataforma web + gestión inmobiliaria</p>
+          <h1>Web y gestión para tu inmobiliaria.<br /><em>Todo listo para vender.</em></h1>
+          <p className="hero-lead">Mostrá tu cartera en un sitio profesional, administrá propiedades y consultas desde un panel simple, y conectá Tokko Broker cuando lo necesites.</p>
           <div className="hero-actions">
             <a className="button button-accent" href={contactUrl}>Quiero conocer el sistema <Arrow /></a>
             <a className="button button-soft" href={demoUrl} target="_blank" rel="noreferrer">Ver demo funcionando <Arrow /></a>

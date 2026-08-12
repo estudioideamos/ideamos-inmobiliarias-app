@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import test from "node:test";
 
 async function render(pathname = "/") {
@@ -13,12 +14,13 @@ test("renderiza la landing comercial terminada", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Una web para mostrar mejor/);
+  assert.match(html, /Web y gestión para tu inmobiliaria/);
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
   assert.match(html, /mobile-demo-reel/);
   assert.match(html, /5491167681777/);
   assert.match(html, /floating-top/);
+  assert.match(html, /whatsapp\.svg/);
   assert.match(html, /Encontrá tu lugar/);
   assert.match(html, /Propiedades que/);
   assert.match(html, /interior-limestone\.webp/);
@@ -106,4 +108,10 @@ test("renderiza las páginas internas de producto", async () => {
     assert.match(html, /internal-showcase/);
     assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
   }
+});
+
+test("la sección de valor mantiene fija su columna izquierda", async () => {
+  const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
+  assert.match(css, /\.value-intro\{position:sticky;top:112px/);
+  assert.match(css, /\.value-grid article\{min-height:130px/);
 });

@@ -16,13 +16,16 @@ const navItems: Array<{ key: ActivePage; href: string; label: string }> = [
 
 export default function SiteHeader({ active }: { active?: ActivePage }) {
   return (
-    <header className="topbar">
+    <>
+      <header className="topbar">
       <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
       <nav className="desktop-nav" aria-label="Navegación principal">
         {navItems.map((item) => <a className={active === item.key ? "active" : ""} href={item.href} key={item.key}>{item.label}</a>)}
       </nav>
       <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
-      <details className="mobile-menu">
+
+      </header>
+      <details className="mobile-menu mobile-menu-root">
         <summary aria-label="Abrir menú de navegación"><span /><span /><span /></summary>
         <nav aria-label="Navegación móvil">
           <div className="mobile-menu-head">
@@ -39,6 +42,6 @@ export default function SiteHeader({ active }: { active?: ActivePage }) {
           </div>
         </nav>
       </details>
-    </header>
+    </>
   );
 }

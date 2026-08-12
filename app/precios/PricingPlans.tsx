@@ -9,7 +9,7 @@ const plans = [
     name: "Inmobiliaria",
     eyebrow: "PARA INMOBILIARIAS",
     copy: "Todo lo necesario para publicar tu cartera, presentar tu marca y operar con una web profesional.",
-    prices: { ARS: "250.000", USD: "75" },
+    prices: { ARS: "250.000", USD: "170" },
     featured: false,
     includes: [
       "Todas las funcionalidades incluidas",
@@ -29,7 +29,7 @@ const plans = [
     name: "Inmobiliaria Plus",
     eyebrow: "MÁS ELEGIDO",
     copy: "Para equipos que necesitan catálogo ilimitado, prioridad de soporte y acompañamiento más cercano.",
-    prices: { ARS: "300.000", USD: "100" },
+    prices: { ARS: "300.000", USD: "200" },
     featured: true,
     includes: [
       "Todas las funcionalidades incluidas",
@@ -67,6 +67,11 @@ export default function PricingPlans() {
         </div>
       </div>
 
+      <aside className="launch-bonus" aria-label="Promoción de lanzamiento">
+        <div><span>PROMOCIÓN DE LANZAMIENTO</span><strong>USD 2.500</strong><small>PUESTA EN MARCHA + DISEÑO</small></div>
+        <p><b>100% bonificados.</b> Adaptamos el diseño y configuramos la plataforma para tu inmobiliaria sin costo inicial. Pagás únicamente el abono mensual.</p>
+      </aside>
+
       <div className="launch-price-grid">
         {plans.map((plan, index) => (
           <article className={plan.featured ? "launch-price-card featured" : "launch-price-card"} key={plan.name}>
@@ -84,6 +89,7 @@ export default function PricingPlans() {
               <strong>{plan.prices[currency]}</strong>
               <div><b>+ IVA</b><small>/ mes</small></div>
             </div>
+            <p className="plan-bonus"><span aria-hidden="true">✦</span> Puesta en marcha y diseño personalizado bonificados</p>
             <ul>
               {plan.includes.map((item, itemIndex) => (
                 <li className={itemIndex < 4 ? "key-feature" : ""} key={item}><span aria-hidden="true">✓</span>{item}</li>

@@ -10,7 +10,7 @@ const localBaseUrl = `http://127.0.0.1:${port}`;
 const pagesUrl = (process.env.PAGES_URL || "https://estudioideamos.github.io/ideamos-inmobiliarias-app").replace(/\/$/, "");
 const routes = [
   { pathname: "/", output: "index.html", marker: "Una web para mostrar mejor.", depth: 0 },
-  { pathname: "/producto", output: path.join("producto", "index.html"), marker: "Tu web y tu operación", depth: 1 },
+  { pathname: "/producto", output: path.join("producto", "index.html"), marker: "Tu web y tus propiedades", depth: 1 },
   { pathname: "/funciones", output: path.join("funciones", "index.html"), marker: "Herramientas concretas", depth: 1 },
   { pathname: "/tokko", output: path.join("tokko", "index.html"), marker: "Tu inventario en Tokko", depth: 1 },
   { pathname: "/valor", output: path.join("valor", "index.html"), marker: "Una mejor presencia", depth: 1 },

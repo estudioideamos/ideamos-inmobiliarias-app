@@ -8,7 +8,7 @@ export default function FloatingActions() {
         <em>WhatsApp</em>
       </a>
       <a className="floating-action floating-top" href="#top" aria-label="Volver al inicio de la pagina">
-        <span className="top-mark" aria-hidden="true"><i /></span>
+        <span className="top-mark" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5" /></svg></span>
         <em>Arriba</em>
       </a>
     </nav>

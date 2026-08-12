@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
-const mobileOrbitText = "MOBILE·MOBILE·MOBILE·";
+const mobileOrbitText = "MOBILE·MOBILE·";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 const Check = () => <span className="check" aria-hidden="true">✓</span>;

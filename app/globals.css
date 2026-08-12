@@ -1086,3 +1086,13 @@ body{background:#f7f5ee}
 @media(max-width:1120px){.pricing-variables{padding-block:78px;gap:42px}.variable-list article{min-height:105px}}
 @media(max-width:850px){.pricing-variables{padding:72px 24px}.pricing-variables h2{font-size:49px}}
 @media(max-width:580px){.pricing-variables{padding:64px 18px}.variable-list article{min-height:98px;padding:17px 0;grid-template-columns:48px 1fr}.variable-list h3{font-size:22px}}
+
+
+/* Planes: incluido vs. exclusivo de Plus sin ambigüedad */
+.plan-legend{margin:12px 0 3px;display:flex;gap:16px;font-size:9px;font-weight:750;color:#66776e}
+.plan-legend span{display:flex;align-items:center;gap:6px}.plan-legend b{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:10px}.plan-legend span:first-child b{background:var(--mint);color:var(--forest)}.plan-legend span:last-child b{border:1px solid rgba(18,60,43,.18);color:#85938c}
+.launch-price-card li>span:last-child{width:auto;height:auto;flex:1;border-radius:0;background:none!important;color:inherit!important;display:block;font-size:inherit;font-weight:inherit}
+.launch-price-card li.unavailable{color:#97a19b;font-weight:500}
+.launch-price-card li.unavailable>span:first-child{border:1px solid rgba(18,60,43,.14);background:transparent;color:#7d8982}
+.launch-price-card li.unavailable>span:last-child{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:rgba(18,60,43,.3)}
+@media(max-width:580px){.plan-legend{font-size:10px;flex-wrap:wrap}}

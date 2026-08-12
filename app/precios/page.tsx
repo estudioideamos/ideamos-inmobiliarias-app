@@ -20,9 +20,9 @@ const comparison = [
   ["Web diseñada para tu marca", "✓", "✓"],
   ["Panel autogestionable", "✓", "✓"],
   ["Consultas con contexto", "✓", "✓"],
-  ["Atención por email y chatbot", "✓", "✓"],
-  ["WhatsApp y videollamadas", "✓", "✓"],
-  ["Cambios asistidos", "✓", "✓"],
+  ["Atención por email y chatbot", "×", "✓"],
+  ["WhatsApp y videollamadas", "×", "✓"],
+  ["Cambios asistidos", "×", "✓"],
   ["Integración con Tokko Broker", "Opcional", "Opcional"],
 ];
 
@@ -82,7 +82,7 @@ export default function PricingPage() {
           <div className="comparison-row comparison-head two-plans" role="row"><span>CAPACIDAD</span><b>INMOBILIARIA</b><b>INMOBILIARIA PLUS</b></div>
           {comparison.map(([label, standard, plus]) => (
             <div className="comparison-row two-plans" role="row" key={label}>
-              <strong>{label}</strong><span>{standard}</span><span>{plus}</span>
+              <strong>{label}</strong><span className={standard === "×" ? "comparison-no" : ""}>{standard}</span><span>{plus}</span>
             </div>
           ))}
         </div>

@@ -2,7 +2,7 @@ const contactBase = "/contacto?plan=";
 
 const plans = [
   {
-    name: "Inmobiliaria",
+    name: "Plus",
     eyebrow: "PARA INMOBILIARIAS",
     copy: "Todo lo necesario para publicar tu cartera, presentar tu marca y operar con una web profesional.",
     prices: { ARS: "250.000", USD: "170" },
@@ -10,7 +10,7 @@ const plans = [
     includes: [
       "Todas las funcionalidades incluidas",
       "Hasta 2.000 propiedades",
-      "Soporte técnico Standard",
+      "Soporte técnico Plus",
       "Tiempo de respuesta: hasta 5 días",
       "Atención vía email",
       "Atención vía chatbot",
@@ -22,7 +22,7 @@ const plans = [
     ],
   },
   {
-    name: "Inmobiliaria Plus",
+    name: "Premium",
     eyebrow: "MÁS ELEGIDO",
     copy: "Para equipos que necesitan catálogo ilimitado, prioridad de soporte y acompañamiento más cercano.",
     prices: { ARS: "300.000", USD: "200" },
@@ -30,7 +30,7 @@ const plans = [
     includes: [
       "Todas las funcionalidades incluidas",
       "Propiedades ilimitadas",
-      "Soporte técnico Plus",
+      "Soporte técnico Premium",
       "Tiempo de respuesta: hasta 1 día",
       "Atención vía email",
       "Atención vía chatbot",
@@ -87,7 +87,7 @@ export default function PricingPlans() {
               <div><b>IVA INCLUIDO</b><small>/ mes</small></div>
             </div>
             <p className="plan-bonus"><span aria-hidden="true">✦</span> Puesta en marcha y diseño personalizado bonificados</p>
-            {!plan.featured && <div className="plan-legend" aria-label="Referencia de prestaciones"><span><b>✓</b> Incluido</span><span><b>×</b> Solo en Plus</span></div>}
+            {!plan.featured && <div className="plan-legend" aria-label="Referencia de prestaciones"><span><b>✓</b> Incluido</span><span><b>×</b> Solo en Premium</span></div>}
             <ul>
               {plan.includes.map((item, itemIndex) => {
                 const unavailable = !plan.featured && itemIndex >= 4;

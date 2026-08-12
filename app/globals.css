@@ -1130,3 +1130,16 @@ body{background:#f7f5ee}
 /* Checks del hero: trazo geométrico centrado */
 .hero-benefits .check{position:relative;width:18px;height:18px;flex:0 0 18px;border:1px solid rgba(223,255,114,.72);border-radius:50%;background:var(--lime);font-size:0;box-shadow:0 0 0 4px rgba(223,255,114,.045),inset 0 1px 0 rgba(255,255,255,.65)}
 .hero-benefits .check:after{content:"";position:absolute;left:5px;top:4px;width:6px;height:3px;border-left:1.7px solid var(--forest);border-bottom:1.7px solid var(--forest);transform:rotate(-45deg);transform-origin:center}
+
+/* Iconografía premium para datos de contacto */
+.contact-data .contact-icon{position:relative;width:31px;height:31px;border:1px solid rgba(223,255,114,.24);border-radius:50%;background:rgba(223,255,114,.07);display:grid;place-items:center;color:var(--lime);transition:transform .25s ease,background .25s ease,border-color .25s ease}
+.contact-data a:hover .contact-icon{transform:translateY(-2px);border-color:var(--lime);background:rgba(223,255,114,.14)}
+.contact-icon-whatsapp img{width:15px;height:15px;object-fit:contain;filter:invert(91%) sepia(80%) saturate(486%) hue-rotate(26deg) brightness(108%) contrast(105%)}
+.contact-icon-mail span{position:relative;width:15px;height:11px;border:1.4px solid currentColor;border-radius:2px}
+.contact-icon-mail span:after,.contact-icon-mail span:before{content:"";position:absolute;top:1px;width:9px;height:1.4px;border-radius:2px;background:currentColor}
+.contact-icon-mail span:before{left:0;transform:rotate(34deg);transform-origin:left center}.contact-icon-mail span:after{right:0;transform:rotate(-34deg);transform-origin:right center}
+.contact-icon-pin span{position:relative;width:13px;height:16px;border:1.4px solid currentColor;border-radius:8px 8px 9px 9px;clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%)}
+.contact-icon-pin span:after{content:"";position:absolute;left:50%;top:4px;width:3px;height:3px;border:1.2px solid currentColor;border-radius:50%;transform:translateX(-50%)}
+.contact-page-data .contact-icon{border-color:rgba(18,60,43,.16);background:rgba(18,60,43,.045);color:var(--forest)}
+.contact-page-data a:hover .contact-icon{border-color:var(--forest);background:var(--mint)}
+@media(max-width:580px){.contact-data .contact-icon{width:29px;height:29px}}

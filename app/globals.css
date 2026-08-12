@@ -1072,3 +1072,17 @@ body{background:#f7f5ee}
 .launch-bonus-value em{margin-top:3px}
 @media(max-width:850px){.launch-bonus{grid-template-columns:1fr;gap:20px}.launch-bonus>.launch-bonus-copy{padding:0 0 20px;border-bottom:1px solid rgba(255,255,255,.13)}.launch-bonus>.launch-bonus-value{width:100%;max-width:none}}
 @media(max-width:580px){.launch-bonus{padding:22px}.launch-bonus-copy h3{font-size:29px}.launch-bonus-value strong{font-size:36px}}
+
+
+/* Precios: beneficios compactos con la densidad editorial de la home */
+.pricing-variables{min-height:0;padding:82px max(24px,calc((100vw - 1320px)/2));grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr);gap:72px;align-items:start}
+.pricing-variables-intro{top:24px;padding-top:2px}
+.pricing-variables h2{font-size:clamp(46px,4.35vw,65px);line-height:.91}
+.pricing-variables-intro>p:last-child{margin-top:22px;line-height:1.6}
+.variable-list article{min-height:112px;padding:20px 0;grid-template-columns:58px 1fr}
+.variable-list article>span{width:37px;height:37px}
+.variable-list h3{margin-bottom:7px;font-size:25px}
+.variable-list p{font-size:11.5px}
+@media(max-width:1120px){.pricing-variables{padding-block:78px;gap:42px}.variable-list article{min-height:105px}}
+@media(max-width:850px){.pricing-variables{padding:72px 24px}.pricing-variables h2{font-size:49px}}
+@media(max-width:580px){.pricing-variables{padding:64px 18px}.variable-list article{min-height:98px;padding:17px 0;grid-template-columns:48px 1fr}.variable-list h3{font-size:22px}}

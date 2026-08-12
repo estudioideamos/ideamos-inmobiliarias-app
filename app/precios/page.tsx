@@ -34,7 +34,7 @@ export default function PricingPage() {
           <a href="/producto">La Plataforma</a>
           <a href="/funciones">Funciones</a>
           <a href="/tokko">Tokko Broker</a>
-          <a href="/valor">Valor</a>
+          <a href="/beneficios">Beneficios</a>
           <a className="active" href="/precios">Precios</a>
         </nav>
         <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
@@ -50,14 +50,7 @@ export default function PricingPage() {
             <a className="button button-soft" href={demoUrl} target="_blank" rel="noreferrer">Explorar la demo <Arrow /></a>
           </div>
         </div>
-        <aside className="pricing-principle">
-          <span>LANZAMIENTO / 2026</span>
-          <strong>Precios claros para empezar ahora</strong>
-          <p>Dos opciones simples, sin módulos confusos. Cambia la capacidad del catálogo y la prioridad de soporte.</p>
-          <div><i /> Todas las funcionalidades incluidas</div>
-          <div><i /> Sin permanencia forzada</div>
-          <div><i /> Tokko disponible como integración</div>
-        </aside>
+        <aside className="internal-hero-stat pricing-hero-stat"><strong>02</strong><span>PLANES / UNA PLATAFORMA</span><i /></aside>
       </section>
 
       <Marquee

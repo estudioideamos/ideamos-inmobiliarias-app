@@ -283,7 +283,7 @@ export default function Home() {
 
       <section className="value-section section" id="valor">
         <div className="value-intro">
-          <p className="eyebrow light"><span /> Valor para tu inmobiliaria</p>
+          <p className="eyebrow light"><span /> Beneficios para tu inmobiliaria</p>
           <h2>No sumás otra herramienta.<br /><em>Ganás una operación más clara.</em></h2>
           <p>La tecnología tiene sentido cuando mejora la experiencia del cliente y, al mismo tiempo, le simplifica el trabajo diario a tu equipo.</p>
           <a className="button button-accent" href={contactUrl}>Verlo aplicado a mi inmobiliaria <Arrow /></a>
@@ -380,7 +380,7 @@ export default function Home() {
             <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
             <span className="system-status"><i /> DEMO ONLINE</span>
           </div>
-          <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko Broker</a><a href="/valor">Valor</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+          <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
           <nav><span>IDEAMOS</span><a href="/preguntas">Preguntas</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
           <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>

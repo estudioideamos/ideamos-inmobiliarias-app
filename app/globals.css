@@ -840,3 +840,25 @@ body{background:#f7f5ee}
 @media(max-width:1000px){.internal-funciones .internal-hero h1{font-size:clamp(50px,8vw,72px)}}
 @media(max-width:850px){.internal-funciones .internal-hero h1{white-space:normal}}
 @media(max-width:580px){.internal-funciones .internal-hero h1{font-size:48px}}
+/* Beneficios y Precios: encabezados coherentes y compactos */
+.internal-valor .internal-hero-copy{max-width:none}
+.internal-valor .internal-hero h1{max-width:none;font-size:clamp(58px,6vw,86px);white-space:nowrap;letter-spacing:-.065em}
+.pricing-hero{min-height:760px;padding-top:170px;padding-bottom:95px;grid-template-columns:minmax(0,1fr) 250px;align-items:end;gap:80px;background:radial-gradient(circle at 79% 26%,rgba(223,255,114,.16),transparent 25%),linear-gradient(135deg,#071711 0%,#0c3224 68%,#123f2e 100%)}
+.pricing-hero:before{inset:auto;right:-220px;top:-330px;width:780px;height:780px;border:1px solid rgba(223,255,114,.13);border-radius:50%;background:transparent;box-shadow:0 0 0 78px rgba(223,255,114,.025),0 0 0 156px rgba(223,255,114,.016)}
+.pricing-hero-copy{max-width:930px}
+.pricing-hero h1{max-width:940px;font-size:clamp(64px,7.4vw,108px);line-height:.88}
+.pricing-hero-copy>p:last-of-type{max-width:680px;color:rgba(255,255,255,.69)}
+.pricing-hero-stat{align-self:end}
+.launch-price-grid{gap:14px}
+.launch-price-card{min-height:760px;padding:27px;border-radius:25px}
+.launch-price-title{padding:26px 0 20px}
+.launch-price-title h2{margin:19px 0 11px;font-size:clamp(36px,3.1vw,48px)}
+.launch-price-title>p{min-height:44px;font-size:13px;line-height:1.58}
+.launch-price-value{min-height:94px;padding:17px 0}
+.launch-price-value>strong{font-size:clamp(50px,4.3vw,66px)}
+.launch-price-card ul{margin:20px 0 22px;gap:0 20px}
+.launch-price-card li{min-height:39px;padding:8px 0;font-size:11px}
+.launch-price-card.featured:before{right:24px}
+@media(max-width:1000px){.internal-valor .internal-hero h1{font-size:clamp(50px,8vw,72px)}.pricing-hero{grid-template-columns:1fr;gap:40px}.pricing-hero-stat{width:250px;min-height:190px}}
+@media(max-width:850px){.internal-valor .internal-hero h1{white-space:normal}.pricing-hero{min-height:800px;padding-top:150px}.launch-price-card{min-height:0}}
+@media(max-width:580px){.internal-valor .internal-hero h1{font-size:48px}.pricing-hero{min-height:760px;padding:125px 18px 65px}.pricing-hero h1{font-size:53px}.pricing-hero-stat{width:170px;min-height:145px}.launch-price-card{padding:24px}.launch-price-card li{font-size:12px}}

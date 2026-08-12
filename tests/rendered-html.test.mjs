@@ -40,7 +40,7 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /feature-seo\.webp/);
   assert.match(html, /Qué es Ideamos Inmobiliarias/);
   assert.match(html, /Qué resuelve/);
-  assert.match(html, /Valor para tu inmobiliaria/);
+  assert.match(html, /Beneficios para tu inmobiliaria/);
   assert.match(html, /VIDEO PRÓXIMAMENTE/);
   assert.match(html, /Todo en el mismo flujo/);
   assert.match(html, /premium-flow-icon/);
@@ -88,6 +88,7 @@ test("renderiza la página interna de opciones y precios", async () => {
   assert.match(html, /Otros países/);
   assert.match(html, /Propiedades ilimitadas/);
   assert.match(html, /PRECIO DE LANZAMIENTO/);
+  assert.match(html, /pricing-hero-stat/);
   assert.match(html, /inmobiliaria\.ideamos\.ar/);
   assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
 });
@@ -96,7 +97,7 @@ test("renderiza las páginas internas de producto", async () => {
     ["/producto", "Tu web y tu operación"],
     ["/funciones", "Herramientas concretas"],
     ["/tokko", "Tu inventario en Tokko"],
-    ["/valor", "Una mejor presencia"],
+    ["/beneficios", "Una mejor presencia"],
     ["/preguntas", "Antes de empezar"],
   ];
   for (const [pathname, marker] of routes) {
@@ -114,4 +115,5 @@ test("la sección de valor mantiene fija su columna izquierda", async () => {
   const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
   assert.match(css, /\.value-intro\{position:sticky;top:112px/);
   assert.match(css, /\.value-grid article\{min-height:130px/);
+  assert.match(css, /\.launch-price-card\{min-height:760px/);
 });

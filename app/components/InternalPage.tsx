@@ -67,10 +67,10 @@ const pages = {
     bullets: ["API key cifrada y protegida", "Prueba de conexión desde el panel", "Propiedades y emprendimientos", "Tipologías y localidades sincronizadas", "Carga manual siempre disponible", "Pausa o desvinculación sin perder contenido"],
   },
   valor: {
-    eyebrow: "Valor para tu inmobiliaria",
+    eyebrow: "Beneficios para tu inmobiliaria",
     title: <>Una mejor presencia.<br /><em>Una operación más valiosa.</em></>,
     lead: "La plataforma no es solamente una web: mejora cómo perciben tu marca, cómo trabaja tu equipo y cómo llegan las oportunidades.",
-    stat: "04", statLabel: "IMPACTOS / UN PRODUCTO",
+    stat: "04", statLabel: "BENEFICIOS / UN SISTEMA",
     marquee: ["MEJOR PERCEPCIÓN", "MÁS AUTONOMÍA", "RESPUESTAS MÁS RÁPIDAS", "ESCALA DIGITAL"],
     heading: <>Mostrar mejor también es<br /><em>vender mejor.</em></>,
     intro: "Una experiencia digital cuidada aumenta la confianza antes del primer contacto y ordena todo lo que sucede después.",
@@ -114,7 +114,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
           <a className={pageKey === "producto" ? "active" : ""} href="/producto">La Plataforma</a>
           <a className={pageKey === "funciones" ? "active" : ""} href="/funciones">Funciones</a>
           <a className={pageKey === "tokko" ? "active" : ""} href="/tokko">Tokko</a>
-          <a className={pageKey === "valor" ? "active" : ""} href="/valor">Valor</a>
+          <a className={pageKey === "valor" ? "active" : ""} href="/beneficios">Beneficios</a>
           <a href="/precios">Precios</a>
         </nav>
         <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
@@ -160,7 +160,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
       <footer className="pricing-footer internal-footer">
         <a className="brand footer-brand" href="/"><BrandLogo /></a>
         <p>Web + gestión para inmobiliarias.</p>
-        <nav><a href="/producto">La Plataforma</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko</a><a href="/valor">Valor</a><a href="/preguntas">Preguntas</a></nav>
+        <nav><a href="/producto">La Plataforma</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko</a><a href="/beneficios">Beneficios</a><a href="/preguntas">Preguntas</a></nav>
         <span>© 2026 IDEAMOS</span>
       </footer>
     </main>

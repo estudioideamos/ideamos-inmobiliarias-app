@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
-const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20los%20planes%20de%20lanzamiento";
+const contactUrl = "/contacto?plan=Quiero%20que%20me%20asesoren";
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
 const comparison = [
@@ -88,19 +88,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="pricing-faq section">
-        <div>
-          <p className="eyebrow"><span /> Antes de elegir</p>
-          <h2>Lo importante,<br /><em>sin letra chica.</em></h2>
-        </div>
-        <div className="pricing-faq-list">
-          <details open><summary>¿Qué incluye el precio de lanzamiento?<span>−</span></summary><p>Incluye la plataforma, la web adaptada a tu marca, el panel de gestión y el soporte del plan. Además, durante el lanzamiento bonificamos el 100% de la puesta en marcha y el diseño personalizado, valuados en USD 2.500: pagás únicamente el abono mensual.</p></details>
-          <details><summary>¿Tokko Broker es obligatorio?<span>+</span></summary><p>No. Podés administrar toda la cartera desde el panel de Ideamos. La conexión con Tokko es opcional y se define durante la implementación.</p></details>
-          <details><summary>¿Cuál es la diferencia entre los dos planes?<span>+</span></summary><p>Inmobiliaria admite hasta 2.000 propiedades y soporte Standard. Plus ofrece propiedades ilimitadas, soporte prioritario y respuesta de hasta un día.</p></details>
-          <details><summary>¿Puedo cambiar de plan más adelante?<span>+</span></summary><p>Sí. Podés comenzar con Inmobiliaria y pasar a Plus cuando aumente tu cartera o necesites una prioridad de soporte mayor.</p></details>
-        </div>
-      </section>
-
       <section className="pricing-final">
         <div>
           <p className="eyebrow light"><span /> Próximo paso</p>
@@ -110,6 +97,25 @@ export default function PricingPage() {
         <div className="pricing-final-actions">
           <a className="button button-accent" href={contactUrl}>Consultar por los planes <Arrow /></a>
           <a className="text-link" href={demoUrl} target="_blank" rel="noreferrer">Ver demo funcionando <Arrow /></a>
+        </div>
+      </section>
+
+      <section className="faq-section pricing-faq-premium section">
+        <div className="faq-intro">
+          <div className="faq-intro-top"><p className="eyebrow light"><span /> Antes de elegir</p><div className="faq-badge"><span>04</span><small>RESPUESTAS<br />CLAVE</small></div></div>
+          <h2>Lo importante,<br /><em>sin letra chica.</em></h2>
+          <p>Todo lo que necesitás saber para elegir el plan con seguridad y entender qué pasa después.</p>
+          <a className="faq-cta" href="/contacto"><span><small>¿TENÉS OTRA DUDA?</small><b>Hablemos de tu inmobiliaria</b></span><Arrow /></a>
+          <div className="faq-assurance"><i /><span>Precios claros · Respuesta directa</span></div>
+        </div>
+        <div className="faq-list">
+          <div className="faq-list-head"><span>PLANES Y PUESTA EN MARCHA</span><small>IDEAMOS / PRECIOS</small></div>
+          {[
+            ["¿Qué incluye el precio de lanzamiento?", "Incluye la plataforma, la web adaptada a tu marca, el panel de gestión y el soporte del plan. Durante el lanzamiento también bonificamos el 100% de la puesta en marcha y el diseño personalizado, valuados en USD 2.500: pagás únicamente el abono mensual."],
+            ["¿Tokko Broker es obligatorio?", "No. Podés administrar toda la cartera desde el panel de Ideamos. La conexión con Tokko es opcional y se define durante la implementación."],
+            ["¿Cuál es la diferencia entre los dos planes?", "Inmobiliaria admite hasta 2.000 propiedades y soporte Standard. Plus ofrece propiedades ilimitadas, soporte prioritario y respuesta de hasta un día."],
+            ["¿Puedo cambiar de plan más adelante?", "Sí. Podés comenzar con Inmobiliaria y pasar a Plus cuando aumente tu cartera o necesites una prioridad de soporte mayor."],
+          ].map(([question, answer], index) => <details key={question} open={index === 0}><summary><span className="faq-number">0{index + 1}</span><b>{question}</b><span className="faq-toggle" aria-hidden="true" /></summary><p>{answer}</p></details>)}
         </div>
       </section>
 

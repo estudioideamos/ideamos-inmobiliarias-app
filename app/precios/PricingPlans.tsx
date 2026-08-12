@@ -59,7 +59,7 @@ export default function PricingPlans() {
           <p>Elegí cómo querés ver los precios de lanzamiento.</p>
         </div>
         <div className="currency-switch" role="group" aria-label="Elegir moneda">
-          <label htmlFor="currency-ars"><span aria-hidden="true">🇦🇷</span> Argentina <small>ARS</small></label>
+          <label htmlFor="currency-ars"><span className="currency-flag" aria-hidden="true">🇦🇷</span> Argentina <small>ARS</small></label>
           <label htmlFor="currency-usd"><span aria-hidden="true">🌎</span> Otros países <small>USD</small></label>
         </div>
       </div>
@@ -79,12 +79,12 @@ export default function PricingPlans() {
             <div className="launch-price-value price-ars">
               <span>ARS</span>
               <strong>{plan.prices.ARS}</strong>
-              <div><b>+ IVA</b><small>/ mes</small></div>
+              <div><b>IVA INCLUIDO</b><small>/ mes</small></div>
             </div>
             <div className="launch-price-value price-usd">
               <span>USD</span>
               <strong>{plan.prices.USD}</strong>
-              <div><b>+ IVA</b><small>/ mes</small></div>
+              <div><b>IVA INCLUIDO</b><small>/ mes</small></div>
             </div>
             <p className="plan-bonus"><span aria-hidden="true">✦</span> Puesta en marcha y diseño personalizado bonificados</p>
             {!plan.featured && <div className="plan-legend" aria-label="Referencia de prestaciones"><span><b>✓</b> Incluido</span><span><b>×</b> Solo en Plus</span></div>}
@@ -100,7 +100,7 @@ export default function PricingPlans() {
           </article>
         ))}
       </div>
-      <p className="launch-price-note">Los precios en ARS corresponden a Argentina. Los valores no incluyen IVA. Precio promocional de lanzamiento.</p>
+      <p className="launch-price-note">Los precios informados son finales e incluyen IVA. Precio promocional de lanzamiento.</p>
     </div>
   );
 }

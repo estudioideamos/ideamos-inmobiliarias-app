@@ -5,19 +5,30 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 type ActivePage = "plataforma" | "funcionalidades" | "tokko" | "precios" | "preguntas" | "contacto";
 
+const navItems: Array<{ key: ActivePage; href: string; label: string }> = [
+  { key: "plataforma", href: "/la-plataforma", label: "La Plataforma" },
+  { key: "funcionalidades", href: "/funcionalidades", label: "Funcionalidades" },
+  { key: "tokko", href: "/tokko-broker", label: "Tokko Broker" },
+  { key: "precios", href: "/precios", label: "Precios" },
+  { key: "preguntas", href: "/preguntas-frecuentes", label: "Preguntas Frecuentes" },
+  { key: "contacto", href: "/contacto", label: "Contacto" },
+];
+
 export default function SiteHeader({ active }: { active?: ActivePage }) {
   return (
     <header className="topbar">
       <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
-      <nav aria-label="Navegación principal">
-        <a className={active === "plataforma" ? "active" : ""} href="/la-plataforma">La Plataforma</a>
-        <a className={active === "funcionalidades" ? "active" : ""} href="/funcionalidades">Funcionalidades</a>
-        <a className={active === "tokko" ? "active" : ""} href="/tokko-broker">Tokko Broker</a>
-        <a className={active === "precios" ? "active" : ""} href="/precios">Precios</a>
-        <a className={active === "preguntas" ? "active" : ""} href="/preguntas-frecuentes">Preguntas Frecuentes</a>
-        <a className={active === "contacto" ? "active" : ""} href="/contacto">Contacto</a>
+      <nav className="desktop-nav" aria-label="Navegación principal">
+        {navItems.map((item) => <a className={active === item.key ? "active" : ""} href={item.href} key={item.key}>{item.label}</a>)}
       </nav>
       <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
+      <details className="mobile-menu">
+        <summary aria-label="Abrir menú de navegación"><span /><span /><span /></summary>
+        <nav aria-label="Navegación móvil">
+          {navItems.map((item) => <a className={active === item.key ? "active" : ""} href={item.href} key={item.key}>{item.label}<span aria-hidden="true">↗</span></a>)}
+          <a className="mobile-demo-link" href={demoUrl} target="_blank" rel="noreferrer"><i aria-hidden="true" /> Ver demo funcionando <span aria-hidden="true">↗</span></a>
+        </nav>
+      </details>
     </header>
   );
 }

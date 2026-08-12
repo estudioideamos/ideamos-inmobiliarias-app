@@ -82,11 +82,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-strip" aria-label="Una plataforma completa">
-        <p>UNA SOLUCIÓN PARA TODA TU OPERACIÓN DIGITAL</p>
-        <div><span>SITIO WEB</span><i>+</i><span>PROPIEDADES</span><i>+</i><span>PANEL</span><i>+</i><span>TOKKO</span><i>+</i><span>CONSULTAS</span></div>
-      </section>
-
       <Marquee
         label="Capacidades principales de Ideamos Inmobiliarias"
         tone="paper"

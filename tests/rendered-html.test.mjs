@@ -84,7 +84,8 @@ test("renderiza la página interna de opciones y precios", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Precios de lanzamiento/);
-  assert.match(html, /Inmobiliaria Plus/);
+  assert.match(html, /Premium/);
+  assert.match(html, /Plus/);
   assert.match(html, /250\.000/);
   assert.match(html, /300\.000/);
   assert.match(html, /Otros países/);

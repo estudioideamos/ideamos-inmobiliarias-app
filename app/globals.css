@@ -892,3 +892,16 @@ body{background:#f7f5ee}
 .pricing-hero-stat{align-self:center}
 @media(max-width:1000px){.internal-hero,.pricing-hero{min-height:720px;padding-top:125px;padding-bottom:65px;align-items:start}.internal-hero-copy,.pricing-hero-copy{padding-top:8px}.internal-hero-stat,.pricing-hero-stat{align-self:start}}
 @media(max-width:580px){.internal-hero,.pricing-hero{min-height:690px;padding-top:108px;padding-bottom:55px}.internal-hero-copy,.pricing-hero-copy{padding-top:5px}.internal-hero-copy .eyebrow,.pricing-hero-copy .eyebrow{margin-bottom:16px}}
+/* Dock flotante sutil: dos acciones independientes, centradas y sin marco exterior */
+.floating-actions{right:18px;bottom:18px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;gap:9px}
+.floating-action,.floating-action:hover,.floating-action:focus-visible{width:46px;min-width:46px;height:46px;padding:0;border-radius:50%;display:grid;place-items:center;transform:none}
+.floating-action em{display:none}
+.floating-whatsapp{border:1px solid rgba(18,60,43,.12);background:var(--lime);box-shadow:0 9px 24px rgba(20,55,40,.16)}
+.floating-top{border:1px solid rgba(223,255,114,.18);background:rgba(7,38,27,.88);box-shadow:0 9px 24px rgba(2,20,13,.17);backdrop-filter:blur(12px)}
+.whatsapp-mark,.top-mark{width:24px;height:24px;flex:0 0 24px;display:grid;place-items:center}
+.whatsapp-mark img{width:23px;height:23px;margin:0;transform:none}
+.top-mark{border:0;border-radius:0}
+.top-mark i{left:50%;top:7px;width:9px;height:9px;margin:0;transform:translateX(-50%) rotate(45deg)}
+.top-mark i:after{left:3px;top:2px;height:11px}
+.floating-action:hover{filter:brightness(1.04);box-shadow:0 12px 28px rgba(2,23,15,.22)}
+@media(max-width:580px){.floating-actions{right:10px;bottom:10px;gap:7px}.floating-action,.floating-action:hover,.floating-action:focus-visible{width:43px;min-width:43px;height:43px;padding:0}.whatsapp-mark,.top-mark{width:23px;height:23px;flex-basis:23px}.whatsapp-mark img{width:22px;height:22px}}

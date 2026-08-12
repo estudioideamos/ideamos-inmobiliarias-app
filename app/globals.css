@@ -1658,3 +1658,12 @@ body{background:#f7f5ee}
   .contact-page-data b{font-size:11px}
   .contact-aside-status{justify-content:center}
 }
+
+
+/* Título de beneficios en cuatro líneas controladas */
+.value-title>span,.value-title>em,.value-title>em>span{display:block}
+.value-title>em{font-style:italic}
+@media(max-width:600px){
+  .value-title>span,.value-title>em>span{display:inline}
+  .value-title>span:after,.value-title>em>span:after{content:" "}
+}

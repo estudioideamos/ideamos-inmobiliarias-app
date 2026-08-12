@@ -46,7 +46,7 @@ export default function Home() {
           <BrandLogo />
         </a>
         <nav aria-label="Navegación principal">
-          <a href="/producto">Producto</a>
+          <a href="/producto">La Plataforma</a>
           <a href="/funciones">Funciones</a>
           <a href="/tokko">Tokko Broker</a>
           <a href="/precios">Precios</a>
@@ -247,7 +247,7 @@ export default function Home() {
             <div className="flow-logo premium-flow-icon"><img src="/generated-icons/flow-inventory.webp" alt="" /></div>
             <h3>Tu inventario como origen</h3>
             <p>Tomamos propiedades, fotos, precios y disponibilidad desde tu operación actual en Tokko Broker.</p>
-            <div className="property-stack"><img src="/tokko-property-1.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-2.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-4.jpg" alt="Propiedad real sincronizada" /></div>
+            <div className="flow-preview property-preview"><div className="flow-preview-bar"><span /><span /><span /><b>INVENTARIO ACTIVO</b></div><div className="property-stack"><img src="/tokko-property-1.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-2.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-4.jpg" alt="Propiedad real sincronizada" /></div></div>
           </article>
           <div className="flow-connector"><i /><span>API</span><i /></div>
           <article className="flow-card ideamos-card">
@@ -255,7 +255,7 @@ export default function Home() {
             <div className="flow-logo premium-flow-icon"><img src="/generated-icons/flow-control.webp" alt="" /></div>
             <h3>Decidís desde un solo lugar</h3>
             <p>Revisá lo sincronizado y publicá propiedades o contenido propio sin duplicar tareas.</p>
-            <img className="flow-screen" src="/backend-panel-real.png" alt="Panel de Ideamos Inmobiliarias" />
+            <div className="flow-preview"><div className="flow-preview-bar"><span /><span /><span /><b>PANEL IDEAMOS</b></div><img className="flow-screen" src="/backend-panel-real.png" alt="Panel de Ideamos Inmobiliarias" /></div>
           </article>
           <div className="flow-connector"><i /><span>SYNC</span><i /></div>
           <article className="flow-card web-card">
@@ -263,7 +263,7 @@ export default function Home() {
             <div className="flow-logo premium-flow-icon"><img src="/generated-icons/flow-website-lead.webp" alt="" /></div>
             <h3>Tu cartera, lista para vender</h3>
             <p>Cada actualización llega a una web rápida, clara y diseñada alrededor de tu marca.</p>
-            <img className="flow-screen" src="/demo-site-live.png" alt="Resultado público del sitio inmobiliario" />
+            <div className="flow-preview"><div className="flow-preview-bar"><span /><span /><span /><b>SITIO PUBLICADO</b></div><img className="flow-screen" src="/demo-site-live.png" alt="Resultado público del sitio inmobiliario" /></div>
           </article>
         </div>
         <div className="integration-points">

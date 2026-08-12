@@ -111,7 +111,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
       <header className="topbar internal-topbar">
         <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
         <nav aria-label="Navegación principal">
-          <a className={pageKey === "producto" ? "active" : ""} href="/producto">Producto</a>
+          <a className={pageKey === "producto" ? "active" : ""} href="/producto">La Plataforma</a>
           <a className={pageKey === "funciones" ? "active" : ""} href="/funciones">Funciones</a>
           <a className={pageKey === "tokko" ? "active" : ""} href="/tokko">Tokko</a>
           <a className={pageKey === "valor" ? "active" : ""} href="/valor">Valor</a>
@@ -160,7 +160,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
       <footer className="pricing-footer internal-footer">
         <a className="brand footer-brand" href="/"><BrandLogo /></a>
         <p>Web + gestión para inmobiliarias.</p>
-        <nav><a href="/producto">Producto</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko</a><a href="/valor">Valor</a><a href="/preguntas">Preguntas</a></nav>
+        <nav><a href="/producto">La Plataforma</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko</a><a href="/valor">Valor</a><a href="/preguntas">Preguntas</a></nav>
         <span>© 2026 IDEAMOS</span>
       </footer>
     </main>

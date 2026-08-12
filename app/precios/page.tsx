@@ -31,7 +31,7 @@ export default function PricingPage() {
       <header className="topbar pricing-topbar">
         <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
         <nav aria-label="Navegación de precios">
-          <a href="/producto">Producto</a>
+          <a href="/producto">La Plataforma</a>
           <a href="/funciones">Funciones</a>
           <a href="/tokko">Tokko Broker</a>
           <a href="/valor">Valor</a>

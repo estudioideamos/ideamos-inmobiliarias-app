@@ -100,6 +100,25 @@ export default function Home() {
         items={["WEB INMOBILIARIA", "GESTIÓN CENTRALIZADA", "TOKKO READY", "CONSULTAS CON CONTEXTO", "EXPERIENCIA MOBILE"]}
       />
 
+      <section className="property-editorial" aria-label="Una presencia inmobiliaria a la altura de tu cartera">
+        <article className="editorial-photo editorial-photo-main">
+          <img src="/premium-photos/interior-limestone.webp" alt="Interior residencial premium con arquitectura contemporánea" />
+          <span>01 / IDENTIDAD</span>
+          <div><small>LA PRIMERA IMPRESIÓN IMPORTA</small><h2>Una web que se siente<br /><em>tan cuidada como tu marca.</em></h2></div>
+        </article>
+        <div className="editorial-side">
+          <article className="editorial-photo editorial-photo-urban">
+            <img src="/premium-photos/fachada-urbana.webp" alt="Fachada urbana residencial de categoría" />
+            <span>02 / PRESENCIA</span>
+          </article>
+          <div className="editorial-note">
+            <span>EXPERIENCIA / MARCA / CONVERSIÓN</span>
+            <p>No mostramos propiedades como una lista. Construimos una experiencia que eleva la percepción de toda tu inmobiliaria.</p>
+            <a href={demoUrl} target="_blank" rel="noreferrer">Explorar la demo <Arrow /></a>
+          </div>
+        </div>
+      </section>
+
       <section className="intro section" id="producto">
         <div className="section-heading centered">
           <p className="eyebrow"><span /> Qué es Ideamos Inmobiliarias</p>
@@ -134,6 +153,19 @@ export default function Home() {
           {solvedProblems.map(([number, title, copy]) => (
             <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p><i aria-hidden="true" /></article>
           ))}
+        </div>
+      </section>
+
+      <section className="landscape-statement">
+        <img src="/premium-photos/casa-paisaje.webp" alt="Residencia contemporánea integrada al paisaje" />
+        <div className="landscape-overlay">
+          <p className="eyebrow light"><span /> Mostrar mejor también es vender mejor</p>
+          <h2>Tu cartera merece<br />una puesta en escena <em>excepcional.</em></h2>
+          <div>
+            <span><b>01</b> Fotografía protagonista</span>
+            <span><b>02</b> Información bien jerarquizada</span>
+            <span><b>03</b> Contacto en el momento justo</span>
+          </div>
         </div>
       </section>
 

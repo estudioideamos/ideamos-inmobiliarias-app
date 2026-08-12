@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+﻿import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -16,6 +16,11 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /Una web para mostrar mejor/);
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
+  assert.match(html, /interior-limestone\.webp/);
+  assert.match(html, /fachada-urbana\.webp/);
+  assert.match(html, /casa-paisaje\.webp/);
+  assert.match(html, /Una web que se siente/);
+  assert.match(html, /puesta en escena/);
   assert.match(html, /backend-panel-real\.png/);
   assert.match(html, /process-discovery\.webp/);
   assert.match(html, /process-design\.webp/);
@@ -58,6 +63,7 @@ test("incluye metadata social propia", async () => {
 test("mantiene fija la columna izquierda del FAQ en escritorio", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(css, /main\{overflow-x:clip;overflow-y:visible\}/);
+  assert.match(css, /residencia-blue-hour\.webp/);
   assert.match(css, /\.faq-section\{[^}]*overflow:visible;[^}]*align-items:start/);
   assert.match(css, /\.faq-intro\{position:sticky;top:24px;height:clamp\(520px,calc\(100vh - 48px\),680px\)/);
   assert.match(css, /@media\(max-width:850px\)\{\.faq-section\{gap:35px\}\.faq-intro\{position:relative;top:auto;height:auto/);

@@ -94,7 +94,7 @@ export default function PricingPage() {
           <h2>Lo importante,<br /><em>sin letra chica.</em></h2>
         </div>
         <div className="pricing-faq-list">
-          <details open><summary>¿Qué incluye el precio de lanzamiento?<span>−</span></summary><p>Incluye la plataforma, la web adaptada a tu marca, el panel de gestión, las funcionalidades publicadas en cada plan, la puesta online y el soporte correspondiente.</p></details>
+          <details open><summary>¿Qué incluye el precio de lanzamiento?<span>−</span></summary><p>Incluye la plataforma, la web adaptada a tu marca, el panel de gestión y el soporte del plan. Además, durante el lanzamiento bonificamos el 100% de la puesta en marcha y el diseño personalizado, valuados en USD 2.500: pagás únicamente el abono mensual.</p></details>
           <details><summary>¿Tokko Broker es obligatorio?<span>+</span></summary><p>No. Podés administrar toda la cartera desde el panel de Ideamos. La conexión con Tokko es opcional y se define durante la implementación.</p></details>
           <details><summary>¿Cuál es la diferencia entre los dos planes?<span>+</span></summary><p>Inmobiliaria admite hasta 2.000 propiedades y soporte Standard. Plus ofrece propiedades ilimitadas, soporte prioritario y respuesta de hasta un día.</p></details>
           <details><summary>¿Puedo cambiar de plan más adelante?<span>+</span></summary><p>Sí. Podés comenzar con Inmobiliaria y pasar a Plus cuando aumente tu cartera o necesites una prioridad de soporte mayor.</p></details>

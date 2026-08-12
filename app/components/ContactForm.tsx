@@ -23,8 +23,6 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
       `Email: ${data.get("email")}`,
       `Teléfono: ${data.get("telefono")}`,
       `Interés: ${data.get("plan")}`,
-      `Cantidad de propiedades: ${data.get("propiedades")}`,
-      `¿Usa Tokko?: ${data.get("tokko")}`,
       `Mensaje: ${data.get("mensaje") || "Quiero coordinar una demostración."}`,
     ].join("\n");
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -41,8 +39,6 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
         <label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="nombre@inmobiliaria.com" required /></label>
         <label><span>Teléfono</span><input name="telefono" type="tel" autoComplete="tel" placeholder="Código de área + número" required /></label>
         <label><span>¿Qué te interesa?</span><select name="plan" value={plan} onChange={(event) => setPlan(event.target.value)}><option>Quiero que me asesoren</option><option>Plan Inmobiliaria</option><option>Plan Inmobiliaria Plus</option><option>Ver una demostración</option><option>Integración con Tokko Broker</option></select></label>
-        <label><span>Propiedades en cartera</span><select name="propiedades" defaultValue="Hasta 500"><option>Hasta 100</option><option>Hasta 500</option><option>Hasta 2.000</option><option>Más de 2.000</option></select></label>
-        <label><span>¿Trabajan con Tokko?</span><select name="tokko" defaultValue="No"><option>No</option><option>Sí</option><option>Estamos evaluándolo</option></select></label>
         <label className="contact-form-message"><span>¿Qué necesitás resolver?</span><textarea name="mensaje" rows={compact ? 3 : 4} placeholder="Contanos brevemente cómo trabajan hoy y qué les gustaría mejorar." /></label>
       </div>
       <div className="contact-form-submit"><p><i /> Tus datos se preparan en un mensaje de WhatsApp. Vos decidís cuándo enviarlo.</p><button className="button button-accent" type="submit">Enviar consulta por WhatsApp <span aria-hidden="true">↗</span></button></div>

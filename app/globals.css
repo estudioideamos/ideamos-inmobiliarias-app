@@ -708,3 +708,79 @@ body{background:#f7f5ee}
 .topbar nav a:after{bottom:9px;height:1.5px}
 @media(max-width:1280px) and (min-width:1121px){.topbar nav{gap:20px;font-size:12px}.topbar{padding-left:16px}.topbar-cta{padding-inline:17px}}
 @media(max-width:580px){.topbar{height:66px}}
+/* Auditoría tipográfica: microtexto legible y jerarquías consistentes */
+.eyebrow{font-size:10px;line-height:1.35}
+.button{font-size:13px}
+.hero-benefits{font-size:12px}
+.trust-strip p{font-size:10px}.trust-strip div{font-size:14px}
+.result-card small,.proof-grid strong,.feature-list article>span,.outcomes-grid article>span{font-size:10px}
+.result-card span{font-size:12px;line-height:1.55}
+.proof-grid p,.feature-list p,.outcomes-grid p,.flow-card>p,.launch-steps p,.value-grid p,.video-copy>p,.internal-card-grid p{font-size:14px;line-height:1.65}
+.workspace-note{width:278px;min-height:112px;padding:19px 20px;gap:13px;border-radius:16px}
+.workspace-note>span{font-size:9px;line-height:1.3}
+.workspace-note div{gap:9px}
+.workspace-note b{font-size:11px;line-height:1.25;letter-spacing:.07em}
+.workspace-note small{font-size:10.5px;line-height:1.52;color:#65776d}
+.note-1{left:-12px;top:-12px}.note-2{right:-12px;top:24px}.note-3{left:-6px;bottom:-10px}.note-4{right:8px;bottom:10px}
+.dashboard-window figcaption,.flow-step,.launch-steps small,.video-cover>small,.video-copy>span,.video-copy b,.internal-card-grid article>span{font-size:9px}
+.flow-connector span{font-size:8px}
+.integration-points strong{font-size:12px}.integration-points small{font-size:10px;line-height:1.45}
+.value-grid article>span{font-size:9px}.video-copy div i{font-size:11px}
+.plan-card-head{font-size:9px}.plan-card li{font-size:13px}.plan-card>small{font-size:10px}
+.faq-list details p{font-size:14px}.faq-assurance,.system-status,.footer-main nav>span,.footer-contact>span,.footer-bottom{font-size:9px}
+.footer-contact>a{font-size:12px}.footer-contact p{font-size:11px}
+.currency-switch-wrap>div:first-child>span,.currency-switch button small,.launch-price-card.featured:before,.launch-price-top>small,.launch-price-title>div small,.launch-price-value b{font-size:9px}
+.currency-switch-wrap>div:first-child>p,.currency-switch button{font-size:12px}
+.launch-price-title>p{font-size:14px}.launch-price-value small,.launch-price-card li,.launch-price-note{font-size:12px}
+.internal-hero-stat span{font-size:10px}.internal-bullets span{font-size:13px}.internal-bullets b{font-size:9px}
+@media(max-width:1380px) and (min-width:851px){.workspace-note{width:252px;min-height:108px;padding:17px}.workspace-note small{font-size:10px}.note-1{left:-4px}.note-2{right:-4px}.note-3{left:0}.note-4{right:0}}
+@media(max-width:850px){.workspace-note{width:250px}.workspace-note small{font-size:10px}}
+@media(max-width:580px){.eyebrow{font-size:9px}.button{font-size:13px}.workspace-visual{min-height:665px}.workspace-note{width:min(235px,68vw);min-height:102px;padding:15px}.workspace-note b{font-size:10px}.workspace-note small{font-size:9.5px}.note-1{left:0;top:0}.note-2{right:0;top:88px}.note-3{left:0;bottom:40px}.note-4{right:0;bottom:-28px}.proof-grid p,.feature-list p,.outcomes-grid p,.flow-card>p,.launch-steps p,.value-grid p,.video-copy>p,.internal-card-grid p,.faq-list details p{font-size:13px}.integration-points strong{font-size:12px}.integration-points small{font-size:10px}.launch-price-card li{font-size:12px}}
+/* Dock flotante de contacto y navegación */
+.floating-actions{position:fixed;z-index:90;right:22px;bottom:22px;display:grid;justify-items:end;gap:10px}
+.floating-action{min-width:54px;height:54px;padding:0 17px;border:1px solid rgba(255,255,255,.15);border-radius:18px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 16px 38px rgba(4,24,16,.22);backdrop-filter:blur(14px);transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.floating-action b{max-width:0;overflow:hidden;opacity:0;white-space:nowrap;font-size:12px;line-height:1;transition:max-width .3s ease,opacity .2s ease}
+.floating-action:hover,.floating-action:focus-visible{transform:translateY(-3px);box-shadow:0 21px 45px rgba(4,24,16,.3)}
+.floating-action:hover b,.floating-action:focus-visible b{max-width:90px;opacity:1}
+.floating-whatsapp{background:var(--lime);color:var(--forest);border-color:rgba(18,60,43,.16)}
+.whatsapp-mark{position:relative;width:27px;height:27px;flex:0 0 27px;border:1.5px solid var(--forest);border-radius:50%;display:grid;place-items:center;font:800 9px/1 var(--font-geist-sans);letter-spacing:-.04em;text-transform:uppercase}
+.whatsapp-mark:after{content:"";position:absolute;left:1px;bottom:-3px;width:7px;height:7px;border-left:1.5px solid var(--forest);transform:rotate(-28deg)}
+.floating-top{background:rgba(7,32,23,.94);color:#fff}
+.floating-top>span{width:27px;height:27px;flex:0 0 27px;border:1px solid rgba(223,255,114,.48);border-radius:50%;display:grid;place-items:center;font-size:16px;color:var(--lime)}
+.floating-action:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:580px){.floating-actions{right:12px;bottom:12px;gap:8px}.floating-action{width:50px;min-width:50px;height:50px;padding:0;border-radius:16px}.floating-action b{display:none}.whatsapp-mark,.floating-top>span{width:25px;height:25px;flex-basis:25px}}
+@media(prefers-reduced-motion:reduce){.floating-action,.floating-action b{transition:none}}
+/* Pictogramas exclusivos: identidad, búsqueda y consulta */
+.proof-grid{position:relative;border-color:rgba(18,60,43,.12);border-radius:26px;background:rgba(255,255,255,.74);box-shadow:0 28px 75px rgba(17,35,27,.07);overflow:hidden}
+.proof-card{position:relative;isolation:isolate;overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),background .35s ease,box-shadow .45s ease}
+.proof-card:before{content:"";position:absolute;z-index:-1;inset:-45%;background:radial-gradient(circle at 50% 50%,rgba(223,255,114,.28),transparent 33%);opacity:0;transform:translate3d(-18%,15%,0);transition:opacity .4s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.proof-card:hover{z-index:2;background:#fff;transform:translateY(-8px);box-shadow:0 30px 65px rgba(17,35,27,.14)}
+.proof-card:hover:before{opacity:1;transform:translate3d(18%,-15%,0)}
+.proof-art{position:relative;width:78px;height:78px;margin:26px 0 34px;border:1px solid rgba(18,60,43,.13);border-radius:23px;background:linear-gradient(145deg,#faffeb,#e9f2e9);box-shadow:inset 0 1px 0 #fff,0 15px 30px rgba(17,35,27,.1);transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease}
+.proof-art:after{content:"";position:absolute;right:9px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(223,255,114,.2)}
+.proof-card:hover .proof-art{transform:translateY(-5px) rotate(-2deg);box-shadow:inset 0 1px 0 #fff,0 22px 38px rgba(17,35,27,.16)}
+.proof-brand .proof-art i{position:absolute;width:24px;height:34px;border:1.5px solid var(--forest);border-radius:7px;background:rgba(255,255,255,.72)}
+.proof-brand .proof-art i:nth-child(1){left:17px;top:25px;transform:rotate(-12deg)}.proof-brand .proof-art i:nth-child(2){left:28px;top:20px;transform:rotate(0)}.proof-brand .proof-art i:nth-child(3){left:39px;top:25px;transform:rotate(12deg)}
+.proof-brand .proof-art b{position:absolute;z-index:2;left:31px;top:31px;width:17px;height:17px;border-radius:50%;background:var(--forest);box-shadow:inset 0 0 0 5px var(--lime)}
+.proof-search .proof-art i:first-child{position:absolute;left:18px;top:17px;width:36px;height:36px;border:2px solid var(--forest);border-radius:50%}.proof-search .proof-art i:nth-child(2){position:absolute;left:48px;top:48px;width:18px;height:2px;border-radius:2px;background:var(--forest);transform:rotate(44deg)}
+.proof-search .proof-art b{position:absolute;left:31px;top:29px;width:10px;height:13px;border-radius:8px 8px 9px 9px;background:var(--lime);box-shadow:0 0 0 2px var(--forest);clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%)}
+.proof-chat .proof-art i:first-child{position:absolute;left:15px;top:19px;width:45px;height:34px;border:2px solid var(--forest);border-radius:11px}.proof-chat .proof-art i:first-child:after{content:"";position:absolute;left:7px;bottom:-8px;width:11px;height:11px;border-left:2px solid var(--forest);transform:skew(-28deg)}
+.proof-chat .proof-art i:nth-child(2){position:absolute;left:25px;top:32px;width:24px;height:2px;border-radius:2px;background:var(--lime);box-shadow:0 7px 0 rgba(18,60,43,.35)}
+.proof-chat .proof-art b{position:absolute;right:13px;bottom:13px;width:17px;height:17px;border:5px solid var(--forest);border-top-color:var(--lime);border-radius:50%}
+.proof-grid h3{margin-top:0}
+
+/* Capa de profundidad y movimiento 2026: progresiva, elegante y eficiente */
+.feature-list article,.outcomes-grid article,.flow-card,.integration-points>span,.launch-steps article,.video-card,.internal-card-grid article,.launch-price-card{isolation:isolate}
+.feature-list article:before,.flow-card:before,.launch-steps article:before,.internal-card-grid article:before,.launch-price-card:after{content:"";position:absolute;z-index:-1;inset:0;border-radius:inherit;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.62) 46%,transparent 72%);background-size:240% 100%;background-position:140% 0;opacity:0;transition:background-position .8s cubic-bezier(.2,.8,.2,1),opacity .3s ease}
+.feature-list article:hover:before,.flow-card:hover:before,.launch-steps article:hover:before,.internal-card-grid article:hover:before,.launch-price-card:hover:after{background-position:-80% 0;opacity:.55}
+.button,.floating-action,.faq-cta,.round-cta{position:relative;overflow:hidden}
+.button:after,.faq-cta:after,.round-cta:after{content:"";position:absolute;inset:-2px;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.42) 48%,transparent 70%);transform:translateX(-120%);transition:transform .7s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.button:hover:after,.faq-cta:hover:after,.round-cta:hover:after{transform:translateX(120%)}
+.editorial-photo img,.landscape-statement>img,.internal-showcase figure img{filter:saturate(.96) contrast(1.02);transition:transform 1.1s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+.editorial-photo:hover img,.landscape-statement:hover>img,.internal-showcase figure:hover img{transform:scale(1.035);filter:saturate(1.04) contrast(1.04)}
+@keyframes ideamos-reveal{from{opacity:.01;transform:translate3d(0,42px,0) scale(.985);filter:blur(7px)}to{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@supports (animation-timeline:view()){
+  .section-heading,.proof-grid,.outcomes-grid,.feature-list,.workspace-copy,.workspace-visual,.integration-flow,.value-grid,.video-grid,.launch-steps,.plan-card,.faq-list,.internal-card-grid,.internal-showcase>*,.pricing-principle,.launch-price-grid{animation:ideamos-reveal both cubic-bezier(.2,.8,.2,1);animation-timeline:view();animation-range:entry 5% cover 28%}
+}
+@media(max-width:580px){.proof-art{width:70px;height:70px;margin:20px 0 27px}.proof-grid article{min-height:260px}.proof-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.proof-card,.proof-art,.feature-list article:before,.flow-card:before,.launch-steps article:before,.internal-card-grid article:before,.launch-price-card:after,.button:after,.faq-cta:after,.round-cta:after,.editorial-photo img,.landscape-statement>img,.internal-showcase figure img{animation:none!important;transition:none!important;transform:none!important;filter:none!important}}

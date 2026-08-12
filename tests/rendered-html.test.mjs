@@ -17,6 +17,8 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
   assert.match(html, /mobile-demo-reel/);
+  assert.match(html, /5491167681777/);
+  assert.match(html, /floating-top/);
   assert.match(html, /Encontrá tu lugar/);
   assert.match(html, /Propiedades que/);
   assert.match(html, /interior-limestone\.webp/);

@@ -1,12 +1,13 @@
 import BrandLogo from "./BrandLogo";
 import ContactSection from "./ContactSection";
+import Marquee from "./Marquee";
 
 const contactUrl = "/contacto";
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 
 export default function PremiumFooter({ showContactSection = true }: { showContactSection?: boolean }) {
   return (
-    <>{showContactSection && <ContactSection />}<footer className="premium-footer">
+    <>{showContactSection && <><ContactSection /><Marquee label="Cierre comercial" tone="forest" items={["DEMO PERSONALIZADA", "PROPUESTA CLARA", "WEB + GESTIÓN", "TOKKO OPCIONAL", "ACOMPAÑAMIENTO DIRECTO"]} /></>}<footer className="premium-footer">
       <div className="footer-orbit" aria-hidden="true" />
       <section className="footer-cta">
         <div><p className="eyebrow light"><span /> Tu próxima herramienta comercial</p><h2>Una web que muestra.<br />Un sistema que <em>ordena.</em></h2></div>

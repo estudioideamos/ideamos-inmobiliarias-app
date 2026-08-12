@@ -9,7 +9,7 @@ const plans = [
     name: "Inmobiliaria",
     eyebrow: "PARA INMOBILIARIAS",
     copy: "Todo lo necesario para publicar tu cartera, presentar tu marca y operar con una web profesional.",
-    prices: { ARS: "111.795", USD: "75" },
+    prices: { ARS: "250.000", USD: "75" },
     featured: false,
     includes: [
       "Todas las funcionalidades incluidas",
@@ -29,7 +29,7 @@ const plans = [
     name: "Inmobiliaria Plus",
     eyebrow: "MÁS ELEGIDO",
     copy: "Para equipos que necesitan catálogo ilimitado, prioridad de soporte y acompañamiento más cercano.",
-    prices: { ARS: "149.247", USD: "100" },
+    prices: { ARS: "300.000", USD: "100" },
     featured: true,
     includes: [
       "Todas las funcionalidades incluidas",

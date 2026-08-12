@@ -69,21 +69,25 @@ function makeStatic(html, route) {
   result = result.replace("</head>", '<meta name="theme-color" content="#0c1d17"/></head>');
   if (result.includes("contact-form")) {
     const contactScript = `<script>
-document.addEventListener("submit",function(event){
+document.addEventListener("submit",async function(event){
   var form=event.target.closest(".contact-form");
   if(!form)return;
   event.preventDefault();
-  var data=new FormData(form);
-  var message=[
-    "Hola, quiero conocer Ideamos Inmobiliarias.","",
-    "Nombre: "+data.get("nombre"),
-    "Inmobiliaria: "+data.get("inmobiliaria"),
-    "Email: "+data.get("email"),
-    "Teléfono: "+data.get("telefono"),
-    "Interés: "+data.get("plan"),
-    "Mensaje: "+(data.get("mensaje")||"Quiero coordinar una demostración.")
-  ].join("\\n");
-  window.open("https://wa.me/5491167681777?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
+  var button=form.querySelector('button[type="submit"]');
+  var status=form.querySelector(".form-status");
+  var original=button?button.innerHTML:"Enviar consulta";
+  if(button){button.disabled=true;button.textContent="Enviando…";}
+  if(status)status.textContent="Enviando tu consulta…";
+  try{
+    var response=await fetch("https://formsubmit.co/ajax/hola@ideamos.com.ar",{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+    if(!response.ok)throw new Error("send");
+    form.reset();
+    if(status)status.textContent="Consulta enviada. Te vamos a responder a la brevedad.";
+  }catch(error){
+    if(status)status.textContent="No pudimos enviarla. Escribinos a hola@ideamos.com.ar.";
+  }finally{
+    if(button){button.disabled=false;button.innerHTML=original;}
+  }
 });
 var requestedPlan=new URLSearchParams(location.search).get("plan");
 if(requestedPlan){var select=document.querySelector('select[name="plan"]');if(select)select.value=requestedPlan;}

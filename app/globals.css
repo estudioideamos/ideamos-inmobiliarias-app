@@ -944,3 +944,34 @@ body{background:#f7f5ee}
 .topbar-cta:before{content:"";position:relative;z-index:2;width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(223,255,114,.14),0 0 16px rgba(223,255,114,.78);animation:demo-status-pulse 2.25s ease-in-out infinite}
 @keyframes demo-status-pulse{0%,100%{opacity:.82;transform:scale(.9);box-shadow:0 0 0 4px rgba(223,255,114,.1),0 0 12px rgba(223,255,114,.5)}50%{opacity:1;transform:scale(1.12);box-shadow:0 0 0 7px rgba(223,255,114,.04),0 0 22px rgba(223,255,114,.9)}}
 @media(prefers-reduced-motion:reduce){.topbar-cta:before{animation:none}}
+
+
+/* Tarjetas de precios compactas y proporcionadas */
+.launch-price-card{min-height:650px;padding:24px 26px;border-radius:25px}
+.launch-price-top>span{font-size:42px}
+.launch-price-title{padding:18px 0 15px}
+.launch-price-title h2{margin:14px 0 9px;font-size:clamp(34px,2.8vw,43px)}
+.launch-price-title>p{min-height:38px;font-size:12px;line-height:1.5}
+.launch-price-value{min-height:78px;padding:13px 0;gap:8px}
+.launch-price-value>strong{font-size:clamp(44px,3.8vw,57px)}
+.launch-price-card ul{margin:15px 0 17px;gap:0 18px}
+.launch-price-card li{min-height:34px;padding:6px 0;font-size:10.5px;gap:8px}
+.launch-price-card li>span{width:19px;height:19px;flex-basis:19px}
+.launch-price-card .button{min-height:46px}
+.launch-price-note{margin-top:16px}
+@media(max-width:850px){.launch-price-card{min-height:0}}
+@media(max-width:580px){.launch-price-card{padding:22px}.launch-price-card ul{grid-template-columns:1fr}.launch-price-card li{font-size:12px}}
+
+/* Hero principal alineado sobre una única grilla editorial */
+@media(min-width:1121px){
+  .hero{grid-template-columns:minmax(500px,575px) minmax(0,1fr);column-gap:72px;align-items:start}
+  .hero-copy{width:100%;max-width:575px;padding-top:30px}
+  .hero .eyebrow,.hero h1,.hero-lead,.hero-actions,.hero-benefits{width:100%;max-width:none}
+  .hero h1{font-size:clamp(58px,5.2vw,80px)}
+  .hero-lead{margin-top:25px}
+  .hero-actions{display:grid;grid-template-columns:244px 222px;gap:12px;align-items:stretch}
+  .hero-actions .button{width:100%;min-height:52px;padding-inline:20px;justify-content:space-between}
+  .hero-benefits{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:16px;align-items:center}
+  .hero-benefits>span{min-width:0;white-space:nowrap}
+  .hero-product{justify-self:stretch;width:100%;margin-top:28px;transform:scale(.82);transform-origin:top left}
+}

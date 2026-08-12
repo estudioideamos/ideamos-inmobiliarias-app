@@ -1357,3 +1357,16 @@ body{background:#f7f5ee}
   .footer-toggle-group .footer-toggle-input:checked~nav{padding:0 15px 16px}
 }
 @media(prefers-reduced-motion:reduce){.orbit-cta-copy{animation:none}.function-card-icon img{transition:none}}
+
+
+/* Preguntas home: composición mobile estable a ancho completo */
+@media(max-width:700px){
+  .faq-section{width:100%;max-width:100%;min-width:0;display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:18px;padding:56px 14px!important;overflow:hidden}
+  .faq-intro{position:relative!important;inset:auto!important;top:auto!important;width:100%;max-width:100%;min-width:0;height:auto!important;min-height:480px;max-height:none;padding:28px 22px 26px;border-radius:24px}
+  .faq-intro-top{min-width:0;gap:12px}.faq-intro .eyebrow{min-width:0}
+  .faq-intro h2{max-width:100%;font-size:clamp(42px,12vw,50px)!important;line-height:.94;overflow-wrap:normal;word-break:normal}
+  .faq-intro>p{max-width:100%!important;font-size:13px!important}
+  .faq-badge{flex:0 0 64px;width:64px;height:64px}
+  .faq-cta{width:100%;min-width:0}
+  .faq-list{width:100%;max-width:100%;min-width:0;padding:8px;border-radius:20px}
+}

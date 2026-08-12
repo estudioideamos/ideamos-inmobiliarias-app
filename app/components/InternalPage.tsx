@@ -1,5 +1,6 @@
-import BrandLogo from "./BrandLogo";
 import Marquee from "./Marquee";
+import SiteHeader from "./SiteHeader";
+import PremiumFooter from "./PremiumFooter";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
@@ -106,19 +107,10 @@ const pages = {
 
 export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
   const page = pages[pageKey];
+  const tokkoIcons = ["/generated-icons/tokko-verify.png", "/generated-icons/tokko-records.png", "/generated-icons/tokko-filters.png", "/generated-icons/tokko-manual.png"];
   return (
     <main className={`internal-page internal-${pageKey}`}>
-      <header className="topbar internal-topbar">
-        <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
-        <nav aria-label="Navegación principal">
-          <a className={pageKey === "producto" ? "active" : ""} href="/la-plataforma">La Plataforma</a>
-          <a className={pageKey === "funciones" ? "active" : ""} href="/funcionalidades">Funcionalidades</a>
-          <a className={pageKey === "tokko" ? "active" : ""} href="/tokko-broker">Tokko</a>
-          <a className={pageKey === "valor" ? "active" : ""} href="/beneficios">Beneficios</a>
-          <a href="/precios">Precios</a>
-        </nav>
-        <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
-      </header>
+      <SiteHeader active={pageKey === "producto" ? "plataforma" : pageKey === "funciones" ? "funcionalidades" : pageKey === "tokko" ? "tokko" : pageKey === "preguntas" ? "preguntas" : undefined} />
 
       <section className="internal-hero">
         <div className="internal-hero-copy">
@@ -138,7 +130,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
           <p>{page.intro}</p>
         </div>
         <div className="internal-card-grid">
-          {page.cards.map(([number, title, copy]: string[]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
+          {page.cards.map(([number, title, copy]: string[], index: number) => <article key={number}>{pageKey === "tokko" && <img className="tokko-card-icon" src={tokkoIcons[index]} alt="" />}<span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
       </section>
 
@@ -157,12 +149,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
         <a className="round-cta" href={contactUrl}><span>COORDINAR</span><b>↗</b><small>UNA DEMO</small></a>
       </section>
 
-      <footer className="pricing-footer internal-footer">
-        <a className="brand footer-brand" href="/"><BrandLogo /></a>
-        <p>Web + gestión para inmobiliarias.</p>
-        <nav><a href="/la-plataforma">La Plataforma</a><a href="/funcionalidades">Funcionalidades</a><a href="/tokko-broker">Tokko</a><a href="/beneficios">Beneficios</a><a href="/preguntas-frecuentes">Preguntas Frecuentes</a></nav>
-        <span>© 2026 IDEAMOS</span>
-      </footer>
+      <PremiumFooter />
     </main>
   );
 }

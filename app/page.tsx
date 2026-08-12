@@ -5,7 +5,7 @@ import PremiumFooter from "./components/PremiumFooter";
 import type { CSSProperties } from "react";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
-const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
+const contactUrl = "/contacto";
 const mobileOrbitText = "MOBILE·MOBILE·";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;

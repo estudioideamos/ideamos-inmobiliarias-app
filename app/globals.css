@@ -1274,3 +1274,14 @@ body{background:#f7f5ee}
   .footer-toggle-input:checked~nav{max-height:280px;padding:0 0 18px;opacity:1}
 }
 @media(prefers-reduced-motion:reduce){.mobile-menu-links a>span,.footer-toggle-label>span:after,.footer-quick-links nav{transition:none}}
+
+
+/* Menú mobile: borde del panel alineado con el viewport */
+@media(max-width:1120px){
+  .topbar .mobile-menu nav{position:fixed;inset:auto -20px auto auto;top:-18px;width:100vw;height:100dvh}
+  .mobile-menu[open] summary{position:fixed;top:18px;right:18px}
+}
+@media(max-width:700px){
+  .topbar .mobile-menu nav{right:-10px;top:-10px;width:100vw;height:100dvh}
+  .mobile-menu[open] summary{top:16px;right:16px}
+}

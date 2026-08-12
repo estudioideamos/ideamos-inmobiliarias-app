@@ -1,8 +1,10 @@
 import BrandLogo from "./components/BrandLogo";
 import Marquee from "./components/Marquee";
+import type { CSSProperties } from "react";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
+const mobileOrbitText = "MOBILE·MOBILE·MOBILE·";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 const Check = () => <span className="check" aria-hidden="true">✓</span>;
@@ -47,7 +49,7 @@ export default function Home() {
         </a>
         <nav aria-label="Navegación principal">
           <a href="/producto">La Plataforma</a>
-          <a href="/funciones">Funciones</a>
+          <a href="/funciones">Funcionalidades</a>
           <a href="/tokko">Tokko Broker</a>
           <a href="/precios">Precios</a>
           <a href="/preguntas">Preguntas Frecuentes</a>
@@ -72,7 +74,7 @@ export default function Home() {
         </div>
 
         <div className="hero-product" aria-label="Vista real de la plataforma">
-          <span className="hero-sticker sticker-one mobile-orbit"><strong>100%</strong><span className="orbit-word orbit-word-1">M</span><span className="orbit-word orbit-word-2">O</span><span className="orbit-word orbit-word-3">B</span><span className="orbit-word orbit-word-4">I</span><span className="orbit-word orbit-word-5">L</span><span className="orbit-word orbit-word-6">E</span><i aria-hidden="true" /></span>
+          <span className="hero-sticker sticker-one mobile-orbit"><strong>100%</strong><span className="orbit-ring" aria-label="100% mobile">{[...mobileOrbitText].map((letter, index) => (<span key={`${letter}-${index}`} style={{ "--orbit-index": index } as CSSProperties}>{letter}</span>))}</span></span>
           <span className="hero-sticker sticker-two">TOKKO<br /><b>READY</b></span>
           <figure className="site-browser">
             <div className="browser-chrome"><i /><i /><i /><span>inmobiliaria.ideamos.ar</span><b>⋯</b></div>
@@ -123,7 +125,7 @@ export default function Home() {
       <section className="intro section" id="producto">
         <div className="section-heading centered">
           <p className="eyebrow"><span /> Qué es Ideamos Inmobiliarias</p>
-          <h2>Tu web y tu operación,<br /><em>en un mismo sistema.</em></h2>
+          <h2>Tu web y tus propiedades,<br /><em>en un mismo sistema.</em></h2>
           <p>Una plataforma para publicar propiedades, presentar tu marca y gestionar el catálogo desde un panel simple. La web deja de ser una vidriera estática y se convierte en una herramienta comercial.</p>
         </div>
         <div className="device-stage">
@@ -380,7 +382,7 @@ export default function Home() {
             <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
             <span className="system-status"><i /> DEMO ONLINE</span>
           </div>
-          <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+          <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funcionalidades</a><a href="/tokko">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
           <nav><span>IDEAMOS</span><a href="/preguntas">Preguntas Frecuentes</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
           <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>

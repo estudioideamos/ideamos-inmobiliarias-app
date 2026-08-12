@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import BrandLogo from "../components/BrandLogo";
 import Marquee from "../components/Marquee";
 import PricingPlans from "./PricingPlans";
+import SiteHeader from "../components/SiteHeader";
+import PremiumFooter from "../components/PremiumFooter";
 
 export const metadata: Metadata = {
   title: "Precios de lanzamiento | Ideamos Inmobiliarias",
@@ -28,17 +29,7 @@ const comparison = [
 export default function PricingPage() {
   return (
     <main className="pricing-page">
-      <header className="topbar pricing-topbar">
-        <a className="brand" href="/" aria-label="Ideamos Inmobiliarias, inicio"><BrandLogo /></a>
-        <nav aria-label="Navegación de precios">
-          <a href="/la-plataforma">La Plataforma</a>
-          <a href="/funcionalidades">Funcionalidades</a>
-          <a href="/tokko-broker">Tokko Broker</a>
-          <a href="/beneficios">Beneficios</a>
-          <a className="active" href="/precios">Precios</a>
-        </nav>
-        <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
-      </header>
+      <SiteHeader active="precios" />
 
       <section className="pricing-hero">
         <div className="pricing-hero-copy">
@@ -122,12 +113,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <footer className="pricing-footer">
-        <a className="brand footer-brand" href="/"><BrandLogo /></a>
-        <p>Web + gestión para inmobiliarias.</p>
-        <nav><a href="/">Inicio</a><a href={demoUrl} target="_blank" rel="noreferrer">Demo ↗</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
-        <span>© 2026 IDEAMOS</span>
-      </footer>
+      <PremiumFooter />
     </main>
   );
 }

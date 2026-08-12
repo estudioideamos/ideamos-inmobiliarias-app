@@ -5,7 +5,7 @@ import SiteHeader from "../components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Contacto | Ideamos Inmobiliarias",
-  description: "Coordiná una demostración de Ideamos Inmobiliarias y recibí una recomendación para tu web, gestión de propiedades e integración con Tokko Broker.",
+  description: "Contactá a Ideamos Inmobiliarias para conocer la plataforma, coordinar una demostración o consultar por los planes.",
 };
 
 export default function ContactPage() {
@@ -15,17 +15,20 @@ export default function ContactPage() {
       <section className="internal-hero contact-hero">
         <div className="internal-hero-copy">
           <p className="eyebrow light"><span /> Contacto</p>
-          <h1>Conozcamos tu operación.<br /><em>Diseñemos el próximo paso.</em></h1>
-          <p>Una conversación breve alcanza para entender tu cartera, tus herramientas actuales y qué necesita tu inmobiliaria para mostrar mejor y trabajar con más claridad.</p>
+          <h1>Conozcamos tu inmobiliaria.<br /><em>Hablemos de tu próxima web.</em></h1>
+          <p>Escribinos para conocer la plataforma, coordinar una demostración o consultar por los planes.</p>
         </div>
-        <aside className="internal-hero-stat"><strong>01</strong><span>CHARLA / UNA PROPUESTA CLARA</span><i /></aside>
+        <aside className="internal-hero-stat"><strong>01</strong><span>CONTACTO / RESPUESTA DIRECTA</span><i /></aside>
       </section>
       <section className="contact-page-main section">
         <div className="contact-page-aside">
-          <p className="eyebrow"><span /> Sin formularios eternos</p>
-          <h2>Contanos lo esencial.<br /><em>Nosotros hacemos las preguntas correctas.</em></h2>
-          <p>Recibimos tu consulta directamente por WhatsApp y coordinamos una demostración enfocada en tu operación real.</p>
-          <div className="contact-page-promises"><span><b>01</b> Respuesta directa</span><span><b>02</b> Demo personalizada</span><span><b>03</b> Propuesta sin letra chica</span></div>
+          <p className="eyebrow"><span /> Datos de contacto</p>
+          <h2>Estamos para<br /><em>responderte.</em></h2>
+          <div className="contact-data contact-page-data">
+            <a href="https://wa.me/5491167681777" target="_blank" rel="noreferrer"><span>WHATSAPP</span><b>+54 9 11 6768 1777</b><i>↗</i></a>
+            <a href="mailto:hola@ideamos.ar"><span>EMAIL</span><b>hola@ideamos.ar</b><i>↗</i></a>
+            <div><span>BASE</span><b>Buenos Aires, Argentina</b><i>AR</i></div>
+          </div>
         </div>
         <ContactForm />
       </section>

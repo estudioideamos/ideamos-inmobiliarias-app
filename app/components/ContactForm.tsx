@@ -27,7 +27,9 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
       `¿Usa Tokko?: ${data.get("tokko")}`,
       `Mensaje: ${data.get("mensaje") || "Quiero coordinar una demostración."}`,
     ].join("\n");
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    event.currentTarget.action = whatsappUrl;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   }
 
   return (

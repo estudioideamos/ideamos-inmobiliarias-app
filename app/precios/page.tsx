@@ -15,7 +15,7 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 const comparison = [
   ["Capacidad de propiedades", "Hasta 2.000", "Ilimitadas"],
-  ["Soporte técnico", "Standard", "Plus"],
+  ["Soporte técnico", "Plus", "Premium"],
   ["Tiempo de respuesta", "Hasta 5 días", "Hasta 1 día"],
   ["Web diseñada para tu marca", "✓", "✓"],
   ["Panel autogestionable", "✓", "✓"],
@@ -54,7 +54,7 @@ export default function PricingPage() {
         <div className="section-heading centered narrow">
           <p className="eyebrow"><span /> Elegí tu plan</p>
           <h2>La misma plataforma.<br />El respaldo que <em>necesitás.</em></h2>
-          <p>Inmobiliaria cubre una operación profesional completa. Inmobiliaria Plus suma catálogo ilimitado y soporte prioritario.</p>
+          <p>Plus cubre una operación profesional completa. Premium suma catálogo ilimitado y soporte prioritario.</p>
         </div>
         <PricingPlans />
       </section>
@@ -79,7 +79,7 @@ export default function PricingPage() {
           <p>La diferencia está en el volumen de cartera y el nivel de prioridad. El producto completo está en ambos.</p>
         </div>
         <div className="comparison-table" role="table" aria-label="Comparación de planes">
-          <div className="comparison-row comparison-head two-plans" role="row"><span>CAPACIDAD</span><b>INMOBILIARIA</b><b>INMOBILIARIA PLUS</b></div>
+          <div className="comparison-row comparison-head two-plans" role="row"><span>CAPACIDAD</span><b>PLUS</b><b>PREMIUM</b></div>
           {comparison.map(([label, standard, plus]) => (
             <div className="comparison-row two-plans" role="row" key={label}>
               <strong>{label}</strong><span className={standard === "×" ? "comparison-no" : ""}>{standard}</span><span>{plus}</span>
@@ -113,7 +113,7 @@ export default function PricingPage() {
           {[
             ["¿Qué incluye el precio de lanzamiento?", "Incluye la plataforma, la web adaptada a tu marca, el panel de gestión y el soporte del plan. Durante el lanzamiento también bonificamos el 100% de la puesta en marcha y el diseño personalizado, valuados en USD 2.500: pagás únicamente el abono mensual."],
             ["¿Tokko Broker es obligatorio?", "No. Podés administrar toda la cartera desde el panel de Ideamos. La conexión con Tokko es opcional y se define durante la implementación."],
-            ["¿Cuál es la diferencia entre los dos planes?", "Inmobiliaria admite hasta 2.000 propiedades y soporte Standard. Plus ofrece propiedades ilimitadas, soporte prioritario y respuesta de hasta un día."],
+            ["¿Cuál es la diferencia entre los dos planes?", "Plus admite hasta 2.000 propiedades y soporte Plus. Premium ofrece propiedades ilimitadas, soporte prioritario y respuesta de hasta un día."],
             ["¿Puedo cambiar de plan más adelante?", "Sí. Podés comenzar con Inmobiliaria y pasar a Plus cuando aumente tu cartera o necesites una prioridad de soporte mayor."],
           ].map(([question, answer], index) => <details key={question} open={index === 0}><summary><span className="faq-number">0{index + 1}</span><b>{question}</b><span className="faq-toggle" aria-hidden="true" /></summary><p>{answer}</p></details>)}
         </div>

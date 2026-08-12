@@ -16,6 +16,7 @@ const routes = [
   { pathname: "/valor", output: path.join("valor", "index.html"), marker: "Una mejor presencia", depth: 1 },
   { pathname: "/preguntas-frecuentes", output: path.join("preguntas-frecuentes", "index.html"), marker: "Antes de empezar", depth: 1 },
   { pathname: "/precios", output: path.join("precios", "index.html"), marker: "Dos planes.", depth: 1 },
+  { pathname: "/contacto", output: path.join("contacto", "index.html"), marker: "Conozcamos tu operación", depth: 1 },
 ];
 const isWindows = process.platform === "win32";
 const serverCommand = isWindows ? (process.env.ComSpec || "cmd.exe") : "npm";
@@ -66,6 +67,31 @@ function makeStatic(html, route) {
     result = result.replace("</head>", `<link rel="canonical" href="${canonicalUrl}"/></head>`);
   }
   result = result.replace("</head>", '<meta name="theme-color" content="#0c1d17"/></head>');
+  if (route.pathname === "/contacto") {
+    const contactScript = `<script>
+document.addEventListener("submit",function(event){
+  var form=event.target.closest(".contact-form");
+  if(!form)return;
+  event.preventDefault();
+  var data=new FormData(form);
+  var message=[
+    "Hola, quiero conocer Ideamos Inmobiliarias.","",
+    "Nombre: "+data.get("nombre"),
+    "Inmobiliaria: "+data.get("inmobiliaria"),
+    "Email: "+data.get("email"),
+    "Teléfono: "+data.get("telefono"),
+    "Interés: "+data.get("plan"),
+    "Cantidad de propiedades: "+data.get("propiedades"),
+    "¿Usa Tokko?: "+data.get("tokko"),
+    "Mensaje: "+(data.get("mensaje")||"Quiero coordinar una demostración.")
+  ].join("\\n");
+  window.open("https://wa.me/5491167681777?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
+});
+var requestedPlan=new URLSearchParams(location.search).get("plan");
+if(requestedPlan){var select=document.querySelector('select[name="plan"]');if(select)select.value=requestedPlan;}
+<\/script>`;
+    result = result.replace("</body>", contactScript + "</body>");
+  }
   return `<!doctype html>\n${result}`;
 }
 

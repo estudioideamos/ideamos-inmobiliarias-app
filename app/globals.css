@@ -1123,3 +1123,6 @@ body{background:#f7f5ee}
 /* Precisión editorial y estados de comparación */
 .contact-section-copy h2>span,.contact-section-copy h2>em{display:block}.contact-section-copy h2>span,.contact-section-copy h2>em{white-space:nowrap}.comparison-row .comparison-no{background:#f0f2ed!important;color:#849088!important;text-decoration:none;font-weight:700;border:1px solid rgba(18,60,43,.12)}
 @media(max-width:1120px){.contact-section-copy h2>span,.contact-section-copy h2>em{white-space:normal}}
+
+/* Contraste de datos en la página clara de Contacto */
+.contact-page-data span{color:#60756a}.contact-page-data b{color:var(--ink)}.contact-page-data i{color:#6e9c15}

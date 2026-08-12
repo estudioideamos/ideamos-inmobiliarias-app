@@ -87,10 +87,12 @@ export default function PricingPlans() {
               <div><b>+ IVA</b><small>/ mes</small></div>
             </div>
             <p className="plan-bonus"><span aria-hidden="true">✦</span> Puesta en marcha y diseño personalizado bonificados</p>
+            {!plan.featured && <div className="plan-legend" aria-label="Referencia de prestaciones"><span><b>✓</b> Incluido</span><span><b>×</b> Solo en Plus</span></div>}
             <ul>
-              {plan.includes.map((item, itemIndex) => (
-                <li className={itemIndex < 4 ? "key-feature" : ""} key={item}><span aria-hidden="true">✓</span>{item}</li>
-              ))}
+              {plan.includes.map((item, itemIndex) => {
+                const unavailable = !plan.featured && itemIndex >= 4;
+                return <li className={unavailable ? "unavailable" : itemIndex < 4 ? "key-feature" : ""} key={item}><span aria-hidden="true">{unavailable ? "×" : "✓"}</span><span>{item}</span></li>;
+              })}
             </ul>
             <a className={plan.featured ? "button button-accent full" : "button button-soft full"} href={contactBase + encodeURIComponent("Quiero el plan " + plan.name)}>
               Elegir {plan.name} <span aria-hidden="true">↗</span>

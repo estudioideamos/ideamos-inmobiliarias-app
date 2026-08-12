@@ -1,218 +1,254 @@
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
-const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20una%20demo%20del%20sistema%20inmobiliario";
+const contactUrl = "mailto:hola@ideamos.ar?subject=Quiero%20conocer%20Ideamos%20Inmobiliarias";
 
+const Arrow = () => <span aria-hidden="true">↗</span>;
 const Check = () => <span className="check" aria-hidden="true">✓</span>;
-const Arrow = () => <span className="arrow" aria-hidden="true">↗</span>;
+
+const visitorFeatures = [
+  ["01", "Experiencia mobile", "Tu catálogo se adapta a celulares, tablets y escritorio con una navegación rápida y clara."],
+  ["02", "Buscador con filtros", "Operación, tipo, ubicación, ambientes, precio y los datos que realmente usa un interesado."],
+  ["03", "Fichas completas", "Galerías, descripción, características, ubicación y contacto directo desde cada propiedad."],
+  ["04", "Consultas por propiedad", "Cada mensaje llega identificado con el inmueble que despertó el interés del visitante."],
+  ["05", "WhatsApp integrado", "Un acceso directo para convertir búsquedas en conversaciones con tu equipo comercial."],
+  ["06", "SEO inmobiliario", "Páginas preparadas para que Google pueda entender tu cartera y tu zona de trabajo."],
+];
+
+const businessFeatures = [
+  ["INVENTARIO", "Publicá, editá, destacá, pausá o duplicá propiedades desde un único panel."],
+  ["EMPRENDIMIENTOS", "Presentá proyectos con unidades, galería, amenities, ubicación y estado comercial."],
+  ["CONSULTAS", "Ordená oportunidades como nuevas, contactadas o cerradas sin perder el contexto."],
+  ["CONTENIDOS", "Actualizá textos, secciones y datos esenciales sin depender de cambios técnicos."],
+];
+
+const faqs = [
+  ["¿Necesito usar Tokko Broker?", "No. Podés administrar toda la cartera desde el panel de Ideamos. Tokko es una integración opcional para inmobiliarias que ya trabajan con esa plataforma."],
+  ["¿La web se adapta a la identidad de mi inmobiliaria?", "Sí. Trabajamos colores, tipografías, logo, tono, secciones y datos de contacto para construir una experiencia propia, no una plantilla genérica."],
+  ["¿Puedo publicar propiedades y emprendimientos?", "Sí. El sistema contempla ambos tipos de contenido, con fichas completas, galerías, estados, precios, borradores y destacados."],
+  ["¿Qué pasa con las consultas?", "Los formularios llegan al panel con la referencia de la propiedad. Así el equipo sabe qué vio cada persona y puede seguir la oportunidad."],
+  ["¿La web queda preparada para celulares y Google?", "Sí. El diseño es responsive y la estructura está pensada para ofrecer una buena experiencia de navegación y una base sólida de posicionamiento."],
+];
 
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
+      <header className="topbar">
         <a className="brand" href="#inicio" aria-label="Ideamos Inmobiliarias, inicio">
-          <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
+          <span className="brand-symbol" aria-hidden="true"><i /><i /><i /></span>
           <span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span>
         </a>
         <nav aria-label="Navegación principal">
-          <a href="#producto">Producto</a>
-          <a href="#tokko">Tokko</a>
-          <a href="#incluye">Qué incluye</a>
+          <a href="#ejemplo">Ejemplo</a>
+          <a href="#funciones">Funciones</a>
+          <a href="#tokko">Tokko Broker</a>
           <a href="#preguntas">Preguntas</a>
         </nav>
-        <a className="nav-cta" href={contactUrl}>Pedir una demo <Arrow /></a>
+        <a className="button button-dark topbar-cta" href={contactUrl}>Quiero mi sitio <Arrow /></a>
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero-glow" aria-hidden="true" />
         <div className="hero-copy">
-          <div className="eyebrow"><span /> Sistema integral para inmobiliarias</div>
-          <h1>Tu web.<br />Tus propiedades.<br /><em>Todo conectado.</em></h1>
-          <p>Un sitio inmobiliario diseñado para vender, con un panel simple para publicar y la posibilidad de sincronizar tu cartera desde Tokko Broker.</p>
+          <p className="eyebrow"><span /> Sitios web para inmobiliarias</p>
+          <h1>Una web para mostrar mejor.<br /><em>Un sistema para vender más.</em></h1>
+          <p className="hero-lead">Publicá tus propiedades en un sitio profesional, administrá todo desde un panel simple y conectá tu inventario con Tokko Broker cuando lo necesites.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href={contactUrl}>Quiero una demo <Arrow /></a>
-            <a className="button button-ghost" href={demoUrl} target="_blank" rel="noreferrer">Ver una web funcionando <Arrow /></a>
+            <a className="button button-accent" href={contactUrl}>Quiero conocer el sistema <Arrow /></a>
+            <a className="button button-soft" href={demoUrl} target="_blank" rel="noreferrer">Ver demo funcionando <Arrow /></a>
           </div>
-          <div className="hero-proof">
-            <div><Check /><span><b>Web a tu medida</b><small>Identidad propia, no una plantilla genérica</small></span></div>
-            <div><Check /><span><b>Panel autogestionable</b><small>Publicá sin depender de un desarrollador</small></span></div>
+          <div className="hero-benefits" aria-label="Beneficios principales">
+            <span><Check /> Diseño profesional</span>
+            <span><Check /> Optimizada para Google</span>
+            <span><Check /> Sin tocar código</span>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="Capturas reales del sitio inmobiliario y su panel de gestión">
-          <div className="visual-orbit orbit-one" aria-hidden="true" />
-          <div className="visual-orbit orbit-two" aria-hidden="true" />
-          <figure className="browser-window public-preview real-site-frame">
-            <div className="browser-bar"><span /><span /><span /><small>inmobiliaria.ideamos.ar</small></div>
-            <img className="real-site-shot" src="/demo-site-live.png" alt="Captura real de la demo pública Ideamos Propiedades" />
-            <figcaption>DEMO PÚBLICA · CAPTURA REAL</figcaption>
+        <div className="hero-product" aria-label="Vista real de la plataforma">
+          <span className="hero-sticker sticker-one">100%<br /><b>MOBILE</b></span>
+          <span className="hero-sticker sticker-two">TOKKO<br /><b>READY</b></span>
+          <figure className="site-browser">
+            <div className="browser-chrome"><i /><i /><i /><span>inmobiliaria.ideamos.ar</span><b>⋯</b></div>
+            <img src="/demo-site-live.png" alt="Sitio inmobiliario real desarrollado por Ideamos" />
           </figure>
-          <figure className="admin-float real-admin-float">
-            <div className="admin-float-head"><span className="mini-logo">i</span><b>Panel de gestión real</b><i>•••</i></div>
-            <img src="/backend-panel-real.png" alt="Captura real del panel de administración de propiedades" />
-            <figcaption><span>48 publicaciones activas</span><b>Backend autogestionable</b></figcaption>
+          <figure className="panel-card">
+            <div><span className="mini-brand">i</span><b>Panel de gestión</b><small>ONLINE</small></div>
+            <img src="/backend-panel-real.png" alt="Panel real para administrar propiedades" />
           </figure>
-          <div className="sync-badge"><span className="sync-icon">T</span><span><small>CATÁLOGO REAL</small><b>Tokko conectado</b></span><i>✓</i></div>
-          <div className="evidence-tag"><i /> FRONTEND + BACKEND + DATOS REALES</div>
-        </div>      </section>
-
-      <section className="capability-strip" aria-label="Capacidades principales">
-        <span>WEB INMOBILIARIA</span><i>+</i><span>PANEL DE GESTIÓN</span><i>+</i><span>TOKKO BROKER</span><i>+</i><span>CONSULTAS Y LEADS</span>
-      </section>
-
-      <section className="problem-section" id="producto">
-        <div className="section-kicker">01 / EL PROBLEMA</div>
-        <div className="problem-grid">
-          <h2>Publicar una propiedad no debería significar <em>duplicar tareas.</em></h2>
-          <div className="problem-copy">
-            <p>Tu equipo ya tiene bastante con captar, mostrar y cerrar operaciones. El sistema conecta la gestión de la cartera con una web profesional para que cada publicación trabaje mejor.</p>
-            <a href="#incluye">Conocé el sistema <span>↓</span></a>
+          <div className="hero-property-row" aria-hidden="true">
+            <img src="/tokko-property-1.jpg" alt="" />
+            <img src="/tokko-property-2.jpg" alt="" />
+            <img src="/tokko-property-3.jpg" alt="" />
           </div>
         </div>
-        <div className="comparison">
-          <article className="comparison-old">
-            <span>LA FORMA DE SIEMPRE</span>
-            <h3>Información dispersa.<br />Procesos manuales.</h3>
-            <ul>
-              <li><i>01</i> Cargar la misma propiedad en varios lugares</li>
-              <li><i>02</i> Pedir cambios cada vez que la web se desactualiza</li>
-              <li><i>03</i> Consultas perdidas entre mails y mensajes</li>
-            </ul>
-          </article>
-          <article className="comparison-new">
-            <span>CON IDEAMOS INMOBILIARIAS</span>
-            <h3>Una operación.<br />Un solo lugar.</h3>
-            <ul>
-              <li><Check /> Sitio y catálogo conectados</li>
-              <li><Check /> Propiedades, fotos y estados autogestionables</li>
-              <li><Check /> Consultas ordenadas dentro del panel</li>
-            </ul>
-            <div className="comparison-signal"><i /><span>Todo actualizado</span><b>AHORA</b></div>
-          </article>
+      </section>
+
+      <section className="trust-strip" aria-label="Una plataforma completa">
+        <p>UNA SOLUCIÓN PARA TODA TU OPERACIÓN DIGITAL</p>
+        <div><span>SITIO WEB</span><i>+</i><span>PROPIEDADES</span><i>+</i><span>PANEL</span><i>+</i><span>TOKKO</span><i>+</i><span>CONSULTAS</span></div>
+      </section>
+
+      <section className="intro section" id="ejemplo">
+        <div className="section-heading centered">
+          <p className="eyebrow"><span /> Una experiencia real</p>
+          <h2>Tu inmobiliaria merece<br />mucho más que <em>un catálogo.</em></h2>
+          <p>La web trabaja como una herramienta comercial: presenta tu marca, organiza la búsqueda y lleva a cada interesado hacia una consulta concreta.</p>
+        </div>
+        <div className="device-stage">
+          <div className="device-glow" aria-hidden="true" />
+          <figure className="desktop-device">
+            <div className="device-bar"><span /><span /><span /></div>
+            <img src="/demo-site-live.png" alt="Demo real del sitio web inmobiliario en escritorio" />
+          </figure>
+          <figure className="mobile-device">
+            <div className="mobile-speaker" />
+            <img src="/demo-site-live.png" alt="Adaptación móvil del sitio inmobiliario" />
+          </figure>
+          <aside className="result-card"><small>TODO CONECTADO</small><strong>Web + gestión</strong><span>Una sola experiencia para tu equipo y tus clientes.</span></aside>
+        </div>
+        <div className="proof-grid">
+          <article><strong>01</strong><h3>Tu marca primero</h3><p>La experiencia visual se diseña alrededor de tu identidad, zonas y tipo de cartera.</p></article>
+          <article><strong>02</strong><h3>Buscar es fácil</h3><p>Filtros claros y fichas completas para que cada visitante encuentre lo que necesita.</p></article>
+          <article><strong>03</strong><h3>Consultar es inmediato</h3><p>Formularios y WhatsApp disponibles en el momento de mayor intención.</p></article>
         </div>
       </section>
 
-      <section className="features-section" id="incluye">
-        <div className="section-head">
-          <div><span className="section-kicker">02 / TODO LO QUE NECESITÁS</span><h2>Una plataforma.<br /><em>Cuatro ventajas.</em></h2></div>
-          <p>La cara pública que tus clientes esperan y la herramienta interna que tu equipo necesita para trabajar todos los días.</p>
+      <section className="features section" id="funciones">
+        <div className="section-heading split">
+          <div><p className="eyebrow"><span /> Pensada para tus visitantes</p><h2>Todo lo que esperan<br />de una web <em>moderna.</em></h2></div>
+          <p>Una navegación clara, rápida y centrada en las propiedades. Desde la primera búsqueda hasta el contacto con tu inmobiliaria.</p>
         </div>
-        <div className="feature-grid">
-          <article className="feature-card feature-web">
-            <div className="feature-number">01</div>
-            <figure className="mini-site real-product-shot">
-              <div className="mini-site-top"><b>ideamos propiedades</b><span>DEMO ONLINE · FRONTEND REAL</span></div>
-              <img src="/demo-site-live.png" alt="Captura del sitio inmobiliario real funcionando" />
-              <figcaption><small>INMOBILIARIA.IDEAMOS.AR</small><strong>La experiencia pública,<br />sin renders ni promesas.</strong></figcaption>
-            </figure>
-            <h3>Web premium con tu marca</h3>
-            <p>Diseño a medida, catálogo con filtros, fichas completas, emprendimientos, tasaciones y contacto por WhatsApp.</p>
-          </article>
-
-          <article className="feature-card feature-panel">
-            <div className="feature-number">02</div>
-            <figure className="panel-list real-panel-shot"><img src="/backend-panel-real.png" alt="Vista auténtica del panel de propiedades"/><figcaption><span>BACKEND REAL</span><b>Propiedades, estados y rendimiento en una sola vista.</b></figcaption></figure>
-            <h3>Panel claro y autogestionable</h3>
-            <p>Creá, editá, duplicá, destacá o pausá publicaciones. Administrá fotos, precios, estados y detalles sin tocar código.</p>
-          </article>
-
-          <article className="feature-card feature-tokko" id="tokko">
-            <div className="feature-number">03</div>
-            <div className="tokko-visual">
-              <div className="tokko-source"><b>T</b><span><strong>Tokko Broker</strong><small>Tu inventario actual</small></span></div>
-              <div className="flow-line"><i /><i /><i /></div>
-              <div className="tokko-destination"><span className="mini-logo">i</span><span><strong>Tu sitio web</strong><small>Catálogo actualizado</small></span><em>✓</em></div>
-            </div>
-            <h3>Conexión con Tokko Broker</h3>
-            <p>Vinculá la API, probá la conexión y sincronizá el catálogo. La carga manual sigue disponible cuando la necesitás.</p>
-          </article>
-
-          <article className="feature-card feature-leads">
-            <div className="feature-number">04</div>
-            <div className="lead-visual">
-              <div className="lead-head"><span>CONSULTAS RECIENTES</span><b>Ver todas ↗</b></div>
-              <div className="lead-person"><i>MS</i><span><b>María S.</b><small>Consulta por Casa del Lago</small></span><em>NUEVA</em></div>
-              <div className="lead-actions"><span>maría@email.com</span><button type="button">Contactar</button></div>
-            </div>
-            <h3>Consultas que no se pierden</h3>
-            <p>Los formularios de cada propiedad llegan al panel con su contexto. Marcá oportunidades como nuevas, contactadas o cerradas.</p>
-          </article>
+        <div className="feature-list">
+          {visitorFeatures.map(([number, title, copy]) => (
+            <article key={number}>
+              <span>{number}</span>
+              <div className={`feature-icon icon-${number}`} aria-hidden="true"><i /></div>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="showcase-section">
-        <div className="showcase-copy">
-          <span className="section-kicker light">03 / PANEL INTEGRAL</span>
-          <h2>Todo tu negocio,<br /><em>de un vistazo.</em></h2>
-          <p>Propiedades, emprendimientos, consultas y rendimiento. Diseñado para que cualquier persona del equipo pueda usarlo desde el primer día.</p>
+      <section className="workspace-section">
+        <div className="workspace-copy">
+          <p className="eyebrow light"><span /> Pensada para tu inmobiliaria</p>
+          <h2>El control queda<br /><em>de tu lado.</em></h2>
+          <p>Un panel simple para sostener la operación diaria sin esperar que alguien haga cada cambio por vos.</p>
+          <a className="button button-light" href={contactUrl}>Conocer el panel <Arrow /></a>
+        </div>
+        <div className="workspace-visual">
+          <figure className="dashboard-window">
+            <img src="/backend-panel-real.png" alt="Backend real del sistema Ideamos Inmobiliarias" />
+            <figcaption>CAPTURA REAL DEL SISTEMA</figcaption>
+          </figure>
+          {businessFeatures.map(([title, copy], index) => (
+            <article className={`workspace-note note-${index + 1}`} key={title}>
+              <span>0{index + 1}</span><div><b>{title}</b><small>{copy}</small></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="tokko-section section" id="tokko">
+        <div className="section-heading centered narrow">
+          <p className="eyebrow"><span /> Integración disponible</p>
+          <h2>Tu web inmobiliaria<br />conectada con <em>Tokko Broker.</em></h2>
+          <p>Si ya usás Tokko, sincronizamos tu inventario para evitar cargas duplicadas. Si no lo usás, podés gestionar todo desde el panel de Ideamos.</p>
+        </div>
+        <div className="integration-flow" aria-label="Flujo entre Tokko Broker, el panel y el sitio web">
+          <article className="flow-card tokko-card">
+            <span className="flow-step">01 / ORIGEN</span>
+            <div className="flow-logo">T</div>
+            <h3>Tokko Broker</h3>
+            <p>Propiedades, fotos, precios y disponibilidad desde tu inventario actual.</p>
+            <div className="property-stack"><img src="/tokko-property-1.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-2.jpg" alt="Propiedad real sincronizada" /><img src="/tokko-property-4.jpg" alt="Propiedad real sincronizada" /></div>
+          </article>
+          <div className="flow-connector"><i /><span>API</span><i /></div>
+          <article className="flow-card ideamos-card">
+            <span className="flow-step">02 / GESTIÓN</span>
+            <div className="flow-logo ideamos">i</div>
+            <h3>Panel Ideamos</h3>
+            <p>Controlá lo sincronizado y conservá la opción de publicar contenido propio.</p>
+            <img className="flow-screen" src="/backend-panel-real.png" alt="Panel de Ideamos Inmobiliarias" />
+          </article>
+          <div className="flow-connector"><i /><span>SYNC</span><i /></div>
+          <article className="flow-card web-card">
+            <span className="flow-step">03 / RESULTADO</span>
+            <div className="flow-logo web">↗</div>
+            <h3>Tu sitio web</h3>
+            <p>Una cartera actualizada, dentro de una experiencia diseñada para tu marca.</p>
+            <img className="flow-screen" src="/demo-site-live.png" alt="Resultado público del sitio inmobiliario" />
+          </article>
+        </div>
+        <div className="integration-points"><span><Check /> Sincronización de catálogo</span><span><Check /> Carga manual disponible</span><span><Check /> Prueba de conexión</span><span><Check /> Fotos y fichas completas</span></div>
+      </section>
+
+      <section className="launch-section section">
+        <div className="section-heading split">
+          <div><p className="eyebrow"><span /> Puesta en marcha</p><h2>De tu identidad<br />a una web <em>lista para vender.</em></h2></div>
+          <p>Nos ocupamos de transformar la plataforma en una experiencia propia y dejamos a tu equipo preparado para usarla.</p>
+        </div>
+        <div className="launch-steps">
+          <article><span>1</span><div className="step-art"><i /><i /></div><h3>Conocemos tu operación</h3><p>Marca, cartera, zonas, servicios y objetivos comerciales.</p><small>REUNIÓN INICIAL</small></article>
+          <article><span>2</span><div className="step-art"><i /><i /></div><h3>Diseñamos y configuramos</h3><p>Identidad, contenido, catálogo, contactos y conexión con Tokko si aplica.</p><small>IMPLEMENTACIÓN</small></article>
+          <article><span>3</span><div className="step-art"><i /><i /></div><h3>Publicamos y acompañamos</h3><p>Salida online, capacitación y soporte para empezar a operar.</p><small>LANZAMIENTO</small></article>
+        </div>
+      </section>
+
+      <section className="plan-section">
+        <div className="plan-copy">
+          <p className="eyebrow light"><span /> Una solución a tu medida</p>
+          <h2>Todo lo necesario para<br /><em>dar el próximo paso.</em></h2>
+          <p>Cada inmobiliaria tiene una operación distinta. Por eso armamos una propuesta según tu marca, cantidad de propiedades, contenidos e integración.</p>
+        </div>
+        <article className="plan-card">
+          <div className="plan-card-head"><span>IDEAMOS INMOBILIARIAS</span><b>PLAN A MEDIDA</b></div>
+          <h3>Web + sistema de gestión</h3>
           <ul>
-            <li><Check /><span><b>Inventario ordenado</b><small>Buscá y filtrá por estado, zona, tipo u operación.</small></span></li>
-            <li><Check /><span><b>Galerías profesionales</b><small>Cargá hasta 13 imágenes y elegí la portada.</small></span></li>
-            <li><Check /><span><b>Borradores y destacados</b><small>Prepará publicaciones sin mostrarlas antes de tiempo.</small></span></li>
-            <li><Check /><span><b>Vista del rendimiento</b><small>Seguí publicaciones activas, consultas y valor de cartera.</small></span></li>
+            <li><Check /> Diseño adaptado a tu marca</li>
+            <li><Check /> Catálogo y fichas de propiedades</li>
+            <li><Check /> Panel autogestionable</li>
+            <li><Check /> Consultas centralizadas</li>
+            <li><Check /> Integración opcional con Tokko</li>
+            <li><Check /> Publicación y acompañamiento</li>
           </ul>
-          <a className="button button-light" href={contactUrl}>Ver el panel en una demo <Arrow /></a>
-        </div>
-        <div className="infographic-dashboard">
-          <figure className="dashboard-capture">
-            <img src="/backend-panel-real.png" alt="Panel real de Ideamos Propiedades con inventario y métricas" />
-            <figcaption>CAPTURA DEL BACKEND REAL · DATOS DE DEMOSTRACIÓN</figcaption>
-          </figure>
-          <div className="dash-annotation annotation-one"><span>01</span><b>Control de cartera</b><small>Publicadas, borradores y reservas</small><i /></div>
-          <div className="dash-annotation annotation-two"><span>02</span><b>Lectura comercial</b><small>Valor de cartera y actividad reciente</small><i /></div>
-          <div className="dash-annotation annotation-three"><span>03</span><b>Acción inmediata</b><small>Editar, duplicar o abrir la ficha pública</small><i /></div>
-        </div>      </section>
-
-      <section className="tokko-section">
-        <div className="tokko-copy">
-          <span className="section-kicker">04 / TOKKO BROKER</span>
-          <h2>Si ya usás Tokko,<br /><em>no empezás de cero.</em></h2>
-          <p>Conectamos tu cuenta al sistema para que el catálogo de la web se alimente desde tu inventario. Y si una propiedad necesita un tratamiento especial, también podés cargarla de forma manual.</p>
-          <div className="tokko-points"><span><Check /> Prueba de conexión</span><span><Check /> Sincronización del catálogo</span><span><Check /> Fotos y fichas completas</span><span><Check /> Carga manual disponible</span></div>
-        </div>
-        <div className="sync-flow real-sync-flow" aria-label="Infografía del flujo real entre Tokko, el backend y la web">
-          <article><span>01 / ORIGEN</span><div className="source-logo">T</div><h3>Tokko Broker</h3><p>El inventario llega con sus fotos, características, precios y disponibilidad.</p><div className="flow-property-strip"><img src="/tokko-property-1.jpg" alt="Propiedad real de Tokko"/><img src="/tokko-property-2.jpg" alt="Propiedad real de Tokko"/><img src="/tokko-property-3.jpg" alt="Propiedad real de Tokko"/></div></article>
-          <i className="connector"><b>•••</b><small>API</small></i>
-          <article className="flow-center"><span>02 / GESTIÓN</span><div className="source-logo ideamos-logo">i</div><h3>Backend Ideamos</h3><p>Ordena el catálogo, conserva la carga manual y centraliza consultas.</p><img className="flow-real-preview" src="/backend-panel-real.png" alt="Panel real del sistema"/></article>
-          <i className="connector"><b>•••</b><small>SYNC</small></i>
-          <article><span>03 / RESULTADO</span><div className="source-logo web-logo">↗</div><h3>Tu web</h3><p>La cartera se convierte en una experiencia propia, rápida y preparada para captar.</p><img className="flow-real-preview" src="/demo-site-live.png" alt="Demo pública real"/></article>
-        </div>      </section>
-
-      <section className="process-section">
-        <div className="section-head compact">
-          <div><span className="section-kicker">05 / PUESTA EN MARCHA</span><h2>De la idea a tu web.<br /><em>Sin vueltas.</em></h2></div>
-          <p>Adaptamos el sistema a tu inmobiliaria, cargamos la identidad y dejamos al equipo listo para operar.</p>
-        </div>
-        <div className="process-grid">
-          <article><span>01</span><div className="process-icon">◎</div><h3>Entendemos tu operación</h3><p>Marca, zonas, tipo de cartera, servicios y forma de trabajo.</p><small>REUNIÓN INICIAL</small></article>
-          <article><span>02</span><div className="process-icon">◇</div><h3>Diseñamos tu experiencia</h3><p>Web, contenido, catálogo y estructura comercial a tu medida.</p><small>DISEÑO + CONFIGURACIÓN</small></article>
-          <article><span>03</span><div className="process-icon">↗</div><h3>Publicamos y acompañamos</h3><p>Conectamos Tokko si aplica, capacitamos y salimos online.</p><small>LANZAMIENTO</small></article>
-        </div>
+          <a className="button button-accent full" href={contactUrl}>Solicitar una propuesta <Arrow /></a>
+          <small>Sin precios inventados: primero entendemos tu operación.</small>
+        </article>
       </section>
 
-      <section className="faq-section" id="preguntas">
-        <div className="faq-title"><span className="section-kicker">06 / PREGUNTAS FRECUENTES</span><h2>Antes de empezar,<br /><em>todo claro.</em></h2><p>Si tu operación tiene una necesidad particular, la vemos en la demo.</p><a href={contactUrl}>Hablemos <Arrow /></a></div>
+      <section className="faq-section section" id="preguntas">
+        <div className="faq-intro">
+          <p className="eyebrow"><span /> Preguntas frecuentes</p>
+          <h2>Antes de empezar,<br /><em>todo claro.</em></h2>
+          <p>Si tu inmobiliaria tiene una necesidad particular, la revisamos juntos en una demostración.</p>
+          <a href={contactUrl}>Hablemos <Arrow /></a>
+        </div>
         <div className="faq-list">
-          <details open><summary>¿Necesito usar Tokko Broker?<span /></summary><p>No. Podés administrar toda la cartera desde el panel. Tokko es una integración opcional para inmobiliarias que ya trabajan con esa plataforma.</p></details>
-          <details><summary>¿La web lleva la identidad de mi inmobiliaria?<span /></summary><p>Sí. Adaptamos colores, tipografías, logo, tono de comunicación, secciones y datos de contacto para que el resultado se sienta propio.</p></details>
-          <details><summary>¿Puedo publicar propiedades y emprendimientos?<span /></summary><p>Sí. El sistema cuenta con módulos separados para propiedades y emprendimientos, con fichas, galerías, estados, precios y borradores.</p></details>
-          <details><summary>¿Qué pasa con las consultas de los interesados?<span /></summary><p>Los formularios de las propiedades llegan al panel con la referencia del inmueble. El equipo puede ordenarlas como nuevas, contactadas o cerradas.</p></details>
-          <details><summary>¿Puedo hacer cambios sin depender de ustedes?<span /></summary><p>Sí. El panel está pensado para la operación diaria. Para cambios de diseño o nuevas funciones, nuestro equipo puede acompañarte.</p></details>
+          {faqs.map(([question, answer], index) => (
+            <details key={question} open={index === 0}>
+              <summary>{question}<span aria-hidden="true" /></summary>
+              <p>{answer}</p>
+            </details>
+          ))}
         </div>
       </section>
 
       <footer className="premium-footer">
-        <div className="footer-glow" aria-hidden="true" />
-        <section className="premium-footer-cta">
-          <div><p className="footer-eyebrow"><span /> Tecnología inmobiliaria con identidad propia</p><h2>Una web que vende.<br />Un sistema que <em>ordena.</em></h2></div>
-          <a className="footer-orbit-link" href={contactUrl} aria-label="Coordinar una demo"><span className="orbit-word top">COORDINAR</span><span className="orbit-word right">UNA</span><span className="orbit-word bottom">DEMO</span><span className="orbit-word left">IDEAMOS</span><b>↗</b></a>
+        <div className="footer-orbit" aria-hidden="true" />
+        <section className="footer-cta">
+          <div><p className="eyebrow light"><span /> Tu próxima herramienta comercial</p><h2>Una web que muestra.<br />Un sistema que <em>ordena.</em></h2></div>
+          <a className="round-cta" href={contactUrl} aria-label="Coordinar una demostración"><span>COORDINAR</span><b>↗</b><small>UNA DEMO</small></a>
         </section>
-        <div className="premium-footer-main">
-          <div className="premium-footer-brand"><a className="brand" href="#inicio"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span></a><p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p><div className="footer-status"><i /> SISTEMA ONLINE · DEMO ACTIVA</div></div>
-          <nav className="footer-nav"><span>EXPLORÁ</span><a href="#producto">El producto</a><a href="#incluye">Qué incluye</a><a href="#tokko">Integración Tokko</a><a href={demoUrl} target="_blank" rel="noreferrer">Demo pública ↗</a></nav>
-          <nav className="footer-nav"><span>SISTEMA</span><a href="#incluye">Panel de gestión</a><a href="#tokko">Publicación conectada</a><a href="#preguntas">Preguntas frecuentes</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
-          <div className="footer-contact-card"><span>ASESORAMIENTO PERSONAL</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>Coordinar una demo <Arrow /></a><p><b>hola@ideamos.ar</b></p><p>Buenos Aires, Argentina</p></div>
+        <div className="footer-main">
+          <div className="footer-about">
+            <a className="brand footer-brand" href="#inicio"><span className="brand-symbol" aria-hidden="true"><i /><i /><i /></span><span><b>IDEAMOS</b><small>INMOBILIARIAS</small></span></a>
+            <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
+            <span className="system-status"><i /> DEMO ONLINE</span>
+          </div>
+          <nav><span>PRODUCTO</span><a href="#ejemplo">Sitio web</a><a href="#funciones">Funciones</a><a href="#tokko">Tokko Broker</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+          <nav><span>IDEAMOS</span><a href="#preguntas">Preguntas</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
+          <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>
-        <div className="footer-signature"><i /><span className="brand-mark large" aria-hidden="true"><i /><i /><i /></span><small>IDEAMOS · REAL ESTATE SYSTEM · 2026</small><i /></div>
-        <div className="premium-footer-bottom"><span>© 2026 IDEAMOS. TODOS LOS DERECHOS RESERVADOS.</span><span className="footer-material">DISEÑO · PRODUCTO · TECNOLOGÍA</span><span>HECHO POR <a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></span></div>
+        <div className="footer-bottom"><span>© 2026 IDEAMOS</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></div>
       </footer>
     </main>
   );

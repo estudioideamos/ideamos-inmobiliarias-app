@@ -14,29 +14,25 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: "Ideamos Inmobiliarias | Web, gestión y Tokko Broker",
-    description: "Web inmobiliaria premium con panel autogestionable, publicación de propiedades, gestión de consultas e integración opcional con Tokko Broker.",
+    title: "Ideamos Inmobiliarias | Sitio web, gestión y Tokko Broker",
+    description: "Un sitio inmobiliario profesional, un panel simple para publicar propiedades y la posibilidad de sincronizar tu cartera con Tokko Broker.",
     openGraph: {
-      title: "Tu web. Tus propiedades. Todo conectado.",
-      description: "Web premium, panel de gestión e integración con Tokko Broker para inmobiliarias.",
+      title: "Una web para mostrar mejor. Un sistema para vender más.",
+      description: "Sitio web, panel de gestión e integración opcional con Tokko Broker para inmobiliarias.",
       type: "website",
       locale: "es_AR",
       siteName: "Ideamos Inmobiliarias",
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Ideamos Inmobiliarias: web, propiedades y Tokko Broker" }],
+      images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "Ideamos Inmobiliarias: sitio web y sistema de gestión" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Ideamos Inmobiliarias",
-      description: "Web premium, panel de gestión e integración con Tokko Broker.",
-      images: ["/og.png"],
+      description: "Una web para mostrar mejor. Un sistema para vender más.",
+      images: ["/og-v2.png"],
     },
   };
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
-    </html>
-  );
+  return <html lang="es"><body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body></html>;
 }

@@ -21,13 +21,13 @@ async function waitForPage(timeoutMs = 60000) {
     try {
       const response = await fetch(localUrl);
       if (response.ok) return response.text();
-      lastError = new Error(`El servidor respondió ${response.status}.`);
+      lastError = new Error(`El servidor respondiÃ³ ${response.status}.`);
     } catch (error) {
       lastError = error;
     }
     await new Promise(resolve => setTimeout(resolve, 500));
   }
-  throw lastError || new Error("La versión final no inició a tiempo.");
+  throw lastError || new Error("La versiÃ³n final no iniciÃ³ a tiempo.");
 }
 
 function stopServer(server) {
@@ -79,8 +79,8 @@ try {
   await writeFile(path.join(outputDir, ".nojekyll"), "", "utf8");
 
   const written = await readFile(path.join(outputDir, "index.html"), "utf8");
-  if (!written.includes("Tu web.") || !written.includes("./assets/") || !written.includes(`${pagesUrl}/og.png`)) {
-    throw new Error("La salida estática no contiene el contenido o los enlaces esperados.");
+  if (!written.includes("Una web para mostrar mejor.") || !written.includes("./assets/") || !written.includes(`${pagesUrl}/og-v2.png`)) {
+    throw new Error("La salida estÃ¡tica no contiene el contenido o los enlaces esperados.");
   }
   console.log(`GitHub Pages preparado en ${outputDir}`);
 } catch (error) {

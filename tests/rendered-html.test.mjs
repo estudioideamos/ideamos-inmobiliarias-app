@@ -18,7 +18,7 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /Tokko Broker/);
   assert.match(html, /demo-site-live\.png/);
   assert.match(html, /mobile-demo-reel/);
-  assert.match(html, /5491167681777/);
+  assert.match(html, /hola@ideamos\.com\.ar/);
   assert.match(html, /floating-top/);
   assert.match(html, /whatsapp\.svg/);
   assert.match(html, /mobile-orbit/);
@@ -124,7 +124,7 @@ test("renderiza contacto con formulario funcional", async () => {
   const html = await response.text();
   assert.match(html, /Conozcamos tu inmobiliaria/);
   assert.match(html, /contact-form/);
-  assert.match(html, /Enviar consulta por WhatsApp/);
+  assert.match(html, /Enviar consulta/);
   assert.match(html, /5491167681777/);
   assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
 });
@@ -145,5 +145,6 @@ test("incluye navegación y responsive mobile integral", async () => {
   assert.match(css, /@media\(max-width:700px\)/);
   assert.match(css, /\.premium-footer\{text-align:center\}/);
   assert.match(css, /\.integration-flow\{display:grid;grid-template-columns:1fr/);
+  assert.match(css, /\.mobile-menu-root>nav\{position:fixed!important/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });

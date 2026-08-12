@@ -1,3 +1,4 @@
+import BrandLogo from "./components/BrandLogo";
 import Marquee from "./components/Marquee";
 import SiteHeader from "./components/SiteHeader";
 import PremiumFooter from "./components/PremiumFooter";

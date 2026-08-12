@@ -50,7 +50,7 @@ export default function Home() {
           <a href="/funciones">Funciones</a>
           <a href="/tokko">Tokko Broker</a>
           <a href="/precios">Precios</a>
-          <a href="/preguntas">Preguntas</a>
+          <a href="/preguntas">Preguntas Frecuentes</a>
         </nav>
         <a className="button button-dark topbar-cta" href={demoUrl} target="_blank" rel="noreferrer">Ver demo <Arrow /></a>
       </header>
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
 
         <div className="hero-product" aria-label="Vista real de la plataforma">
-          <span className="hero-sticker sticker-one">100%<br /><b>MOBILE</b></span>
+          <span className="hero-sticker sticker-one mobile-orbit"><strong>100%</strong><span className="orbit-word orbit-word-1">M</span><span className="orbit-word orbit-word-2">O</span><span className="orbit-word orbit-word-3">B</span><span className="orbit-word orbit-word-4">I</span><span className="orbit-word orbit-word-5">L</span><span className="orbit-word orbit-word-6">E</span><i aria-hidden="true" /></span>
           <span className="hero-sticker sticker-two">TOKKO<br /><b>READY</b></span>
           <figure className="site-browser">
             <div className="browser-chrome"><i /><i /><i /><span>inmobiliaria.ideamos.ar</span><b>⋯</b></div>
@@ -381,7 +381,7 @@ export default function Home() {
             <span className="system-status"><i /> DEMO ONLINE</span>
           </div>
           <nav><span>PRODUCTO</span><a href="/producto">Sitio web</a><a href="/funciones">Funciones</a><a href="/tokko">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
-          <nav><span>IDEAMOS</span><a href="/preguntas">Preguntas</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
+          <nav><span>IDEAMOS</span><a href="/preguntas">Preguntas Frecuentes</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
           <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <Arrow /></a><p>Buenos Aires, Argentina</p></div>
         </div>
         <div className="footer-bottom"><span>© 2026 IDEAMOS</span><span>DISEÑO · PRODUCTO · TECNOLOGÍA</span><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">ESTUDIO IDEAMOS ↗</a></div>

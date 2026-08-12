@@ -21,6 +21,8 @@ test("renderiza la landing comercial terminada", async () => {
   assert.match(html, /5491167681777/);
   assert.match(html, /floating-top/);
   assert.match(html, /whatsapp\.svg/);
+  assert.match(html, /mobile-orbit/);
+  assert.match(html, /Preguntas Frecuentes/);
   assert.match(html, /Encontrá tu lugar/);
   assert.match(html, /Propiedades que/);
   assert.match(html, /interior-limestone\.webp/);
@@ -116,4 +118,5 @@ test("la sección de valor mantiene fija su columna izquierda", async () => {
   assert.match(css, /\.value-intro\{position:sticky;top:112px/);
   assert.match(css, /\.value-grid article\{min-height:130px/);
   assert.match(css, /\.launch-price-card\{min-height:760px/);
+  assert.match(css, /\.internal-hero\{min-height:650px/);
 });

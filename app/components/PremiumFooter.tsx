@@ -19,7 +19,11 @@ export default function PremiumFooter({ showContactSection = true }: { showConta
           <p>Web, panel de gestión y catálogo conectado para inmobiliarias que quieren mostrar mejor y trabajar más simple.</p>
           <span className="system-status"><i /> DEMO ONLINE</span>
         </div>
-        <nav><span>PRODUCTO</span><a href="/la-plataforma">La Plataforma</a><a href="/funcionalidades">Funcionalidades</a><a href="/tokko-broker">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a><a href={demoUrl} target="_blank" rel="noreferrer">Ver demo ↗</a></nav>
+        <div className="footer-quick-links">
+          <input className="footer-toggle-input" id="footer-quick-toggle" type="checkbox" />
+          <label className="footer-toggle-label" htmlFor="footer-quick-toggle">ACCESO RÁPIDO <span aria-hidden="true" /></label>
+          <nav><a href="/la-plataforma">La Plataforma</a><a href="/funcionalidades">Funcionalidades</a><a href="/tokko-broker">Tokko Broker</a><a href="/beneficios">Beneficios</a><a href="/precios">Precios</a></nav>
+        </div>
         <nav><span>IDEAMOS</span><a href="/preguntas-frecuentes">Preguntas Frecuentes</a><a href={contactUrl}>Contacto</a><a href={contactUrl}>Pedir propuesta</a><a href="https://ideamos.ar/" target="_blank" rel="noreferrer">Estudio Ideamos ↗</a></nav>
         <div className="footer-contact"><span>HABLEMOS</span><h3>¿Lo vemos con tu inmobiliaria?</h3><a href={contactUrl}>hola@ideamos.ar <span aria-hidden="true">↗</span></a><p>Buenos Aires, Argentina</p></div>
       </div>

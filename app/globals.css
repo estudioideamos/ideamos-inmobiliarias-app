@@ -1589,3 +1589,15 @@ body{background:#f7f5ee}
   .value-grid strong{font-size:21px}
   .value-grid p{grid-column:2;font-size:12.5px}
 }
+
+
+/* Header desktop estilo Vatten: contenido al entrar, barra total al recorrer */
+@media(min-width:1121px){
+  .topbar{position:fixed;top:22px;left:50%;width:min(1320px,calc(100% - 40px));transform:translateX(-50%);transition:top .42s cubic-bezier(.2,.8,.2,1),width .42s cubic-bezier(.2,.8,.2,1),height .42s cubic-bezier(.2,.8,.2,1),padding .42s cubic-bezier(.2,.8,.2,1),border-radius .42s cubic-bezier(.2,.8,.2,1),background .42s ease,box-shadow .42s ease}
+  .topbar.is-scrolled{top:0;width:100%;height:78px;padding-inline:max(24px,calc((100vw - 1320px)/2));border-radius:0;border-left:0;border-right:0;background:rgba(241,244,237,.94);box-shadow:0 14px 40px rgba(7,35,25,.11);backdrop-filter:blur(22px) saturate(135%)}
+  .topbar.is-scrolled .brand{transform:scale(.94);transform-origin:left center}
+  .topbar.is-scrolled .topbar-cta{min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){
+  .topbar{transition:none}
+}

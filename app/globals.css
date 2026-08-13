@@ -1695,3 +1695,14 @@ body{background:#f7f5ee}
   .faq-cta{min-height:92px;margin:0 auto;padding:16px 16px 16px 18px!important;text-align:left}
   .faq-assurance{position:relative;left:auto;right:auto;bottom:auto;width:100%;margin:20px 0 0;padding:17px 0 0;justify-content:center;line-height:1.45;text-align:center}
 }
+
+
+/* Contacto desktop: grilla equilibrada y formulario visible */
+@media(min-width:1121px){
+  .contact-page-main{padding-top:82px;padding-bottom:92px;grid-template-columns:minmax(390px,.82fr) minmax(0,1.28fr);gap:56px;align-items:stretch}
+  .contact-page-aside{top:104px;min-height:610px;height:100%;display:flex;flex-direction:column;justify-content:flex-start}
+  .contact-page-aside .contact-page-data{margin-top:4px}
+  .contact-page-aside .contact-aside-status{margin-top:auto;padding-top:22px}
+  .contact-page-main>.contact-form{align-self:stretch;min-height:610px;margin:0;display:flex;flex-direction:column;justify-content:center}
+  .contact-page-main>.contact-form .contact-form-grid{flex:1;align-content:center}
+}

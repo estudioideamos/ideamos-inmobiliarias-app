@@ -42,7 +42,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
   }
 
   return (
-    <form className={`contact-form${compact ? " contact-form-compact" : ""}`} onSubmit={sendByEmail} data-email-endpoint={contactEmail} method="post" action={`https://formsubmit.co/${contactEmail}`}>
+    <form className={`contact-form${compact ? " contact-form-compact" : ""}`} onSubmit={sendByEmail} data-email-endpoint={contactEmail}>
       <input type="hidden" name="_subject" value="Nueva consulta desde Ideamos Inmobiliarias" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="false" />

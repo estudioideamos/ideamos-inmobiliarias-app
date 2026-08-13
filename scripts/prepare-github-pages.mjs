@@ -82,7 +82,7 @@ function makeStatic(html, route) {
   if (result.includes("contact-form")) {
     result = result.replace(
       /<form class="contact-form([^"]*)"/g,
-      '<form class="contact-form$1" method="post" action="https://formsubmit.co/hola@ideamos.com.ar"'
+      '<form class="contact-form$1" onsubmit="return false"'
     );
     const contactScript = `<script>
 (function(){

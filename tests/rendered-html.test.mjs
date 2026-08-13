@@ -72,6 +72,8 @@ test("incluye metadata social propia", async () => {
   assert.match(layout, /summary_large_image/);
   const icon = await readFile(new URL("../app/icon.svg", import.meta.url), "utf8");
   assert.match(icon, /animateTransform/);
+  const favicon = await readFile(new URL("../public/favicon.svg", import.meta.url), "utf8");
+  assert.match(favicon, /M9 13h28l18 18v20H39/);
 });
 test("mantiene fija la columna izquierda del FAQ en escritorio", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");

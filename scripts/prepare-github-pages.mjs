@@ -62,12 +62,14 @@ function makeStatic(html, route) {
     .replace(/\sdata-rsc-head=["'][^"']*["']/gi, "")
     .replaceAll(`https://127.0.0.1:${port}`, pagesUrl)
     .replaceAll(`http://127.0.0.1:${port}`, pagesUrl)
-    .replace(/\b(href|src)="\//g, `$1="${relativePrefix}`);
+    .replace(/\b(href|src)="\//g, `$1="${relativePrefix}`)
+    .replace(/<link\b[^>]*rel=["'](?:shortcut )?icon["'][^>]*>/gi, "");
 
   if (!/<link\s+rel="canonical"/i.test(result)) {
     result = result.replace("</head>", `<link rel="canonical" href="${canonicalUrl}"/></head>`);
   }
-  result = result.replace("</head>", '<meta name="theme-color" content="#0c1d17"/></head>');
+  const faviconHref = `${relativePrefix}favicon.svg?v=2`;
+  result = result.replace("</head>", `<link rel="icon" type="image/svg+xml" href="${faviconHref}"/><link rel="shortcut icon" href="${faviconHref}"/><meta name="theme-color" content="#0c1d17"/></head>`);
   if (result.includes("class=\"topbar")) {
     const headerScript = `<script>
 (function(){
@@ -176,7 +178,7 @@ try {
   for (const route of routes) {
     const written = await readFile(path.join(outputDir, route.output), "utf8");
     const assetPrefix = route.depth === 0 ? "./assets/" : "../assets/";
-    if (!written.includes(route.marker) || !written.includes(assetPrefix) || !written.includes(`${pagesUrl}/og-v2.png`)) {
+    if (!written.includes(route.marker) || !written.includes(assetPrefix) || !written.includes(`${pagesUrl}/og-v2.png`) || !written.includes(`${route.depth === 0 ? "./" : "../".repeat(route.depth)}favicon.svg?v=2`)) {
       throw new Error(`La salida estatica de ${route.pathname} no contiene el contenido o los enlaces esperados.`);
     }
     const inlineScripts = [...written.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(match => match[1]);

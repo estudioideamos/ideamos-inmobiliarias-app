@@ -94,9 +94,9 @@ document.addEventListener("submit",async function(event){
     var response=await fetch("https://formsubmit.co/ajax/hola@ideamos.com.ar",{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
     if(!response.ok)throw new Error("send");
     form.reset();
-    if(status)status.textContent="Consulta enviada. Te vamos a responder a la brevedad.";
+    if(status){status.classList.add("form-status-sent");status.classList.remove("form-status-error");status.textContent="Â¡Mensaje enviado correctamente! Recibimos tu consulta y nos contactaremos a la brevedad.";}
   }catch(error){
-    if(status)status.textContent="No pudimos enviarla. Escribinos a hola@ideamos.com.ar.";
+    if(status){status.classList.add("form-status-error");status.classList.remove("form-status-sent");status.textContent="No pudimos enviar tu consulta. Por favor, intentÃ¡ nuevamente.";}
   }finally{
     if(button){button.disabled=false;button.innerHTML=original;}
   }

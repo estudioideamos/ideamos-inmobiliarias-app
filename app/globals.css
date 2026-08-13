@@ -1750,3 +1750,28 @@ body{background:#f7f5ee}
   .contact-page-main .contact-form input:focus,.contact-page-main .contact-form select:focus,.contact-page-main .contact-form textarea:focus{border-color:var(--forest);box-shadow:0 0 0 4px rgba(223,255,114,.28),0 12px 28px rgba(18,60,43,.08)}
   .contact-page-main .contact-form-submit .button{min-width:230px;box-shadow:0 16px 36px rgba(135,183,43,.22),inset 0 1px 0 rgba(255,255,255,.55)}
 }
+
+/* Iconografía premium: raster siempre nítido, también durante el hover */
+.proof-art-generated{width:102px;height:102px;margin:23px 0 29px;overflow:hidden;isolation:isolate;border-radius:28px;background:#f8f7f0}
+.proof-art-generated img{width:100%;height:100%;display:block;object-fit:cover;transform:none!important;filter:none!important;transition:none!important}
+@media(hover:hover) and (pointer:fine){
+  .proof-card:hover .proof-art-generated{transform:translateY(-5px);box-shadow:inset 0 1px 0 #fff,0 24px 44px rgba(17,35,27,.18)}
+  .feature-list article:hover .generated-feature-icon,.internal-card-grid article:hover .internal-card-icon,.launch-steps article:hover .step-art{transform:translateY(-4px)!important;filter:drop-shadow(0 20px 20px rgba(24,68,48,.18))!important}
+  .feature-list article:hover .generated-feature-icon img,.internal-card-grid article:hover .internal-card-icon img,.launch-steps article:hover .step-art img,.flow-card:hover .premium-flow-icon img{transform:none!important}
+}
+@media(max-width:580px){.proof-art-generated{width:94px;height:94px;margin:18px auto 25px}}
+
+/* Sello de respuesta: una pieza editorial compacta e integrada */
+.contact-aside-status{width:max-content;max-width:100%;min-height:42px;margin:22px 4px 0;padding:0 16px!important;border:1px solid rgba(18,60,43,.12);border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,.42);font:750 7px/1.35 var(--font-geist-mono);letter-spacing:.1em;color:#65776d;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 10px 24px rgba(18,60,43,.05)}
+.contact-aside-status i{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(223,255,114,.18),0 0 18px rgba(169,217,55,.6);animation:contact-status-pulse 2.4s ease-in-out infinite}
+@keyframes contact-status-pulse{50%{box-shadow:0 0 0 7px rgba(223,255,114,.07),0 0 24px rgba(169,217,55,.8)}}
+@media(min-width:1121px){.contact-page-aside .contact-aside-status{margin-top:auto;padding:0 16px!important;border-color:rgba(223,255,114,.18);background:linear-gradient(135deg,rgba(223,255,114,.09),rgba(255,255,255,.035));color:#d5e1da;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 30px rgba(0,0,0,.14)}}
+@media(max-width:1120px){.contact-aside-status{margin-inline:auto;white-space:normal;text-align:center}}
+@media(prefers-reduced-motion:reduce){.contact-aside-status i{animation:none}}
+
+/* Confirmación del formulario: respuesta inequívoca y visible en la misma página */
+.form-status{transition:color .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease}
+.form-status-sent{min-height:46px;max-width:430px!important;padding:11px 15px!important;border:1px solid rgba(65,132,83,.22);border-radius:14px;background:linear-gradient(135deg,rgba(223,255,114,.2),rgba(225,243,228,.88));color:#123c2b!important;font-size:10px!important;font-weight:720;box-shadow:0 10px 28px rgba(35,93,58,.09)}
+.form-status-sent i{background:#66a845!important;box-shadow:0 0 0 5px rgba(102,168,69,.14)!important}
+.form-status-error{padding:10px 13px!important;border:1px solid rgba(174,73,60,.18);border-radius:12px;background:rgba(255,237,231,.78);color:#7b332b!important}
+@media(max-width:850px){.form-status-sent{max-width:none!important;text-align:center;justify-content:center}}

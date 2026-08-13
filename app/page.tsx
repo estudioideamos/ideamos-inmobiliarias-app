@@ -154,9 +154,9 @@ export default function Home() {
           <aside className="result-card"><small>TODO CONECTADO</small><strong>Web + gestión</strong><span>Una sola experiencia para tu equipo y tus clientes.</span></aside>
         </div>
         <div className="proof-grid">
-          <article className="proof-card proof-brand"><strong>01</strong><div className="proof-art" aria-hidden="true"><i /><i /><i /><b /></div><h3>Tu marca primero</h3><p>La experiencia visual se diseña alrededor de tu identidad, zonas y tipo de cartera.</p></article>
-          <article className="proof-card proof-search"><strong>02</strong><div className="proof-art" aria-hidden="true"><i /><i /><b /></div><h3>Buscar es fácil</h3><p>Filtros claros y fichas completas para que cada visitante encuentre lo que necesita.</p></article>
-          <article className="proof-card proof-chat"><strong>03</strong><div className="proof-art" aria-hidden="true"><i /><i /><b /></div><h3>Consultar es inmediato</h3><p>Formularios y WhatsApp disponibles en el momento de mayor intención.</p></article>
+          <article className="proof-card proof-brand"><strong>01</strong><div className="proof-art proof-art-generated" aria-hidden="true"><img src="/generated-icons/proof-brand-3d.webp" alt="" /></div><h3>Tu marca primero</h3><p>La experiencia visual se diseña alrededor de tu identidad, zonas y tipo de cartera.</p></article>
+          <article className="proof-card proof-search"><strong>02</strong><div className="proof-art proof-art-generated" aria-hidden="true"><img src="/generated-icons/proof-search-3d.webp" alt="" /></div><h3>Buscar es fácil</h3><p>Filtros claros y fichas completas para que cada visitante encuentre lo que necesita.</p></article>
+          <article className="proof-card proof-chat"><strong>03</strong><div className="proof-art proof-art-generated" aria-hidden="true"><img src="/generated-icons/proof-inquiry-3d.webp" alt="" /></div><h3>Consultar es inmediato</h3><p>Formularios y WhatsApp disponibles en el momento de mayor intención.</p></article>
         </div>
       </section>
 

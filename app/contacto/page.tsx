@@ -24,11 +24,16 @@ export default function ContactPage() {
       <section className="contact-page-main section">
         <div className="contact-page-aside">
           <p className="eyebrow"><span /> Datos de contacto</p>
-          <h2>Estamos para<br /><em>responderte.</em></h2>\n          <p className="contact-aside-lead">Una conversación directa para entender tu inmobiliaria y ayudarte a elegir el próximo paso.</p>\n          <div className="contact-data contact-page-data">
+          <h2>Estamos para<br /><em>responderte.</em></h2>
+          <p className="contact-aside-lead">Una conversación directa para entender tu inmobiliaria y ayudarte a elegir el próximo paso.</p>
+          <div className="contact-data contact-page-data">
             <a href="https://wa.me/5491167681777" target="_blank" rel="noreferrer"><span>WHATSAPP</span><b>+54 9 11 6768 1777</b><i className="contact-icon contact-icon-whatsapp" aria-hidden="true"><img src="/whatsapp.svg" alt="" /></i></a>
             <a href="mailto:hola@ideamos.com.ar"><span>EMAIL</span><b>hola@ideamos.com.ar</b><i className="contact-icon contact-icon-mail" aria-hidden="true"><span /></i></a>
             <div><span>BASE</span><b>Buenos Aires, Argentina</b><i className="contact-icon contact-icon-pin" aria-hidden="true"><span /></i></div>
-          </div>\n          <p className="contact-aside-status"><i /> RESPUESTA PERSONALIZADA · SIN INTERMEDIARIOS</p>\n        </div>\n        <ContactForm />
+          </div>
+          <p className="contact-aside-status"><i /> RESPUESTA PERSONALIZADA · SIN INTERMEDIARIOS</p>
+        </div>
+        <ContactForm />
       </section>
       <Marquee label="Cierre comercial" tone="forest" items={["DEMO PERSONALIZADA", "PROPUESTA CLARA", "WEB + GESTIÓN", "TOKKO OPCIONAL", "ACOMPAÑAMIENTO DIRECTO"]} />
       <PremiumFooter showContactSection={false} />

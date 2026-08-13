@@ -33,7 +33,7 @@ jobs:
       - name: Generar sitio estático
         run: npm run build:pages
         env:
-          PAGES_URL: https://estudioideamos.github.io/ideamos-inmobiliarias-app
+          PAGES_URL: https://propiedades.ideamos.ar
       - name: Configurar Pages
         uses: actions/configure-pages@v5
       - name: Subir artefacto

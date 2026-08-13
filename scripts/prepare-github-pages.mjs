@@ -7,7 +7,8 @@ const outputDir = path.join(projectRoot, "docs");
 const clientDir = path.join(projectRoot, "dist", "client");
 const port = process.env.PAGES_PORT || "4399";
 const localBaseUrl = `http://127.0.0.1:${port}`;
-const pagesUrl = (process.env.PAGES_URL || "https://estudioideamos.github.io/ideamos-inmobiliarias-app").replace(/\/$/, "");
+const pagesUrl = (process.env.PAGES_URL || "https://propiedades.ideamos.ar").replace(/\/$/, "");
+const customDomain = "propiedades.ideamos.ar";
 const routes = [
   { pathname: "/", output: "index.html", marker: "Una web para mostrar mejor.", depth: 0 },
   { pathname: "/la-plataforma", output: path.join("la-plataforma", "index.html"), marker: "Tu web y tus propiedades", depth: 1 },
@@ -170,6 +171,7 @@ try {
 
   await writeFile(path.join(outputDir, "404.html"), renderedRoutes[0].html, "utf8");
   await writeFile(path.join(outputDir, ".nojekyll"), "", "utf8");
+  await writeFile(path.join(outputDir, "CNAME"), `${customDomain}\n`, "utf8");
 
   for (const route of routes) {
     const written = await readFile(path.join(outputDir, route.output), "utf8");

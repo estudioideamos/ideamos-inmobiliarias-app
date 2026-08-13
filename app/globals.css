@@ -1775,3 +1775,13 @@ body{background:#f7f5ee}
 .form-status-sent i{background:#66a845!important;box-shadow:0 0 0 5px rgba(102,168,69,.14)!important}
 .form-status-error{padding:10px 13px!important;border:1px solid rgba(174,73,60,.18);border-radius:12px;background:rgba(255,237,231,.78);color:#7b332b!important}
 @media(max-width:850px){.form-status-sent{max-width:none!important;text-align:center;justify-content:center}}
+
+/* Contacto: sello contenido y descripción con contraste accesible */
+@media(min-width:1121px){
+  .contact-page-aside .contact-aside-lead{max-width:410px;color:#dce7e1;font-size:14px;line-height:1.72;font-weight:460}
+  .contact-page-aside .contact-aside-status{width:100%;max-width:100%;margin-left:0;margin-right:0;box-sizing:border-box;padding:0 13px!important;white-space:normal;text-align:center;color:#eef5f1;font-size:7.2px;letter-spacing:.085em}
+}
+@media(max-width:1120px){
+  .contact-page-aside .contact-aside-lead{color:#405e4e}
+  .contact-page-aside .contact-aside-status{width:100%;max-width:440px;box-sizing:border-box}
+}

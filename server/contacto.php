@@ -158,15 +158,32 @@ $body = '<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="
     . '</tr></table></td></tr>'
     . '</table></td></tr></table></body></html>';
 
+$requestId = date('Ymd-His') . '-' . substr(hash('sha256', $nombre . $email . microtime(true)), 0, 10);
+$body = preg_replace('/></', ">\r\n<", $body) ?? $body;
+$mailBody = $body;
+
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
     'From: Ideamos Propiedades <' . FROM_EMAIL . '>',
     'Reply-To: ' . $nombre . ' <' . (string) $email . '>',
+    'Message-ID: <contacto-' . $requestId . '@ideamos.com.ar>',
+    'X-Ideamos-Request-ID: ' . $requestId,
     'X-Mailer: PHP/' . PHP_VERSION,
 ];
 
-$sent = mail(DESTINATION_EMAIL, $encodedSubject, $body, implode("\r\n", $headers));
+if (function_exists('quoted_printable_encode')) {
+    $mailBody = quoted_printable_encode($body);
+    $headers[] = 'Content-Transfer-Encoding: quoted-printable';
+}
+
+$sent = mail(
+    DESTINATION_EMAIL,
+    $encodedSubject,
+    $mailBody,
+    implode("\r\n", $headers),
+    '-f' . FROM_EMAIL
+);
 
 if (!$sent) {
     jsonResponse(500, [
@@ -178,4 +195,5 @@ if (!$sent) {
 jsonResponse(200, [
     'success' => true,
     'message' => 'Consulta enviada correctamente.',
+    'id' => $requestId,
 ]);

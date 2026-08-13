@@ -86,6 +86,17 @@ function makeStatic(html, route) {
     );
     const contactScript = `<script>
 (function(){
+function showContactNotice(type,message){
+  var old=document.querySelector(".contact-submit-toast");
+  if(old)old.remove();
+  var notice=document.createElement("div");
+  notice.className="contact-submit-toast contact-submit-toast-"+type;
+  notice.setAttribute("role","status");
+  notice.innerHTML='<i aria-hidden="true">'+(type==="sent"?"✓":"!")+'</i><span><small>'+(type==="sent"?"CONSULTA ENVIADA":"NO PUDIMOS ENVIARLA")+'</small><strong>'+message+'</strong></span><button type="button" aria-label="Cerrar confirmación">×</button>';
+  notice.querySelector("button").addEventListener("click",function(){notice.remove();});
+  document.body.appendChild(notice);
+  requestAnimationFrame(function(){notice.classList.add("is-visible");});
+}
 async function sendContactForm(event){
   var form=event.target.closest("form.contact-form");
   if(!form)return;
@@ -96,28 +107,27 @@ async function sendContactForm(event){
   var button=form.querySelector('button[type="submit"]');
   var status=form.querySelector(".form-status");
   var original=button?button.innerHTML:"Enviar consulta";
+  var scrollTop=window.scrollY;
   var data=new FormData(form);
-  var company=data.get("inmobiliaria")||"Ideamos Inmobiliarias";
-  data.set("_subject","Nueva consulta web - "+company);
-  data.set("_template","table");
-  data.set("_captcha","false");
-  data.set("_url",location.href);
   data.set("origen",location.href);
   form.dataset.sending="true";
   if(button){button.disabled=true;button.textContent="Enviando...";}
   if(status){status.classList.remove("form-status-sent","form-status-error");status.textContent="Enviando tu consulta...";}
   try{
-    var response=await fetch("https://formsubmit.co/ajax/hola@ideamos.com.ar",{method:"POST",body:data,headers:{Accept:"application/json"}});
+    var response=await fetch("https://ideamos.ar/api/contacto.php",{method:"POST",body:data,headers:{Accept:"application/json"}});
     var payload=await response.json().catch(function(){return null;});
     var delivered=payload&&(payload.success===true||payload.success==="true");
     if(!response.ok||!delivered)throw new Error("send");
     form.reset();
     if(status){status.classList.add("form-status-sent");status.classList.remove("form-status-error");status.textContent="Mensaje enviado correctamente. Recibimos tu consulta y nos contactaremos a la brevedad.";}
+    showContactNotice("sent","Gracias. Recibimos tu mensaje y te contactaremos a la brevedad.");
   }catch(error){
     if(status){status.classList.add("form-status-error");status.classList.remove("form-status-sent");status.textContent="No pudimos enviar tu consulta. Por favor, intenta nuevamente.";}
+    showContactNotice("error","Intentá nuevamente en unos minutos.");
   }finally{
     delete form.dataset.sending;
     if(button){button.disabled=false;button.innerHTML=original;}
+    requestAnimationFrame(function(){window.scrollTo(0,scrollTop);});
   }
 }
 document.addEventListener("submit",sendContactForm,true);

@@ -1785,3 +1785,16 @@ body{background:#f7f5ee}
   .contact-page-aside .contact-aside-lead{color:#405e4e}
   .contact-page-aside .contact-aside-status{width:100%;max-width:440px;box-sizing:border-box}
 }
+
+
+/* Confirmación visible del formulario, independiente del scroll */
+.contact-submit-toast{position:fixed;z-index:10020;right:24px;bottom:24px;width:min(440px,calc(100vw - 36px));padding:18px 18px 18px 16px;border:1px solid rgba(223,255,114,.42);border-radius:22px;background:linear-gradient(145deg,rgba(7,43,30,.98),rgba(15,71,47,.98));box-shadow:0 28px 85px rgba(2,22,15,.34),0 0 0 1px rgba(255,255,255,.04) inset;color:#fff;display:grid;grid-template-columns:48px minmax(0,1fr) 30px;gap:14px;align-items:center;opacity:0;transform:translateY(18px) scale(.97);transition:opacity .28s ease,transform .38s cubic-bezier(.2,.8,.2,1);backdrop-filter:blur(18px)}
+.contact-submit-toast.is-visible,.contact-submit-toast[role="status"]{opacity:1;transform:none}
+.contact-submit-toast>i{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--forest);font:800 22px/1 var(--font-geist-sans);box-shadow:0 0 0 7px rgba(223,255,114,.1),0 10px 30px rgba(139,188,56,.24)}
+.contact-submit-toast>span{display:grid;gap:5px}.contact-submit-toast small{font:800 8px/1 var(--font-geist-mono);letter-spacing:.16em;color:var(--lime)}.contact-submit-toast strong{font:650 14px/1.45 var(--font-geist-sans);color:#f7fbf8}
+.contact-submit-toast>button{width:30px;height:30px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font:400 21px/1 var(--font-geist-sans);cursor:pointer;display:grid;place-items:center}
+.contact-submit-toast-error{border-color:rgba(255,190,120,.5)}.contact-submit-toast-error>i{background:#ffd2a5;color:#512b0a}.contact-submit-toast-error small{color:#ffd2a5}
+@media(max-width:600px){.contact-submit-toast{right:14px;bottom:88px;width:calc(100vw - 28px);padding:15px;border-radius:18px;grid-template-columns:42px minmax(0,1fr) 28px}.contact-submit-toast>i{width:42px;height:42px;font-size:19px}.contact-submit-toast strong{font-size:12.5px}}
+@media(prefers-reduced-motion:reduce){.contact-submit-toast{transition:none}}
+
+.contact-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}

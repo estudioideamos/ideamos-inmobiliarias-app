@@ -2,6 +2,7 @@ import Marquee from "./Marquee";
 import SiteHeader from "./SiteHeader";
 import PremiumFooter from "./PremiumFooter";
 import OrbitCta from "./OrbitCta";
+import FunctionalityCatalog from "./FunctionalityCatalog";
 
 const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "/contacto";
@@ -151,8 +152,23 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
         </div>
       </section>
 
+      {pageKey === "funciones" && <FunctionalityCatalog />}
+
       <section className="internal-showcase">
-        <figure><img src={page.image} alt={page.imageAlt} /></figure>
+        {pageKey === "producto" ? (
+          <figure className="internal-tablet-stage">
+            <div className="tablet-device">
+              <span className="tablet-camera" aria-hidden="true" />
+              <div className="tablet-screen">
+                <img src={page.image} alt={page.imageAlt} />
+              </div>
+              <span className="tablet-reflection" aria-hidden="true" />
+            </div>
+            <figcaption><i /> DEMO REAL <span aria-hidden="true">&middot;</span> EXPERIENCIA RESPONSIVE</figcaption>
+          </figure>
+        ) : (
+          <figure><img src={page.image} alt={page.imageAlt} /></figure>
+        )}
         <div>
           <p className="eyebrow light"><span /> {page.label}</p>
           <h2>Diseñado para verse bien.<br /><em>Preparado para funcionar.</em></h2>

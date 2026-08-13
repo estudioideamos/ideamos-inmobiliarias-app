@@ -17,9 +17,11 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    data.append("_subject", `Nueva consulta web · ${data.get("inmobiliaria") || "Ideamos Inmobiliarias"}`);
-    data.append("_template", "table");
-    data.append("_captcha", "false");
+    data.set("_subject", `Nueva consulta web · ${data.get("inmobiliaria") || "Ideamos Inmobiliarias"}`);
+    data.set("_template", "table");
+    data.set("_captcha", "false");
+    data.set("_url", window.location.href);
+    data.set("origen", window.location.href);
     setStatus("sending");
 
     try {
@@ -28,7 +30,9 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
         body: data,
         headers: { Accept: "application/json" },
       });
-      if (!response.ok) throw new Error("No se pudo enviar la consulta");
+      const payload = await response.json().catch(() => null) as { success?: boolean | string } | null;
+      const delivered = payload?.success === true || payload?.success === "true";
+      if (!response.ok || !delivered) throw new Error("No se pudo enviar la consulta");
       setStatus("sent");
       form.reset();
       setPlan("Quiero que me asesoren");
@@ -38,7 +42,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
   }
 
   return (
-    <form className={`contact-form${compact ? " contact-form-compact" : ""}`} onSubmit={sendByEmail} data-email-endpoint={contactEmail}>
+    <form className={`contact-form${compact ? " contact-form-compact" : ""}`} onSubmit={sendByEmail} data-email-endpoint={contactEmail} method="post" action={`https://formsubmit.co/${contactEmail}`}>
       <input type="hidden" name="_subject" value="Nueva consulta desde Ideamos Inmobiliarias" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="false" />
@@ -51,7 +55,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
         <label><span>¿Qué te interesa?</span><select name="plan" value={plan} onChange={(event) => setPlan(event.target.value)}><option>Quiero que me asesoren</option><option>Plan Plus</option><option>Plan Premium</option><option>Ver una demostración</option><option>Integración con Tokko Broker</option><option>Otro CRM</option></select></label>
         <label className="contact-form-message"><span>¿Qué necesitás resolver?</span><textarea name="mensaje" rows={compact ? 3 : 4} placeholder="Contanos brevemente cómo trabajan hoy y qué les gustaría mejorar." /></label>
       </div>
-      <div className="contact-form-submit"><p className={`form-status form-status-${status}`} aria-live="polite"><i /> {status === "sent" ? "Â¡Mensaje enviado correctamente! Recibimos tu consulta y nos contactaremos a la brevedad." : status === "error" ? "No pudimos enviar tu consulta. Por favor, intentÃ¡ nuevamente." : "Tus datos se envían de forma segura al email de nuestro equipo."}</p><button className="button button-accent" type="submit" disabled={status === "sending"}>{status === "sending" ? "Enviando…" : "Enviar consulta"} <span aria-hidden="true">↗</span></button></div>
+      <div className="contact-form-submit"><p className={`form-status form-status-${status}`} aria-live="polite"><i /> {status === "sent" ? "¡Mensaje enviado correctamente! Recibimos tu consulta y nos contactaremos a la brevedad." : status === "error" ? "No pudimos enviar tu consulta. Por favor, intentá nuevamente." : status === "sending" ? "Enviando tu consulta…" : "Tus datos se envían de forma segura al email de nuestro equipo."}</p><button className="button button-accent" type="submit" disabled={status === "sending"}>{status === "sending" ? "Enviando…" : "Enviar consulta"} <span aria-hidden="true">↗</span></button></div>
     </form>
   );
 }

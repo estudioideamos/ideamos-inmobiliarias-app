@@ -80,29 +80,50 @@ function makeStatic(html, route) {
     result = result.replace("</body>", headerScript + "</body>");
   }
   if (result.includes("contact-form")) {
+    result = result.replace(
+      /<form class="contact-form([^"]*)"/g,
+      '<form class="contact-form$1" method="post" action="https://formsubmit.co/hola@ideamos.com.ar"'
+    );
     const contactScript = `<script>
-document.addEventListener("submit",async function(event){
-  var form=event.target.closest(".contact-form");
+(function(){
+async function sendContactForm(event){
+  var form=event.target.closest("form.contact-form");
   if(!form)return;
   event.preventDefault();
+  event.stopPropagation();
+  if(event.stopImmediatePropagation)event.stopImmediatePropagation();
+  if(form.dataset.sending==="true")return;
   var button=form.querySelector('button[type="submit"]');
   var status=form.querySelector(".form-status");
   var original=button?button.innerHTML:"Enviar consulta";
-  if(button){button.disabled=true;button.textContent="Enviando…";}
-  if(status)status.textContent="Enviando tu consulta…";
+  var data=new FormData(form);
+  var company=data.get("inmobiliaria")||"Ideamos Inmobiliarias";
+  data.set("_subject","Nueva consulta web - "+company);
+  data.set("_template","table");
+  data.set("_captcha","false");
+  data.set("_url",location.href);
+  data.set("origen",location.href);
+  form.dataset.sending="true";
+  if(button){button.disabled=true;button.textContent="Enviando...";}
+  if(status){status.classList.remove("form-status-sent","form-status-error");status.textContent="Enviando tu consulta...";}
   try{
-    var response=await fetch("https://formsubmit.co/ajax/hola@ideamos.com.ar",{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
-    if(!response.ok)throw new Error("send");
+    var response=await fetch("https://formsubmit.co/ajax/hola@ideamos.com.ar",{method:"POST",body:data,headers:{Accept:"application/json"}});
+    var payload=await response.json().catch(function(){return null;});
+    var delivered=payload&&(payload.success===true||payload.success==="true");
+    if(!response.ok||!delivered)throw new Error("send");
     form.reset();
-    if(status){status.classList.add("form-status-sent");status.classList.remove("form-status-error");status.textContent="Â¡Mensaje enviado correctamente! Recibimos tu consulta y nos contactaremos a la brevedad.";}
+    if(status){status.classList.add("form-status-sent");status.classList.remove("form-status-error");status.textContent="Mensaje enviado correctamente. Recibimos tu consulta y nos contactaremos a la brevedad.";}
   }catch(error){
-    if(status){status.classList.add("form-status-error");status.classList.remove("form-status-sent");status.textContent="No pudimos enviar tu consulta. Por favor, intentÃ¡ nuevamente.";}
+    if(status){status.classList.add("form-status-error");status.classList.remove("form-status-sent");status.textContent="No pudimos enviar tu consulta. Por favor, intenta nuevamente.";}
   }finally{
+    delete form.dataset.sending;
     if(button){button.disabled=false;button.innerHTML=original;}
   }
-});
+}
+document.addEventListener("submit",sendContactForm,true);
 var requestedPlan=new URLSearchParams(location.search).get("plan");
 if(requestedPlan){var select=document.querySelector('select[name="plan"]');if(select)select.value=requestedPlan;}
+})();
 <\/script>`;
     result = result.replace("</body>", contactScript + "</body>");
   }

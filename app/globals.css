@@ -1706,3 +1706,19 @@ body{background:#f7f5ee}
   .contact-page-main>.contact-form{align-self:stretch;min-height:610px;margin:0;display:flex;flex-direction:column;justify-content:center}
   .contact-page-main>.contact-form .contact-form-grid{flex:1;align-content:center}
 }
+
+
+/* Ajustes finales: menú full-width y aire en precio mobile */
+@media(min-width:1121px){
+  @supports(animation-timeline:scroll()){
+    .topbar{animation:header-to-edge linear both;animation-timeline:scroll(root block);animation-range:36px 96px}
+    @keyframes header-to-edge{
+      from{top:22px;width:min(1320px,calc(100% - 40px));height:76px;padding-inline:22px 12px;border-radius:18px;border-left-width:1px;border-right-width:1px;background:rgba(248,248,242,.78)}
+      to{top:0;width:100%;height:78px;padding-inline:max(24px,calc((100vw - 1320px)/2));border-radius:0;border-left-width:0;border-right-width:0;background:rgba(241,244,237,.96)}
+    }
+  }
+}
+@media(max-width:700px){
+  .launch-price-card .launch-price-value{margin-bottom:0;padding-bottom:28px}
+  .launch-price-card .plan-bonus{margin:0!important;padding:15px 0 5px!important;border-top:0;line-height:1.45}
+}

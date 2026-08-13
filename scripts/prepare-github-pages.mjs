@@ -76,7 +76,7 @@ function makeStatic(html, route) {
   updateHeader();
   window.addEventListener("scroll",updateHeader,{passive:true});
 })();
-<\\/script>`;
+<\/script>`;
     result = result.replace("</body>", headerScript + "</body>");
   }
   if (result.includes("contact-form")) {
@@ -176,6 +176,14 @@ try {
     const assetPrefix = route.depth === 0 ? "./assets/" : "../assets/";
     if (!written.includes(route.marker) || !written.includes(assetPrefix) || !written.includes(`${pagesUrl}/og-v2.png`)) {
       throw new Error(`La salida estatica de ${route.pathname} no contiene el contenido o los enlaces esperados.`);
+    }
+    const inlineScripts = [...written.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(match => match[1]);
+    for (const script of inlineScripts) {
+      try {
+        new Function(script);
+      } catch (error) {
+        throw new Error(`JavaScript invalido en la salida estatica de ${route.pathname}: ${error.message}`);
+      }
     }
   }
 

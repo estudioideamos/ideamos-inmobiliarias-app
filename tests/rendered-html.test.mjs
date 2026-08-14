@@ -150,6 +150,21 @@ test("el panel de administracion recorre sus secciones dentro de una tablet esta
   assert.match(css, /\.internal-funciones \.internal-admin-tablet-stage\{position:sticky!important/);
   assert.match(css, /\.admin-tablet-device\{[^}]*transform:none!important/);
 });
+test("la integracion Tokko recorre el panel dentro de una tablet fija", async () => {
+  const response = await render("/tokko-broker");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /internal-tokko-tablet-stage/);
+  assert.match(html, /Conecta tu inventario/);
+  assert.match(html, /Probar conexi\u00f3n/);
+  assert.match(html, /Contenido disponible/);
+  assert.match(html, /Carga manual disponible/);
+  const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
+  assert.match(css, /@keyframes tokko-admin-page-scroll/);
+  assert.match(css, /\.internal-tokko \.internal-tokko-tablet-stage\{position:sticky!important/);
+  assert.match(css, /\.tokko-tablet-device\{[^}]*transform:none!important/);
+});
+
 test("renderiza contacto con formulario funcional", async () => {
   const response = await render("/contacto");
   assert.equal(response.status, 200);

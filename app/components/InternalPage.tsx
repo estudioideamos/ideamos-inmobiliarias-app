@@ -16,6 +16,8 @@ const adminPanelScenes = [
   ["05", "Navegaci\u00f3n", "Todo el panel en un lugar"],
 ] as const;
 
+const tokkoPanelNav = ["Panel general", "Propiedades", "Emprendimientos", "Consultas", "Rendimiento"] as const;
+
 type PageKey = "producto" | "funciones" | "tokko" | "valor" | "preguntas";
 
 const pages = {
@@ -209,6 +211,57 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
               <span className="tablet-reflection" aria-hidden="true" />
             </div>
             <figcaption><i /> PANEL REAL <span aria-hidden="true">&middot;</span> RECORRIDO EN VIVO</figcaption>
+          </figure>
+        ) : pageKey === "tokko" ? (
+          <figure className="internal-tokko-tablet-stage">
+            <div className="tablet-device tokko-tablet-device">
+              <span className="tablet-camera" aria-hidden="true" />
+              <div className="tablet-screen tokko-tablet-screen">
+                <aside className="tokko-admin-sidebar" aria-hidden="true">
+                  <div className="tokko-admin-brand"><b>i</b><span>ideamos</span></div>
+                  <small>ESPACIO DE TRABAJO</small>
+                  <strong>Ideamos Propiedades</strong>
+                  <nav>{tokkoPanelNav.map((item) => <span key={item}>{item}<i /></span>)}</nav>
+                  <small>CONFIGURACI&Oacute;N</small>
+                  <span className="tokko-admin-nav-active">Integraciones<i /></span>
+                  <span>Ver sitio p&uacute;blico<i /></span>
+                </aside>
+                <div className="tokko-admin-viewport">
+                  <div className="tokko-admin-scroll-page">
+                    <header className="tokko-admin-topbar"><div><small>AJUSTES DEL SITIO</small><h3>Integraciones</h3></div><span>CAMBIOS GUARDADOS</span></header>
+                    <section className="tokko-admin-intro">
+                      <div><span className="tokko-admin-kicker">TOKKO BROKER</span><h4>Conecta tu inventario</h4><p>Sincroniza propiedades y emprendimientos sin duplicar tareas.</p></div>
+                      <b><i /> CONECTADO</b>
+                    </section>
+                    <section className="tokko-admin-connection">
+                      <div className="tokko-admin-card-head"><div><span>01</span><strong>Conexi&oacute;n segura</strong></div><small>API KEY PROTEGIDA</small></div>
+                      <label>API key de Tokko</label>
+                      <div className="tokko-admin-key"><span aria-label="API key protegida">************************</span><button type="button" tabIndex={-1}>Probar conexi&oacute;n</button></div>
+                      <div className="tokko-admin-success"><i /> Conexi&oacute;n validada. La cuenta est&aacute; lista para sincronizar.</div>
+                    </section>
+                    <section className="tokko-admin-sync">
+                      <div className="tokko-admin-card-head"><div><span>02</span><strong>Contenido disponible</strong></div><small>&Uacute;LTIMA PRUEBA: AHORA</small></div>
+                      <div className="tokko-admin-metrics">
+                        <article><strong>48</strong><span>Propiedades</span></article>
+                        <article><strong>8</strong><span>Emprendimientos</span></article>
+                        <article><strong>12</strong><span>Tipolog&iacute;as</span></article>
+                        <article><strong>24</strong><span>Localidades</span></article>
+                      </div>
+                      <button type="button" tabIndex={-1}>Sincronizar ahora <span aria-hidden="true">&#8599;</span></button>
+                    </section>
+                    <section className="tokko-admin-control">
+                      <div className="tokko-admin-card-head"><div><span>03</span><strong>Vos manten&eacute;s el control</strong></div><small>MODO H&Iacute;BRIDO</small></div>
+                      <div><i /><p><strong>Carga manual disponible</strong><span>Segu&iacute; publicando contenido propio cuando lo necesites.</span></p><b>ACTIVA</b></div>
+                      <div><i /><p><strong>Sincronizaci&oacute;n autom&aacute;tica</strong><span>Actualiz&aacute; fotos, precios y disponibilidad desde Tokko.</span></p><b>ACTIVA</b></div>
+                      <div><i /><p><strong>Desvinculaci&oacute;n segura</strong><span>Paus&aacute; la conexi&oacute;n sin borrar tu cartera existente.</span></p><b>LISTA</b></div>
+                    </section>
+                  </div>
+                  <div className="tokko-admin-scroll-status" aria-hidden="true"><i /><span>RECORRIDO AUTOM&Aacute;TICO</span></div>
+                </div>
+              </div>
+              <span className="tablet-reflection" aria-hidden="true" />
+            </div>
+            <figcaption><i /> PANEL REAL <span aria-hidden="true">&middot;</span> INTEGRACI&Oacute;N TOKKO</figcaption>
           </figure>
         ) : (
           <figure><img src={page.image} alt={page.imageAlt} /></figure>

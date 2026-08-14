@@ -124,8 +124,11 @@ test("la tablet recorre el sitio completo y queda fija en escritorio", async () 
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /demo-site-scroll\.webp/);
+  assert.match(html, /tablet-demo-marquee/);
   const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
   assert.match(css, /@keyframes tablet-site-scroll/);
+  assert.match(css, /@keyframes tablet-demo-marquee-scroll/);
+  assert.match(css, /object-position:initial;transform:translate3d\(0,0,0\);filter/);
   assert.match(css, /\.internal-producto \.internal-tablet-stage\{position:sticky!important/);
   assert.match(css, /height:auto;max-width:none/);
 });

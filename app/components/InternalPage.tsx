@@ -161,6 +161,19 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
               <span className="tablet-camera" aria-hidden="true" />
               <div className="tablet-screen">
                 <img src="/demo-site-scroll.webp" alt={`${page.imageAlt}. Recorrido vertical por el sitio completo`} />
+                <div className="tablet-demo-marquee" aria-hidden="true">
+                  <div className="tablet-demo-marquee-track">
+                    {[0, 1].map((group) => (
+                      <div className="tablet-demo-marquee-group" key={group}>
+                        <span>PROPIEDADES SELECCIONADAS</span><i>+</i>
+                        <span>TASACIONES PROFESIONALES</span><i>+</i>
+                        <span>ADMINISTRACION DE ALQUILERES</span><i>+</i>
+                        <span>ACOMPANAMIENTO PERSONAL</span><i>+</i>
+                        <span>BUENOS AIRES</span><i>+</i>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
               <span className="tablet-reflection" aria-hidden="true" />
             </div>

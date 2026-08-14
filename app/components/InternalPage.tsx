@@ -160,7 +160,7 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
             <div className="tablet-device">
               <span className="tablet-camera" aria-hidden="true" />
               <div className="tablet-screen">
-                <img src={page.image} alt={page.imageAlt} />
+                <img src="/demo-site-scroll.webp" alt={`${page.imageAlt}. Recorrido vertical por el sitio completo`} />
               </div>
               <span className="tablet-reflection" aria-hidden="true" />
             </div>

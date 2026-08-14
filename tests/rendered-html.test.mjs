@@ -119,6 +119,17 @@ test("renderiza las páginas internas de producto", async () => {
     assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
   }
 });
+test("la tablet recorre el sitio completo y queda fija en escritorio", async () => {
+  const response = await render("/la-plataforma");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /demo-site-scroll\.webp/);
+  const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
+  assert.match(css, /@keyframes tablet-site-scroll/);
+  assert.match(css, /\.internal-producto \.internal-tablet-stage\{position:sticky!important/);
+  assert.match(css, /height:auto;max-width:none/);
+});
+
 
 test("renderiza contacto con formulario funcional", async () => {
   const response = await render("/contacto");

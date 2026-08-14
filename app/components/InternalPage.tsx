@@ -8,6 +8,14 @@ const demoUrl = "https://inmobiliaria.ideamos.ar/";
 const contactUrl = "/contacto";
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
+const adminPanelScenes = [
+  ["01", "Panel general", "Resumen de la operaci\u00f3n"],
+  ["02", "Inventario", "Propiedades y estados"],
+  ["03", "Consultas", "Oportunidades con contexto"],
+  ["04", "Rendimiento", "M\u00e9tricas para decidir"],
+  ["05", "Navegaci\u00f3n", "Todo el panel en un lugar"],
+] as const;
+
 type PageKey = "producto" | "funciones" | "tokko" | "valor" | "preguntas";
 
 const pages = {
@@ -178,6 +186,29 @@ export default function InternalPage({ pageKey }: { pageKey: PageKey }) {
               <span className="tablet-reflection" aria-hidden="true" />
             </div>
             <figcaption><i /> DEMO REAL <span aria-hidden="true">&middot;</span> EXPERIENCIA RESPONSIVE</figcaption>
+          </figure>
+        ) : pageKey === "funciones" ? (
+          <figure className="internal-admin-tablet-stage">
+            <div className="tablet-device admin-tablet-device">
+              <span className="tablet-camera" aria-hidden="true" />
+              <div className="tablet-screen admin-tablet-screen">
+                {adminPanelScenes.map(([number, title, copy], index) => (
+                  <div className={`admin-panel-scene admin-panel-scene-${index + 1}`} key={title} aria-hidden={index !== 0}>
+                    <img src={page.image} alt={index === 0 ? page.imageAlt : ""} />
+                    <span className="admin-panel-scene-label">
+                      <b>{number}</b><span>{title}</span><small>{copy}</small>
+                    </span>
+                  </div>
+                ))}
+                <div className="admin-panel-progress" aria-hidden="true">
+                  {adminPanelScenes.map(([number, title], index) => (
+                    <span className={`admin-panel-progress-${index + 1}`} key={title}><i />{number}</span>
+                  ))}
+                </div>
+              </div>
+              <span className="tablet-reflection" aria-hidden="true" />
+            </div>
+            <figcaption><i /> PANEL REAL <span aria-hidden="true">&middot;</span> RECORRIDO EN VIVO</figcaption>
           </figure>
         ) : (
           <figure><img src={page.image} alt={page.imageAlt} /></figure>

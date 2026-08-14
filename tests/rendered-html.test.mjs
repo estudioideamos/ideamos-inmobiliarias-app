@@ -136,6 +136,20 @@ test("la tablet recorre el sitio completo y queda fija en escritorio", async () 
 });
 
 
+test("el panel de administracion recorre sus secciones dentro de una tablet estable", async () => {
+  const response = await render("/funcionalidades");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /internal-admin-tablet-stage/);
+  assert.match(html, /Panel general/);
+  assert.match(html, /Inventario/);
+  assert.match(html, /Consultas/);
+  assert.match(html, /Rendimiento/);
+  const css = await readFile(join(process.cwd(), "app", "globals.css"), "utf8");
+  assert.match(css, /@keyframes admin-panel-scene-cycle/);
+  assert.match(css, /\.internal-funciones \.internal-admin-tablet-stage\{position:sticky!important/);
+  assert.match(css, /\.admin-tablet-device\{[^}]*transform:none!important/);
+});
 test("renderiza contacto con formulario funcional", async () => {
   const response = await render("/contacto");
   assert.equal(response.status, 200);

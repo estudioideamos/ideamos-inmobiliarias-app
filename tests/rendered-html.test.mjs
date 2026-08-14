@@ -131,6 +131,8 @@ test("la tablet recorre el sitio completo y queda fija en escritorio", async () 
   assert.match(css, /object-position:initial;transform:translate3d\(0,0,0\);filter/);
   assert.match(css, /\.internal-producto \.internal-tablet-stage\{position:sticky!important/);
   assert.match(css, /height:auto;max-width:none/);
+  assert.match(css, /\.tablet-device\{[^}]*transform:none;transition:none\}/);
+  assert.doesNotMatch(css, /\.tablet-device\{[^}]*rotate[XYZ]?\(/);
 });
 
 

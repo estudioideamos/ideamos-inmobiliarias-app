@@ -50,3 +50,7 @@ docs/
 .codex-*.log
 .qa-*.log
 .chrome-qa-profile/
+
+# Private server-side mail token
+/server/inmobiliaria-consultas.config.php
+/server/inmobiliaria-email-endpoint.zip

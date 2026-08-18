@@ -160,22 +160,30 @@ $body = '<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="
 
 $requestId = date('Ymd-His') . '-' . substr(hash('sha256', $nombre . $email . microtime(true)), 0, 10);
 $body = preg_replace('/></', ">\r\n<", $body) ?? $body;
-$mailBody = $body;
+// Los clientes de escritorio (especialmente Outlook para Windows) pueden
+// interpretar de forma inconsistente los caracteres de 8 bits aunque el
+// mensaje declare UTF-8. Convertimos los caracteres visibles a entidades HTML
+// y transportamos todo el documento en base64 para que llegue intacto.
+if (function_exists('mb_encode_numericentity')) {
+    $body = mb_encode_numericentity(
+        $body,
+        [0x80, 0x10FFFF, 0, 0x1FFFFF],
+        'UTF-8'
+    );
+}
+$mailBody = chunk_split(base64_encode($body), 76, "\r\n");
 
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
+    'Content-Transfer-Encoding: base64',
+    'Content-Language: es-AR',
     'From: Ideamos Propiedades <' . FROM_EMAIL . '>',
     'Reply-To: ' . $nombre . ' <' . (string) $email . '>',
     'Message-ID: <contacto-' . $requestId . '@ideamos.com.ar>',
     'X-Ideamos-Request-ID: ' . $requestId,
     'X-Mailer: PHP/' . PHP_VERSION,
 ];
-
-if (function_exists('quoted_printable_encode')) {
-    $mailBody = quoted_printable_encode($body);
-    $headers[] = 'Content-Transfer-Encoding: quoted-printable';
-}
 
 $sent = mail(
     DESTINATION_EMAIL,

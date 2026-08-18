@@ -196,14 +196,19 @@ test("incluye navegación y responsive mobile integral", async () => {
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
 
-test("el correo HTML usa transporte compatible con Outlook", async () => {
-  const template = await readFile(new URL("../server/contacto.php", import.meta.url), "utf8");
-  assert.match(template, /TELÉFONO/);
-  assert.match(template, /INTERÉS/);
-  assert.match(template, /La consulta llegó desde la web/);
-  assert.match(template, /Content-Type: text\/html; charset=UTF-8/);
-  assert.match(template, /Content-Transfer-Encoding: base64/);
-  assert.match(template, /mb_encode_numericentity/);
-  assert.match(template, /chunk_split\(base64_encode\(\$body\)/);
-  assert.doesNotMatch(template, /quoted_printable_encode|Ã.|Â.|�/);
+test("los correos HTML usan transporte compatible con Outlook", async () => {
+  const files = [
+    "../server/contacto.php",
+    "../server/inmobiliaria-consultas.php",
+  ];
+  for (const file of files) {
+    const template = await readFile(new URL(file, import.meta.url), "utf8");
+    assert.match(template, /TELÉFONO/);
+    assert.match(template, /Content-Type: text\/html; charset=UTF-8/);
+    assert.match(template, /Content-Transfer-Encoding: base64/);
+    assert.match(template, /Content-Language: es-AR/);
+    assert.match(template, /mb_encode_numericentity/);
+    assert.match(template, /chunk_split\(base64_encode\(\$body\)/);
+    assert.doesNotMatch(template, /quoted_printable_encode|Ã.|Â.|�/);
+  }
 });

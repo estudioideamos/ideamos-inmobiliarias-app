@@ -127,6 +127,8 @@ $requestId = date('Ymd-His') . '-' . substr(hash('sha256', $name . $email . micr
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
+    'Content-Transfer-Encoding: base64',
+    'Content-Language: es-AR',
     'From: Ideamos Propiedades <' . FROM_EMAIL . '>',
     'Reply-To: ' . ($email !== '' ? $name . ' <' . (string) $email . '>' : FROM_EMAIL),
     'Message-ID: <inquiry-' . $requestId . '@ideamos.com.ar>',
@@ -136,11 +138,17 @@ foreach (array_slice($recipients, 1) as $recipient) {
     $headers[] = 'Bcc: ' . $recipient;
 }
 
-$mailBody = $body;
-if (function_exists('quoted_printable_encode')) {
-    $mailBody = quoted_printable_encode($body);
-    $headers[] = 'Content-Transfer-Encoding: quoted-printable';
+// Protege acentos, eñes y símbolos frente a clientes como Outlook para Windows.
+// Las entidades HTML dejan el contenido visible en ASCII y base64 evita que el
+// servidor de correo vuelva a interpretar los bytes durante el transporte.
+if (function_exists('mb_encode_numericentity')) {
+    $body = mb_encode_numericentity(
+        $body,
+        [0x80, 0x10FFFF, 0, 0x1FFFFF],
+        'UTF-8'
+    );
 }
+$mailBody = chunk_split(base64_encode($body), 76, "\r\n");
 $headers[] = 'X-Mailer: PHP/' . PHP_VERSION;
 
 $sent = mail($recipients[0], $encodedSubject, $mailBody, implode("\r\n", $headers), '-f' . FROM_EMAIL);

@@ -1926,3 +1926,32 @@ body{background:#f7f5ee}
 @media(max-width:1000px){.internal-tokko-tablet-stage{height:460px!important;min-height:460px!important;padding:42px!important}.tokko-tablet-device{width:min(88vw,700px)}}
 @media(max-width:650px){.internal-tokko-tablet-stage{height:340px!important;min-height:340px!important;padding:28px 16px 45px!important}.tokko-tablet-device{width:min(91vw,500px);padding:8px;border-radius:23px}.tokko-tablet-screen{border-radius:16px}.internal-tokko-tablet-stage figcaption{left:50%;bottom:13px;transform:translateX(-50%);white-space:nowrap;font-size:6px}}
 @media(prefers-reduced-motion:reduce){.tokko-admin-scroll-page{animation:none!important;transform:translate3d(0,0,0)!important}}
+
+/* Contacto en escritorio: aire real entre información y formulario */
+@media(min-width:1121px) and (max-width:1439px){
+  .contact-page-main{column-gap:36px}
+}
+@media(min-width:1440px){
+  .contact-page-main{
+    grid-template-columns:minmax(430px,.8fr) minmax(0,1.2fr);
+    column-gap:clamp(44px,3vw,62px);
+  }
+  .contact-page-aside{padding-inline:46px}
+  .contact-page-main>.contact-form{padding-inline:44px}
+}
+/* Contacto comercial: escala legible y composición sin superposiciones */
+@media(min-width:701px){
+  .contact-form-head{font-size:9.5px;line-height:1.35;letter-spacing:.115em}
+  .contact-form label>span{font-size:10px;line-height:1.25;letter-spacing:.065em}
+  .contact-form input,.contact-form select,.contact-form textarea{font-size:14px;line-height:1.45}
+  .contact-form-submit p{font-size:11px;line-height:1.55}
+  .contact-data span{font-size:9px;line-height:1.25;letter-spacing:.1em}
+  .contact-data b{font-size:13px;line-height:1.35}
+}
+@media(min-width:1440px){
+  .contact-section{
+    grid-template-columns:minmax(0,.92fr) minmax(620px,1.08fr);
+    gap:clamp(68px,4vw,84px);
+  }
+  .contact-section-copy h2{font-size:clamp(58px,3.3vw,63px)}
+}

@@ -173,7 +173,20 @@ test("renderiza contacto con formulario funcional", async () => {
   assert.match(html, /contact-form/);
   assert.match(html, /Enviar consulta/);
   assert.match(html, /5491167681777/);
+  assert.match(html, /name="website"/);
+  assert.match(html, /name="form_started_at"/);
+  assert.match(html, /maxLength="120"/);
+  assert.match(html, /maxLength="3000"/);
   assert.doesNotMatch(html, /Ã|Â|â€|â†|âœ/);
+});
+
+test("el endpoint de contacto incluye protección antispam", async () => {
+  const endpoint = await readFile(new URL("../server/contacto.php", import.meta.url), "utf8");
+  assert.match(endpoint, /MIN_FILL_TIME_MS/);
+  assert.match(endpoint, /RATE_LIMIT_MAX_REQUESTS/);
+  assert.match(endpoint, /isDuplicate/);
+  assert.match(endpoint, /ALLOWED_ORIGINS/);
+  assert.match(endpoint, /CONTENT_LENGTH/);
 });
 
 test("la sección de valor mantiene fija su columna izquierda", async () => {

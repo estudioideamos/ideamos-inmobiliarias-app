@@ -4,10 +4,15 @@ declare(strict_types=1);
 const ALLOWED_ORIGINS = [
     'https://estudioideamos.github.io',
     'https://propiedades.ideamos.ar',
+    'https://ideamos-inmobiliarias-app.r-lavega.chatgpt.site',
 ];
 const DESTINATION_EMAIL = 'hola@ideamos.com.ar';
 const FROM_EMAIL = 'hola@ideamos.com.ar';
-const RATE_LIMIT_SECONDS = 45;
+const MIN_FILL_TIME_MS = 2500;
+const MAX_FORM_AGE_MS = 7200000;
+const RATE_LIMIT_WINDOW_SECONDS = 900;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const DUPLICATE_WINDOW_SECONDS = 900;
 
 function jsonResponse(int $status, array $payload): never
 {
@@ -18,6 +23,57 @@ function jsonResponse(int $status, array $payload): never
     exit;
 }
 
+function clientIp(): string
+{
+    return (string) ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+}
+
+function storagePath(string $namespace, string $key): string
+{
+    $directory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'ideamos-antispam';
+    if (!is_dir($directory)) {
+        @mkdir($directory, 0700, true);
+    }
+    return $directory . DIRECTORY_SEPARATOR . $namespace . '-' . hash('sha256', $key) . '.json';
+}
+
+function isRateLimited(string $ip): bool
+{
+    $path = storagePath('rate', $ip);
+    $handle = @fopen($path, 'c+');
+    if ($handle === false || !flock($handle, LOCK_EX)) {
+        return false;
+    }
+
+    $raw = stream_get_contents($handle);
+    $decoded = json_decode($raw !== false ? $raw : '[]', true);
+    $requests = is_array($decoded) ? $decoded : [];
+    $threshold = time() - RATE_LIMIT_WINDOW_SECONDS;
+    $requests = array_values(array_filter($requests, static fn (mixed $timestamp): bool => is_int($timestamp) && $timestamp >= $threshold));
+    $limited = count($requests) >= RATE_LIMIT_MAX_REQUESTS;
+    if (!$limited) {
+        $requests[] = time();
+    }
+
+    rewind($handle);
+    ftruncate($handle, 0);
+    fwrite($handle, json_encode($requests));
+    fflush($handle);
+    flock($handle, LOCK_UN);
+    fclose($handle);
+    return $limited;
+}
+
+function isDuplicate(string $fingerprint): bool
+{
+    $path = storagePath('duplicate', $fingerprint);
+    if (is_file($path) && (time() - (int) filemtime($path)) < DUPLICATE_WINDOW_SECONDS) {
+        return true;
+    }
+    @file_put_contents($path, (string) time(), LOCK_EX);
+    return false;
+}
+
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($origin !== '' && in_array($origin, ALLOWED_ORIGINS, true)) {
     header('Access-Control-Allow-Origin: ' . $origin);
@@ -26,6 +82,8 @@ if ($origin !== '' && in_array($origin, ALLOWED_ORIGINS, true)) {
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');
 header('Access-Control-Max-Age: 86400');
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
     if ($origin !== '' && !in_array($origin, ALLOWED_ORIGINS, true)) {
@@ -43,6 +101,14 @@ if ($origin !== '' && !in_array($origin, ALLOWED_ORIGINS, true)) {
     jsonResponse(403, ['success' => false, 'message' => 'Origen no autorizado.']);
 }
 
+if ($origin === '') {
+    jsonResponse(403, ['success' => false, 'message' => 'Origen no autorizado.']);
+}
+
+if ((int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > 20000) {
+    jsonResponse(413, ['success' => false, 'message' => 'Solicitud demasiado grande.']);
+}
+
 $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
 $payload = $_POST;
 if (str_contains(strtolower($contentType), 'application/json')) {
@@ -54,6 +120,12 @@ if (str_contains(strtolower($contentType), 'application/json')) {
 
 // Campo invisible antispam. Una persona real siempre lo deja vacío.
 if (trim((string) ($payload['website'] ?? '')) !== '') {
+    jsonResponse(200, ['success' => true]);
+}
+
+$startedAt = filter_var($payload['form_started_at'] ?? null, FILTER_VALIDATE_INT);
+$nowMs = (int) round(microtime(true) * 1000);
+if ($startedAt !== false && ($startedAt > ($nowMs + 60000) || ($nowMs - $startedAt) < MIN_FILL_TIME_MS || ($nowMs - $startedAt) > MAX_FORM_AGE_MS)) {
     jsonResponse(200, ['success' => true]);
 }
 
@@ -78,17 +150,29 @@ if ($nombre === '' || $inmobiliaria === '' || $email === false || $telefono === 
     ]);
 }
 
-// Límite simple por IP para impedir envíos automáticos repetidos.
-$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$rateFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'ideamos-contact-' . hash('sha256', $ip) . '.lock';
-$lastRequest = is_file($rateFile) ? (int) file_get_contents($rateFile) : 0;
-if ($lastRequest > 0 && (time() - $lastRequest) < RATE_LIMIT_SECONDS) {
+if (mb_strlen($nombre, 'UTF-8') < 2 || mb_strlen($inmobiliaria, 'UTF-8') < 2 || mb_strlen($telefono, 'UTF-8') < 6) {
+    jsonResponse(422, ['success' => false, 'message' => 'Revisá los datos ingresados.']);
+}
+
+$combinedText = $nombre . ' ' . $inmobiliaria . ' ' . $mensaje;
+preg_match_all('~https?://|www\\.|(?:^|\\s)[a-z0-9-]+\\.(?:com|net|org|io|xyz|ru|cn)(?:/|\\s|$)~iu', $combinedText, $urlMatches);
+if (count($urlMatches[0]) > 3) {
+    jsonResponse(200, ['success' => true]);
+}
+
+// Límite por IP y bloqueo silencioso de duplicados para evitar ráfagas.
+$ip = clientIp();
+if (isRateLimited($ip)) {
     jsonResponse(429, [
         'success' => false,
-        'message' => 'Esperá unos segundos antes de volver a enviar.',
+        'message' => 'Recibimos varios intentos. Esperá unos minutos antes de volver a enviar.',
     ]);
 }
-@file_put_contents($rateFile, (string) time(), LOCK_EX);
+
+$fingerprint = strtolower((string) $email) . '|' . preg_replace('/\\s+/u', ' ', mb_strtolower($mensaje, 'UTF-8')) . '|' . mb_strtolower($plan, 'UTF-8');
+if (isDuplicate($fingerprint)) {
+    jsonResponse(200, ['success' => true, 'message' => 'Consulta recibida correctamente.']);
+}
 
 $safe = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 $subject = 'Nueva oportunidad · ' . $inmobiliaria . ' · ' . $nombre;

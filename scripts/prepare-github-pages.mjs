@@ -89,6 +89,11 @@ function makeStatic(html, route) {
     );
     const contactScript = `<script>
 (function(){
+function setStartedAt(form){
+  var field=form.querySelector('input[name="form_started_at"]');
+  if(field)field.value=String(Date.now());
+}
+
 function showContactNotice(type,message){
   var old=document.querySelector(".contact-submit-toast");
   if(old)old.remove();
@@ -122,6 +127,7 @@ async function sendContactForm(event){
     var delivered=payload&&(payload.success===true||payload.success==="true");
     if(!response.ok||!delivered)throw new Error("send");
     form.reset();
+    setStartedAt(form);
     if(status){status.classList.add("form-status-sent");status.classList.remove("form-status-error");status.textContent="Mensaje enviado correctamente. Recibimos tu consulta y nos contactaremos a la brevedad.";}
     showContactNotice("sent","Gracias. Recibimos tu mensaje y te contactaremos a la brevedad.");
   }catch(error){
@@ -134,6 +140,7 @@ async function sendContactForm(event){
   }
 }
 document.addEventListener("submit",sendContactForm,true);
+document.querySelectorAll("form.contact-form").forEach(setStartedAt);
 var requestedPlan=new URLSearchParams(location.search).get("plan");
 if(requestedPlan){var select=document.querySelector('select[name="plan"]');if(select)select.value=requestedPlan;}
 })();
